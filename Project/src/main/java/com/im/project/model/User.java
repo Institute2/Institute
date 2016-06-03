@@ -1,36 +1,35 @@
 package com.im.project.model;
 
 public class User {
-	
+
 	private Integer id;
 
-    private String loginName;
+	private String userName;
 
-    private String password;
+	private String password;
 
 	public Integer getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getLoginName() {
-        return loginName;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName == null ? null : loginName.trim();
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setPassword(String password) {
+		this.password = password == null ? null : password.trim();
+	}
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-   
 }

@@ -24,7 +24,7 @@ public class UserController {
 	 @RequestMapping("/register.do")
     public void Register(User user,HttpServletRequest request,HttpServletResponse response) throws ParseException{
 		 Map<String, Object> map = new HashMap<String, Object>();
-		 System.out.println(user.getLoginName());
+		
 		 int result=userService.save(user);
 		  if(result!=0){
 			  map.put("status", ReturnStatus.SUCCSS);

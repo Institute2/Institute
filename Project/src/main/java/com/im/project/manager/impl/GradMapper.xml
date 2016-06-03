@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.im.project.manager.GradMapper" >
+  <resultMap id="BaseResultMap" type="com.im.project.model.Grad" >
+    <id column="id" property="person_id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="picture" property="pic_id" jdbcType="VARCHAR" />
+    <result column="jianjie" property="jianjie" jdbcType="TEXT" />
+    <result column="xibie" property="xibie" jdbcType="VARCHAR" />
+    <result column="zhiwu" property="zhiwu" jdbcType="VARCHAR" />
+     <result column="whereabout" property="whereabout" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

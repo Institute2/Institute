@@ -1,6 +1,7 @@
 package com.im.project.manager;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 所有Dao层接口的父类
@@ -8,11 +9,17 @@ import java.util.List;
  */
 public interface BaseDao<T,T1> {
 
+	
+	/**
+	 * 分页查询所有记录
+	 * @return 结果集
+	 */
+	public List<T> selectAll();
 	/**
 	 * 查询所有记录
 	 * @return 结果集
 	 */
-	public List<T> findAll();
+	public List<T> findAll(Map<String, Object> map);
 
 	/**
 	 * 根据主键查找相应 的记录
