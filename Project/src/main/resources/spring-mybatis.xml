@@ -88,9 +88,8 @@
 			<tx:method name="modify*" propagation="REQUIRED" />
 			<tx:method name="del*" propagation="REQUIRED" />
 			<tx:method name="find*" propagation="REQUIRED" />
-			
-			<tx:method name="load*" propagation="SUPPORTS" />
 
+			<tx:method name="load*" propagation="SUPPORTS" />
 			<tx:method name="*" propagation="SUPPORTS" />
 		</tx:attributes>
 	</tx:advice>

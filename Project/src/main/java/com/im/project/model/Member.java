@@ -22,9 +22,7 @@ public class Member {
 		this.pictureId = pictureId;
 	}
 
-	public void setPicture(Picture picture) {
-		this.picture = picture;
-	}
+
 
 	public Integer getId() {
 		return id;
@@ -38,7 +36,7 @@ public class Member {
 		return name;
 	}
 
-	public Integer getPicture() {
+	public Picture getPicture() {
 		return picture;
 	}
 
@@ -60,7 +58,10 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setPicture(Integer picture) {
+	public void setPicture(Integer pictureId) {
+		this.pictureId = pictureId;
+	}
+	public void setPicture(Picture picture) {
 		this.picture = picture;
 	}
 	public void setXibie(String xibie) {

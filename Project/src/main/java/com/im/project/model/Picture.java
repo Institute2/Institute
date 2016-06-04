@@ -5,7 +5,7 @@ import java.util.Date;
 public class Picture {
 	private Integer id ;
 	private String link;
-	private Date date;
+	private String date;
 	private Integer type;
 	
 	public Integer getId() {
@@ -20,10 +20,11 @@ public class Picture {
 	public void setLink(String link) {
 		this.link = link==null?null:link.trim();
 	}
-	public Date getDate() {
+
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public Integer getType() {

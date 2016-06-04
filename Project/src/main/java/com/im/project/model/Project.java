@@ -7,8 +7,8 @@ public class Project {
 	private String title;
 	private String content;
 	private String leader;
-	private Date startline;
-	private Date deadline;
+	private String startline;
+	private String deadline;
 	private Integer type;
 	public Integer getId() {
 		return id;
@@ -42,21 +42,6 @@ public class Project {
 		this.leader = leader == null ? null : leader.trim();
 	}
 
-	public Date getStartline() {
-		return startline;
-	}
-
-	public void setStartline(Date startline) {
-		this.startline = startline;
-	}
-
-	public Date getDeadline() {
-		return deadline;
-	}
-
-	public void setDeadline(Date deadline) {
-		this.deadline = deadline;
-	}
 
 	public Integer getType() {
 		return type;

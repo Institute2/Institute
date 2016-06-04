@@ -14,12 +14,13 @@ public interface BaseDao<T,T1> {
 	 * 分页查询所有记录
 	 * @return 结果集
 	 */
-	public List<T> selectAll();
+	public List<T> findAll(Map<String, Object> map);
+	
 	/**
 	 * 查询所有记录
 	 * @return 结果集
 	 */
-	public List<T> findAll(Map<String, Object> map);
+	public List<T> selectAll();
 
 	/**
 	 * 根据主键查找相应 的记录

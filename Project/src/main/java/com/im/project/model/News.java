@@ -1,13 +1,11 @@
 package com.im.project.model;
 
-import java.util.Date;
-
 public class News {
 	private Integer id;
 	private String title;
 	private String content;
 	private Integer pictureId;
-	private Date date;
+	private String  date;
 	private String author;
     private String releaser;
     private String summary;
@@ -36,10 +34,7 @@ public class News {
 		return content;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -64,7 +59,13 @@ public class News {
 		this.content = content == null ? null : content.trim();
 	}
 
-	public void setDate(Date date) {
+
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
 		this.date = date;
 	}
 

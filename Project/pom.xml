@@ -247,5 +247,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		    <artifactId>commons-beanutils-core</artifactId>
 		    <version>1.8.3</version>
 		</dependency>
+		<dependency>
+    		<groupId>javax.annotation</groupId>
+    		<artifactId>jsr250-api</artifactId>
+    		<version>1.0</version>
+		</dependency>
   </dependencies>
 </project>

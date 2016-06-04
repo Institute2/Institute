@@ -6,7 +6,7 @@ public class Article {
 	private Integer id;
 	private String title;
 	private String content;
-	private Date date;
+	private String date;
 	private String author;
 	private String keywords;
     private String summary;
@@ -17,9 +17,7 @@ public class Article {
 	public String getContent() {
 		return content;
 	}
-	public Date getDate() {
-		return date;
-	}
+	
 
 	public Integer getId() {
 		return id;
@@ -46,7 +44,13 @@ public class Article {
 		this.content = content==null?null:content.trim();
 	}
 
-	public void setDate(Date date) {
+	
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
 		this.date = date;
 	}
 
