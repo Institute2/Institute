@@ -4,9 +4,9 @@
   <resultMap id="BaseResultMap" type="com.im.project.model.Department" >
     <id column="id" property="de_id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="pictureId" property="picture" jdbcType="INTEGER" />
+    <result column="pic_id" property="pictureId" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
-    <association property="picture" column="pic_id" select="com.im.project.manager.impl.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
+    <association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>  
    <sql id="Base_Column_List" >
    de_id,name,picture,url
@@ -51,5 +51,5 @@
       </if>
     </set>
     where de_id = #{id,jdbcType=INTEGER}
-  </update>
+  </update> 
 </mapper>

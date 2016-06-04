@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="com.im.project.model.News" >
     <id column="id" property="articleNews_id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="content" property="cont" jdbcType="TEXT" />
-    <result column="pictureId" property="picture" jdbcType="INTEGER" />
+    <result column="content" property="cont"  />
+    <result column="pic_id" property="pictureId" jdbcType="INTEGER" />
     <result column="date" property="date" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="releaser" property="releaser" jdbcType="VARCHAR" />
     <result column="summary" property="summary" jdbcType="VARCHAR" />
-    <association property="picture" column="pic_id" select="com.im.project.manager.impl.PictureMapper.selectByPrimaryKey" javaType="com.cqupt.project.model.Picture"/>
+    <association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>
  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select  
@@ -18,7 +18,7 @@
     from article_news
     where type=1 and articleNews_id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.map">
+  <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
   articleNews_id,title,author,date,summary,releaser
   from article_news
@@ -26,7 +26,7 @@
   </select>
   <insert id="insert" parameterType="com.im.project.model.News" >
     insert into article_news (articleNews_id,title,cont,date,author,releaser,summary,type,picture)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=TEXT},
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content},
     #{date,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{releaser,jdbcType=VARCHAR}, 
     #{summary,jdbcType=VARCHAR},#{type,jdbcType=INTEGER},#{pictureId,jdbcType=INTEGER})
   </insert>
@@ -41,7 +41,7 @@
         title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
-        cont =  #{content,jdbcType=TEXT},
+        cont =  #{content},
       </if>
       <if test="author != null" >m  
         author = #{author,jdbcType=VARCHAR},

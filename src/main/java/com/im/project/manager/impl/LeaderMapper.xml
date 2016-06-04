@@ -5,10 +5,10 @@
     <id column="id" property="person_id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="zhicheng" property="zhicheng" jdbcType="VARCHAR" />
-    <result column="pictureId" property="picture" jdbcType="INTEGER" />
-    <result column="jianjie" property="jianjie" jdbcType="TEXT" />
+    <result column="pic_id" property="pictureId" jdbcType="INTEGER" />
+    <result column="jianjie" property="jianjie" />
     <result column="xibie" property="xibie" jdbcType="VARCHAR" />
-    <association property="picture" column="pic_id" select="com.im.project.manager.impl.PictureMapper.selectByPrimaryKey" javaType="com.cqupt.project.model.Picture"/>
+    <association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>
   <sql id="Base_Column_List" >
     person_id, name, zhicheng,picture,jianjie,xibie
@@ -28,7 +28,7 @@
   <insert id="insert" parameterType="com.im.project.model.Leader" >
     insert into person ( person_id,name,picture,jianjie,xibie,zhicheng)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
-    #{jianjie,jdbcType=TEXT},#{xibie,jdbcType=VARCHAR},#{zhicheng,jdbcType=VARCHAR})
+    #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhicheng,jdbcType=VARCHAR})
   </insert>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from person
@@ -44,7 +44,7 @@
         picture =#{pictureId,jdbcType=INTEGER},
       </if>
       <if test="jianjie != null" >
-        jianjie =#{jianjie,jdbcType=TEXT},
+        jianjie =#{jianjie},
       </if>
        <if test="xibie != null" >
         xibie =#{xibie,jdbcType=VARCHAR},
