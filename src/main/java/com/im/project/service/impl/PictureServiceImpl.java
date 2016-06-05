@@ -71,17 +71,4 @@ public class PictureServiceImpl implements PictureService {
 		}
 		return picList;
 	}
-
-	
-
-	public boolean addPicture1(Picture pic) {//hdsuhfudshf
-
-		// TODO Auto-generated method stub
-		boolean boo=false;
-		if(pic!=null){
-			pictureDao.insert(pic);
-			boo=true;
-		}
-		return boo;
-	}
 }
