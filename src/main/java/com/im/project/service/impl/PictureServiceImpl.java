@@ -15,6 +15,7 @@ import com.im.project.service.PictureService;
 
 @Service("pictureService")
 public class PictureServiceImpl implements PictureService {
+	
 	@Resource
 	private PictureMapper pictureDao;
 	public boolean addPicture(Picture pic) {
@@ -70,5 +71,14 @@ public class PictureServiceImpl implements PictureService {
 		}
 		return picList;
 	}
-
+	
+	public boolean addPicture1(Picture pic) {
+		// TODO Auto-generated method stub
+		boolean boo=false;
+		if(pic!=null){
+			pictureDao.insert(pic);
+			boo=true;
+		}
+		return boo;
+	}
 }
