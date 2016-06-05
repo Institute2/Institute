@@ -14,7 +14,7 @@ public interface PictureMapper extends BaseDao<Picture, Integer> {
 	 * 
 	 * @return 结果集
 	 */
-	public List<Picture> listPic();
+	public List<String> listPic();
 
 	/**
 	 * 分不同的类型分页查找
