@@ -71,7 +71,7 @@ public class PictureServiceImpl implements PictureService {
 		}
 		return picList;
 	}
-	public boolean addPicture1(Picture pic) {
+	public boolean addPicture1(Picture pic) {//fsdfsd
 		// TODO Auto-generated method stub
 		boolean boo=false;
 		if(pic!=null){
