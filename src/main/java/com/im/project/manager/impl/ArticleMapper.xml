@@ -10,18 +10,21 @@
    <result column="keyword" property="keyword"  />
    <result column="summary" property="summary" />
   </resultMap>
+  
    <insert id="insert" parameterType="com.im.project.model.Article" >
     insert into article_news (articleNews_id,title,cont,date,author,keyword,summary,type)
     values (#{id}, #{title}, #{content},
     #{date}, #{author}, #{keyword}, 
     #{summary},2)
   </insert>   
+  
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select  
     articleNews_id,title,cont,author,date
     from article_news
     where type=2 and articleNews_id = #{id,jdbcType=INTEGER}
   </select>
+  
    <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
   articleNews_id,title,keyword,author,date,summary

@@ -9,11 +9,14 @@ import com.im.project.service.UserService;
 public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userDao;
-	public int save(User user) {
-		System.out.println("save");
-		int userFlag = userDao.insert(user);
-		return userFlag;
-		
+
+	public User findUser(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public boolean addUser(User user) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	

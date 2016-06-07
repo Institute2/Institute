@@ -19,7 +19,7 @@ import com.im.project.utils.JSONUtils;
 @Controller("userController")
 @RequestMapping("/user")
 public class UserController {
-	@Resource
+/*	@Resource
 	private UserService userService;
 	 @RequestMapping("/register.do")
     public void Register(User user,HttpServletRequest request,HttpServletResponse response) throws ParseException{
@@ -39,5 +39,5 @@ public class UserController {
 	
 	   JSONUtils.toJSON(map, response);
 		 
-	 }
+	 }*/
 }
