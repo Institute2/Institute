@@ -35,6 +35,8 @@ public interface ProjectService {
 	 * 根据不同的项目类型分类查找，再组成一个map
 	 * @return 结果集
 	 */
+	
+	
 	public Map<String, List<Project>> findProjectByType();
 	/**
 	 * 分页查找未完成的项目
