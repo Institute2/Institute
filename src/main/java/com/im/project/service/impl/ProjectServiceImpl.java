@@ -1,5 +1,6 @@
-/*package com.im.project.service.impl;
+package com.im.project.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,8 +17,10 @@ public class ProjectServiceImpl implements ProjectService {
 	private ProjectMapper projectDao;
 	public boolean addProject(Project project) {
 		if(project!=null){
-			projectDao.insert(project);
-			return true;
+			int i=projectDao.insert(project);
+			if(i==1){
+				return true;
+				}
 		}
 		return false;
 	}
@@ -34,10 +37,11 @@ public class ProjectServiceImpl implements ProjectService {
 	public boolean delProject(Integer id) {
 		// TODO Auto-generated method stub
 		boolean boo=false;
-		
 		if(id>0&&id<Integer.MAX_VALUE){
-			projectDao.deleteByPrimaryKey(id);
-			boo=true;
+			int i=projectDao.deleteByPrimaryKey(id);
+			if(i==1){
+				boo=true;
+			}
 		}
 		return boo;
 	}
@@ -46,19 +50,20 @@ public class ProjectServiceImpl implements ProjectService {
 		// TODO Auto-generated method stub
 		boolean boo=false;
 		if(project!=null){
-			projectDao.updateByPrimaryKey(project);
+			int i=projectDao.updateByPrimaryKey(project);
+			if(i==1){
 			boo=true;
-			
+			}
 		}
 		
 		return boo;
 	}
-*//**
- * 将执行两次查询，并将两次查询结果添加到map中返回
- *//*
+	/**
+	 * 将执行两次查询，并将两次查询结果添加到map中返回
+	 */
 	public Map<String, List<Project>> findProjectByType() {
 		// TODO Auto-generated method stub
-		Map<String, List<Project>> twoTypeList = null;
+		Map<String, List<Project>> twoTypeList = new HashMap<String ,List<Project>>();
 		List<Project> doingProList = null;
 		List<Project> completedProList = null;
 		doingProList = projectDao.findAllByType(1);
@@ -75,7 +80,6 @@ public class ProjectServiceImpl implements ProjectService {
 		if(projectMap!=null){
 			proList=projectDao.findAllDoing(projectMap);
 		}
-		
 		return proList;
 	}
 
@@ -86,8 +90,6 @@ public class ProjectServiceImpl implements ProjectService {
 			proList=projectDao.findAllCompleted(projectMap);
 		}
 		return proList;
-		
 	}
 
 }
-*/

@@ -15,15 +15,16 @@ import com.im.project.service.PictureService;
 
 @Service("pictureService")
 public class PictureServiceImpl implements PictureService {
-	
 	@Resource
 	private PictureMapper pictureDao;
 	public boolean addPicture(Picture pic) {
 		// TODO Auto-generated method stub
 		boolean boo=false;
 		if(pic!=null){
-			pictureDao.insert(pic);
+			int i=pictureDao.insert(pic);
+			if(i==1){
 			boo=true;
+			}
 		}
 		return boo;
 	}
@@ -41,8 +42,10 @@ public class PictureServiceImpl implements PictureService {
 		// TODO Auto-generated method stub
 		boolean boo=false;
 		if(id>0&&id<Integer.MAX_VALUE){
-			pictureDao.deleteByPrimaryKey(id);
+			int i=pictureDao.deleteByPrimaryKey(id);
+			if(i==1){
 			boo=true;
+			}
 		}
 		return boo;
 	}
@@ -51,8 +54,10 @@ public class PictureServiceImpl implements PictureService {
 		// TODO Auto-generated method stub
 		boolean boo=false;
 		if(pic!=null){
-			pictureDao.updateByPrimaryKey(pic);
+			int i=pictureDao.updateByPrimaryKey(pic);
+			if(i==1){
 			boo=true;
+			}
 		}
 		return boo;
 	}
@@ -67,17 +72,8 @@ public class PictureServiceImpl implements PictureService {
 		// TODO Auto-generated method stub
 		List<Picture> picList =null;
 		if(picMap!=null){
-			picList=pictureDao.selectByType(picMap);
+			picList=pictureDao.findAll(picMap);
 		}
 		return picList;
-	}
-	public boolean addPicture1(Picture pic) {
-		// TODO Auto-generated method stub
-		boolean boo=false;
-		if(pic!=null){
-			pictureDao.insert(pic);
-			boo=true;
-		}
-		return boo;
 	}
 }

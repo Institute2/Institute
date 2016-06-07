@@ -32,14 +32,18 @@
 	</select>
 	<select id="findAllByType" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" />
-		from project where type =#{type} limit #{pageNow} ,#{pageSize}
+		from project where type =#{type} 
+ 		limit 3
 	</select>
- 
+	
+ 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+ 		delete from project where pro_id=#{id,jdbcType=INTEGER} 
+ 	</delete>
 
 	<insert id="insert" parameterType="com.im.project.model.Project" >
-		insert into project (pro_id, title,
+		insert into project ( title,
 		cont,leader,startline,deadline,type)
-		values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+		values ( #{title,jdbcType=VARCHAR},
 		#{content,jdbcType=VARCHAR},
 		#{leader,jdbcType=VARCHAR},
 		#{startline,jdbcType=VARCHAR},#{deadline,jdbcType=VARCHAR},#{type,jdbcType=INTEGER})
@@ -47,14 +51,17 @@
 	
  <update id="updateByPrimaryKey" parameterType="com.im.project.model.Project">
 		update project
-		set
-		title = #{title,jdbcType=VARCHAR},
-		content=#{content,jdbcType=VARCHAR},
-		leader=#{leader,jdbcType=VARCHAR},
-		startline= #{startline,jdbcType=VARCHAR},
-		deadline=#{deadline,jdbcType=VARCHAR},
-		type=#{type,jdbcType=INTEGER}
-		where pro_id = #{id,jdbcType=INTEGER}
+		<set>
+			<if test="title!=null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="content!=null">cont=#{content,jdbcType=VARCHAR},</if>
+			<if test="leader!=null">leader=#{leader,jdbcType=VARCHAR},</if>
+			<if test="startline!=null">startline= #{startline,jdbcType=VARCHAR},</if>
+			<if test="deadline!=null">deadline=#{deadline,jdbcType=VARCHAR},</if>
+			<if test="type!=null">type=#{type,jdbcType=INTEGER}</if>
+		</set>
+			where pro_id = #{id,jdbcType=INTEGER}
 	</update>
  
 </mapper>
