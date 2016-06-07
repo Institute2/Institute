@@ -8,7 +8,7 @@ public class Article {
 	private String content;
 	private String date;
 	private String author;
-	private String keywords;
+	private String keyword;
     private String summary;
 	public String getAuthor() {
 		return author;
@@ -23,8 +23,8 @@ public class Article {
 		return id;
 	}
 	
-	public String getKeywords() {
-		return keywords;
+	public String getKeyword() {
+		return keyword;
 	}
 
 
@@ -58,8 +58,8 @@ public class Article {
 		this.id = id;
 	}
 
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 

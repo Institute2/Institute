@@ -18,17 +18,23 @@
     from article_news
     where type=1 and articleNews_id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectNewsIndex"  resultMap="BaseResultMap">
+  select
+  articleNews_id,title,author,date,summary,releaser
+  from article_news
+  where type=1 order by articleNews_id desc limit 0,5
+  </select>
   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
   articleNews_id,title,author,date,summary,releaser
   from article_news
-  where type=1 limit #{pageNow} ,#{pageSize}
+  where type=1 order by articleNews_id desc limit #{pageNow} ,#{pageSize}
   </select>
   <insert id="insert" parameterType="com.im.project.model.News" >
     insert into article_news (articleNews_id,title,cont,date,author,releaser,summary,type,picture)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content},
     #{date,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{releaser,jdbcType=VARCHAR}, 
-    #{summary,jdbcType=VARCHAR},#{type,jdbcType=INTEGER},#{pictureId,jdbcType=INTEGER})
+    #{summary,jdbcType=VARCHAR},1,#{pictureId,jdbcType=INTEGER})
   </insert>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from article_news

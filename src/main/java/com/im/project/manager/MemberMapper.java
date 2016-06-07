@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.im.project.model.Member;
 @Repository("memberDao")
 public interface MemberMapper extends BaseDao<Member, Integer>{
-	
+	//查询总记录数
+	public int countRecords();
 }

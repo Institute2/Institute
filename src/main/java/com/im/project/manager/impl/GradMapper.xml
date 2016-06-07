@@ -14,6 +14,7 @@
    <sql id="Base_Column_List" >
    person_id,name,picture,jianjie,xibie,zhiwu,whereabout
   </sql>
+  
    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select  
       <include refid="Base_Column_List" />
@@ -23,13 +24,16 @@
   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
    <include refid="Base_Column_List" />
-   from person
-  where type=3 limit  #{pageNow} ,#{pageSize}
+   from person 
+  where type=3 order by person_id desc limit  #{pageNow} ,#{pageSize} 
   </select>
+  <select id="countRecords" resultType="java.lang.Integer">
+  select count(*) from person where type=3
+ </select>
   <insert id="insert" parameterType="com.im.project.model.Grad" >
-    insert into person ( person_id,name,picture,jianjie,xibie,zhiwu,whereabout)
+    insert into person ( person_id,name,picture,jianjie,xibie,zhiwu,whereabout,type)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
-    #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR},#{whereabout,jdbcType=VARCHAR})
+    #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR},#{whereabout,jdbcType=VARCHAR},3)
   </insert>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from person
@@ -39,7 +43,7 @@
     update person
     <set >
       <if test="name != null" >
-        neme =#{name,jdbcType=VARCHAR},
+        name =#{name,jdbcType=VARCHAR},
       </if>
       <if test="pictureId!= null" >
         picture =#{pictureId,jdbcType=INTEGER},

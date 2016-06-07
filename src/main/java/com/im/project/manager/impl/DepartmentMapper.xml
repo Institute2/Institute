@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.im.project.model.Department" >
     <id column="id" property="de_id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="pic_id" property="pictureId" jdbcType="INTEGER" />
+    <result column="picture" property="pictureId" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>  
@@ -25,11 +25,11 @@
   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
    <include refid="Base_Column_List" />
-   from department
+   from department order by de_id desc
    limit  #{pageNow} ,#{pageSize}
   </select>
   <insert id="insert" parameterType="com.im.project.model.Department" >
-    insert into department (de_id,name,picture,url)
+    insert into department(de_id,name,picture,url)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
     #{url,jdbcType=VARCHAR})
   </insert>

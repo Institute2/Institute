@@ -4,7 +4,7 @@ public class Grad {
 	private Integer id;
 	private String name;
 	private Integer pictureId;
-	private String jianjieId;
+	private String jianjie;
 	private String xibie;
 	private String grade;
 	private String zhiwu;
@@ -19,12 +19,12 @@ public class Grad {
 	}
 
 
-	public String getJianjieId() {
-		return jianjieId;
+	public String getJianjie() {
+		return jianjie;
 	}
 
-	public void setJianjieId(String jianjieId) {
-		this.jianjieId = jianjieId;
+	public void setJianjie(String jianjie) {
+		this.jianjie = jianjie;
 	}
 
 	public void setPicture(Picture picture) {

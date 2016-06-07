@@ -15,7 +15,7 @@ import com.im.project.model.Project;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath*:spring-mybatis.xml" })
-public class ProjectServiceImplTest {
+public class ProjectMapperTest {
 	@Resource
 	ProjectMapper projectDao;
 	@Test

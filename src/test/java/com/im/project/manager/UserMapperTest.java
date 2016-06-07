@@ -13,21 +13,20 @@ import com.im.project.manager.UserMapper;
 import com.im.project.model.User;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath*:spring-mybatis.xml" })
-public class UserServiceTest {
-	@Resource
-	UserMapper userDao;
+public class UserMapperTest {
 	@Test
-	public void testSaveUser() {
-		User u=new User();
-		u.setPassword("123");
-		u.setUserName("werrwe");
-		userDao.insert(u);
-		User u1=userDao.selectByPrimaryKey(1);
-		System.out.println(u1.getUserName()+"i=");
-		/*if(i!=1){
-		fail("Not yet implemented");
-		}*/
+	public void TestInsert(){	
 	}
+	@Test
+	public void TestFindAll(){}
+	@Test
+	public void TestSelectAll(){}
+	@Test
+	public void TestSelectByPrimaryKey(){}
+	@Test
+	public void TestDeleteByPrimaryKey(){}
+	@Test
+	public void TestUpdateByPrimaryKey(){}
 	}
 	
 	

@@ -7,27 +7,35 @@
     <result column="content" property="cont"  />
     <result column="date" property="date"  />
    <result column="author" property="author"  />
-   <result column="keywords" property="keywords"  />
+   <result column="keyword" property="keyword"  />
    <result column="summary" property="summary" />
-  </resultMap>  
-  <!--  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  </resultMap>
+   <insert id="insert" parameterType="com.im.project.model.Article" >
+    insert into article_news (articleNews_id,title,cont,date,author,keyword,summary,type)
+    values (#{id}, #{title}, #{content},
+    #{date}, #{author}, #{keyword}, 
+    #{summary},2)
+  </insert>   
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select  
     articleNews_id,title,cont,author,date
     from article_news
     where type=2 and articleNews_id = #{id,jdbcType=INTEGER}
-  </select> -->
- <!--  <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.map">
+  </select>
+   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
-  articleNews_id,title,keywords,author,date,summary
+  articleNews_id,title,keyword,author,date,summary
   from article_news
-  where type=2 limit #{pageNow} ,#{pageSize}
-  </select> -->
-  <insert id="insert" parameterType="com.im.project.model.Article" >
-    insert into article_news (articleNews_id,title,cont,date,author,keywords,summary,type)
-    values (#{id}, #{title}, #{content},
-    #{date}, #{author}, #{keywords}, 
-    #{summary},#{type})
-  </insert> 
+  where type=2 order by articleNews_id desc limit #{pageNow} ,#{pageSize}
+  </select> 
+  
+ <select id="selectArticleIndex" resultMap="BaseResultMap">
+  select
+  articleNews_id,title,keyword,author,date,summary
+  from article_news
+  where type=2 order by articleNews_id desc limit 0,4
+ </select>
+ 
    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from article_news
     where articleNews_id = #{id,jdbcType=INTEGER}
@@ -44,8 +52,8 @@
       <if test="author != null" >
         author = #{author,jdbcType=VARCHAR},
       </if>
-      <if test="keywords != null" >
-        keywords = #{keywords,jdbcType=VARCHAR},
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
       </if>
       <if test="summary != null" >
         summary = #{summary,jdbcType=VARCHAR}

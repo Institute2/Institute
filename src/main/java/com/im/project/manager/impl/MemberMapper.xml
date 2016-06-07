@@ -23,12 +23,15 @@
   select
    <include refid="Base_Column_List" />
    from person
-  where type=2 limit  #{pageNow} ,#{pageSize}
+  where type=2 order by person_id desc limit  #{pageNow} ,#{pageSize}
   </select>
+   <select id="countRecords" resultType="java.lang.Integer">
+  select count(*) from person where type=2
+ </select>
   <insert id="insert" parameterType="com.im.project.model.Member" >
-    insert into person ( person_id,name,picture,jianjie,xibie,zhiwu)
+    insert into person ( person_id,name,picture,jianjie,xibie,zhiwu,type)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
-    #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR})
+    #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR},2)
   </insert>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from person
@@ -38,7 +41,7 @@
     update person
     <set >
       <if test="name != null" >
-        neme =#{name,jdbcType=VARCHAR},
+        name =#{name,jdbcType=VARCHAR},
       </if>
       <if test="pictureId!= null" >
         picture =#{pictureId,jdbcType=INTEGER},
