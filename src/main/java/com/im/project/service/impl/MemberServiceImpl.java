@@ -1,41 +1,80 @@
 package com.im.project.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.im.project.manager.MemberMapper;
 import com.im.project.model.Member;
 import com.im.project.service.MemberService;
-
+@Service("memberService")
 public class MemberServiceImpl implements MemberService {
-
+	@Resource 
+	private MemberMapper memberDao; 
 	public Member findMember(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		Member member=new Member();
+		if(id>0&&id<Integer.MAX_VALUE){
+			member=memberDao.selectByPrimaryKey(id);
+		}
+		return member;
 	}
 
 	public boolean addMember(Member mem) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean boo=false;
+		if(mem!=null){
+			int i=memberDao.insert(mem);
+			if(i==1){
+				boo=true;
+			}
+		}
+		return boo;
 	}
 
 	public boolean delMember(Integer id) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean boo=false;
+		if(id>0&&id<Integer.MAX_VALUE){
+			int i=memberDao.deleteByPrimaryKey(id);
+			if(i==1){
+				boo=true;
+			}
+		}
+		return boo;
 	}
 
 	public boolean modifyMember(Member mem) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean boo=false;
+		if(mem!=null){
+			int i=memberDao.updateByPrimaryKey(mem);
+			if(i==1){
+				boo=true;
+			}
+		}
+		return boo;
 	}
 
-	public Integer findrecords() {
-		// TODO Auto-generated method stub
-		return null;
+	public int findRecords() {
+		int i=0;
+		i=memberDao.countRecords();
+		
+		return i;
+		
 	}
 
-	public List<Member> findMemberByPage(Map<String, Integer> map) {
+	public List<Member> findMemberByPage(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Member> memberList=new ArrayList<Member>();
+		if(map!=null){
+			memberList=memberDao.findAll(map);
+		}
+		return memberList;
 	}
 
 }

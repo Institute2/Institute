@@ -20,7 +20,7 @@ public interface ArticleService {
 	 * @param map
 	 * @return
 	 */
-	public List<Article> findArticle(Map<String ,Integer> map);
+	public List<Article> findArticle(Map<String ,Object> map);
 	
 	
 }

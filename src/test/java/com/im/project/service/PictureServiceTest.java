@@ -79,6 +79,9 @@ public class PictureServiceTest {
 		
 		List<Picture> list=pictureService.findPicByPage(map);
 		System.out.println(list.size());
+		for(Picture pic:list){
+			System.out.println(pic.getId());
+		}
 		//assertEquals(list.size(), 3);
 	}
 }

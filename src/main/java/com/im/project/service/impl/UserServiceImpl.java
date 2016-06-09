@@ -12,11 +12,22 @@ public class UserServiceImpl implements UserService {
 
 	public User findUser(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		User user=new User();
+		if(id>0&&id<Integer.MAX_VALUE){
+			user=userDao.selectByPrimaryKey(id);
+		}
+		return user;
 	}
 	public boolean addUser(User user) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean boo=false;
+		if(user!=null){
+			int i=userDao.insert(user);
+			if(i==1){
+				boo=true;
+			}
+		}
+		return boo;
 	}
 
 	

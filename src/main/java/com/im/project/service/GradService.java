@@ -15,7 +15,7 @@ public interface GradService {
 	 * @param map
 	 * @return
 	 */
-	public List<Grad> findGradByPage(Map<String ,Integer> map);
+	public List<Grad> findGradByPage(Map<String ,Object> map);
 	/**
 	 * 查询总共有多少条记录
 	 * @return

@@ -1,6 +1,7 @@
 
 package com.im.project.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class PictureServiceImpl implements PictureService {
 
 	public Picture findPicture(Integer id) {
 		// TODO Auto-generated method stub
-		Picture pic=null;
+		Picture pic= new Picture();
 		if(id>0&&id<Integer.MAX_VALUE){
 			pic=pictureDao.selectByPrimaryKey(id);
 		}
@@ -64,13 +65,14 @@ public class PictureServiceImpl implements PictureService {
 
 	public List<String> loadBigPic() {
 		// TODO Auto-generated method stub
-		List<String> picList=pictureDao.listPic();
+		List<String> picList=new ArrayList<String>();
+		picList=pictureDao.listPic();
 		return picList;
 	}
 
 	public List<Picture> findPicByPage(Map<String, Object> picMap) {
 		// TODO Auto-generated method stub
-		List<Picture> picList =null;
+		List<Picture> picList =new ArrayList<Picture>();
 		if(picMap!=null){
 			picList=pictureDao.findAll(picMap);
 		}

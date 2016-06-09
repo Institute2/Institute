@@ -1,5 +1,6 @@
 package com.im.project.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,10 +25,9 @@ public class ProjectServiceImpl implements ProjectService {
 		}
 		return false;
 	}
-
 	public Project findProject(Integer id) {
 		// TODO Auto-generated method stub
-		Project pro =null;
+		Project pro =new Project();
 		if(id>0&&id<Integer.MAX_VALUE){
 			pro=projectDao.selectByPrimaryKey(id);
 		}
@@ -64,8 +64,8 @@ public class ProjectServiceImpl implements ProjectService {
 	public Map<String, List<Project>> findProjectByType() {
 		// TODO Auto-generated method stub
 		Map<String, List<Project>> twoTypeList = new HashMap<String ,List<Project>>();
-		List<Project> doingProList = null;
-		List<Project> completedProList = null;
+		List<Project> doingProList = new ArrayList<Project>();
+		List<Project> completedProList = new ArrayList<Project>();
 		doingProList = projectDao.findAllByType(1);
 		completedProList = projectDao.findAllByType(2);
 		twoTypeList.put("completedachieve", completedProList);
@@ -76,7 +76,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	public List<Project> findDoingProject(Map<String, Object> projectMap) {
 		// TODO Auto-generated method stub
-		List<Project> proList=null;
+		List<Project> proList=new ArrayList<Project>();
 		if(projectMap!=null){
 			proList=projectDao.findAllDoing(projectMap);
 		}
@@ -85,7 +85,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	public List<Project> findCompletedProject(Map<String, Object> projectMap) {
 		// TODO Auto-generated method stub
-		List<Project> proList=null;
+		List<Project> proList=new ArrayList<Project>();
 		if(projectMap!=null){
 			proList=projectDao.findAllCompleted(projectMap);
 		}

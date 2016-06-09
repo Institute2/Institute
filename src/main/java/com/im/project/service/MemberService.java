@@ -10,7 +10,7 @@ public interface MemberService {
 	public boolean addMember(Member mem);
 	public boolean delMember(Integer id);
 	public boolean modifyMember(Member mem);
-	public Integer findrecords();
-	public List<Member> findMemberByPage(Map<String ,Integer> map);
+	public int findRecords();
+	public List<Member> findMemberByPage(Map<String ,Object> map);
 	
 }

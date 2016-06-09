@@ -31,4 +31,5 @@ public interface ProjectMapper extends BaseDao<Project, Integer> {
 	 * @return 结果集
 	 */
 	public List<Project> findAllCompleted( Map<String,Object> projectMap);
+	
 }

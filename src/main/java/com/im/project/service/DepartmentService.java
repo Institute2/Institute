@@ -22,7 +22,7 @@ public interface DepartmentService {
 	 * @param map 封装了page参数
 	 * @return 结果集
 	 */
-	public List<Department> findDepartmentByPage(Map<String,Integer> map);
+	public List<Department> findDepartmentByPage(Map<String,Object> map);
 	public boolean addDepartment(Department depart);
 	public boolean delDepartment(Integer id);
 	public boolean modifyDepartment(Department depart);

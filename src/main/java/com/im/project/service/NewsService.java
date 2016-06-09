@@ -11,6 +11,6 @@ public interface NewsService {
 	public boolean modifyNews(News news);
 	public boolean addNews(News news);
 	public List<News> findNewsIndex();
-	public List<News> findNewsByPage(Map<String ,Integer> map);
+	public List<News> findNewsByPage(Map<String ,Object> map);
 	
 }

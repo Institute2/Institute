@@ -15,10 +15,10 @@ public interface LeaderService {
 	 * @param map
 	 * @return
 	 */
-	public List<Leader> findLeaderByPage(Map<String ,Integer> map);
+	public List<Leader> findLeaderByPage(Map<String ,Object> map);
 	/**
 	 * 查询所有的记录条数
 	 * @return
 	 */
-	public Integer findrecords();
+	public int  findrecords();
 }
