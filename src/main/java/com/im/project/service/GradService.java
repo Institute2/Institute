@@ -6,20 +6,20 @@ import java.util.Map;
 import com.im.project.model.Grad;
 
 public interface GradService {
-	public Grad findGrad(Integer id);
-	public boolean delGrad(Integer id);
-	public boolean addGrad(Grad grad);
-	public boolean modifyGrad(Grad grad);
+	public Grad findGrad(Integer id)throws Exception;
+	public boolean delGrad(Integer id)throws Exception;
+	public boolean addGrad(Grad grad)throws Exception;
+	public boolean modifyGrad(Grad grad)throws Exception;
 	/**
 	 * 分页查找
 	 * @param map
 	 * @return
 	 */
-	public List<Grad> findGradByPage(Map<String ,Object> map);
+	public List<Grad> findGradByPage(Map<String ,Object> map)throws Exception;
 	/**
 	 * 查询总共有多少条记录
 	 * @return
 	 */
-	public Integer findRecords();
+	public Integer findRecords()throws Exception;
 	
 }

@@ -25,7 +25,7 @@ public class ArticleServiceImplTest {
 	}
 
 	@Test
-	public final void testFindArticleIndex() {
+	public final void testFindArticleIndex() throws Exception {
 		//fail("Not yet implemented"); // TODO
 		List<Article> artList =articleService.findArticleIndex();
 		System.out.println(artList.size());

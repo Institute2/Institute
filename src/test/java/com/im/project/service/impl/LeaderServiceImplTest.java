@@ -26,7 +26,7 @@ public class LeaderServiceImplTest {
 	}
 
 	@Test
-	public final void testFindLeaderByPage() {
+	public final void testFindLeaderByPage() throws Exception {
 		//fail("Not yet implemented");
 		Map<String ,Object> map1=new HashMap<String,Object >();
 		map1.put("pageNow", 1);
@@ -39,7 +39,7 @@ public class LeaderServiceImplTest {
 	}
 
 	@Test
-	public final void testFindrecords() {
+	public final void testFindrecords() throws Exception {
 		//fail("Not yet implemented");
 	int i=	leaderService.findrecords();
 	System.out.println(i);

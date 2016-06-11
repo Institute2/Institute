@@ -21,7 +21,7 @@ public class PictureServiceTest {
 	PictureService pictureService;
 	
 	@Test
-	public void testAddPicture() {
+	public void testAddPicture() throws Exception {
 		Picture pic=new Picture();
 		pic.setLink("123ggggg添加");
 		pic.setDate("2012-7-12");
@@ -32,7 +32,7 @@ public class PictureServiceTest {
 	}
 
 	@Test
-	public void testFindPicture() {
+	public void testFindPicture() throws Exception {
 		//fail("Not yet implemented");
 		Picture pic=pictureService.findPicture(11);
 		
@@ -42,14 +42,14 @@ public class PictureServiceTest {
 	}
 
 	@Test
-	public void testDelPicture() {
+	public void testDelPicture() throws Exception {
 		//fail("Not yet implemented");
 		boolean boo=pictureService.delPicture(6);
 		assertEquals(boo,true);
 	}
 
 	@Test
-	public void testModifyPicture() {
+	public void testModifyPicture() throws Exception {
 		//fail("Not yet implemented");
 		Picture pic=new Picture();
 		pic.setLink("123ggggg");
@@ -61,7 +61,7 @@ public class PictureServiceTest {
 	}
 
 	@Test
-	public void testLoadBigPic() {
+	public void testLoadBigPic() throws Exception {
 		//fail("Not yet implemented");
 		List<String> picList=pictureService.loadBigPic();
 		//picList.size();
@@ -70,7 +70,7 @@ public class PictureServiceTest {
 	}
 
 	@Test
-	public void testFindPicByPage() {
+	public void testFindPicByPage() throws Exception {
 		
 		//fail("Not yet implemented");
 		Map<String,Object> map=new HashMap<String,Object>();

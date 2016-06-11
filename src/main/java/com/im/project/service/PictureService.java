@@ -11,34 +11,34 @@ public interface PictureService {
 	 * @param pic 图片实体
 	 * @return 成功与否
 	 */
-	public boolean addPicture(Picture pic);
+	public boolean addPicture(Picture pic)throws Exception;
 	/**
 	 * 根据主键查找图片
 	 * @param id 图片id
 	 * @return 结果集
 	 */
-	public Picture findPicture(Integer id);
+	public Picture findPicture(Integer id)throws Exception;
 	/**
 	 * 根据主键删除图片
 	 * @param id 图片id
 	 * @return 成功与否
 	 */
-	public boolean delPicture(Integer id);
+	public boolean delPicture(Integer id)throws Exception;
 	/**
 	 * 修改图片
 	 * @param pic 图片实体
 	 * @return 成功与否
 	 */
-	public boolean modifyPicture(Picture pic);
+	public boolean modifyPicture(Picture pic)throws Exception;
 	/**
 	 * 加载首页三张大图
 	 * @return 结果集
 	 */
-	public List<String> loadBigPic();
+	public List<String> loadBigPic() throws Exception;
 	/**
 	 * 分页查找图片
 	 * @param picMap 要查找的页数信息
 	 * @return 结果集
 	 */
-	public List<Picture> findPicByPage(Map<String, Object> picMap);
+	public List<Picture> findPicByPage(Map<String, Object> picMap)throws Exception;
 }

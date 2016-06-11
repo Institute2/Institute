@@ -14,13 +14,14 @@ import org.springframework.stereotype.Service;
 import com.im.project.manager.ArticleMapper;
 import com.im.project.model.Article;
 import com.im.project.service.ArticleService;
+
 @Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
 
 	@Resource
 	private ArticleMapper articleDao;
 
-	public boolean addArticle(Article art) {
+	public boolean addArticle(Article art) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (art != null) {
@@ -32,7 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
 		return boo;
 	}
 
-	public Article findArticle(Integer id) {
+	public Article findArticle(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		Article article = new Article();
 		if (id > 0 && id < Integer.MAX_VALUE) {
@@ -44,7 +45,7 @@ public class ArticleServiceImpl implements ArticleService {
 		return article;
 	}
 
-	public boolean modifyArticle(Article art) {
+	public boolean modifyArticle(Article art) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (art != null) {
@@ -56,7 +57,7 @@ public class ArticleServiceImpl implements ArticleService {
 		return boo;
 	}
 
-	public boolean delArticle(Integer id) {
+	public boolean delArticle(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (id > 0 && id < Integer.MAX_VALUE) {
@@ -68,7 +69,7 @@ public class ArticleServiceImpl implements ArticleService {
 		return boo;
 	}
 
-	public List<Article> findArticleIndex() {
+	public List<Article> findArticleIndex() throws Exception {
 		// TODO Auto-generated method stub
 		List<Article> artList = new ArrayList<Article>();
 		artList = articleDao.selectArticleIndex();
@@ -79,7 +80,7 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 	}
 
-	public List<Article> findArticle(Map<String, Object> map) {
+	public List<Article> findArticle(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		List<Article> artList = new ArrayList<Article>();
 		artList = articleDao.findAll(map);

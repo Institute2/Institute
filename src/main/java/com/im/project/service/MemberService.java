@@ -6,11 +6,11 @@ import java.util.Map;
 import com.im.project.model.Member;
 
 public interface MemberService {
-	public Member findMember(Integer id);
-	public boolean addMember(Member mem);
-	public boolean delMember(Integer id);
-	public boolean modifyMember(Member mem);
-	public int findRecords();
-	public List<Member> findMemberByPage(Map<String ,Object> map);
+	public Member findMember(Integer id)throws Exception;
+	public boolean addMember(Member mem)throws Exception;
+	public boolean delMember(Integer id)throws Exception;
+	public boolean modifyMember(Member mem)throws Exception;
+	public int findRecords()throws Exception;
+	public List<Member> findMemberByPage(Map<String ,Object> map)throws Exception;
 	
 }

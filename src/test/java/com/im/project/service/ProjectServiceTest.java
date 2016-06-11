@@ -29,12 +29,18 @@ public class ProjectServiceTest {
 		pro.setLeader("liuq");
 		pro.setTitle("和");
 		pro.setType(2);
-		boolean boo=projectService.addProject(pro);
+		boolean boo = false;
+		try {
+			boo = projectService.addProject(pro);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertEquals(boo, true);
 	}
 
 	@Test
-	public void testFindProject() {
+	public void testFindProject() throws Exception {
 		//fail("Not yet implemented");
 		Project p=projectService.findProject(1);
 		int i=p.getId();
@@ -42,14 +48,14 @@ public class ProjectServiceTest {
 	}
 
 	@Test
-	public void testDelProject() {
+	public void testDelProject() throws Exception {
 		//fail("Not yet implemented");
 		boolean boo=projectService.delProject(2);
 		assertEquals(boo, true);
 	}
 
 	@Test
-	public void testModifyProject() {
+	public void testModifyProject() throws Exception {
 		//fail("Not yet implemented");
 		Project pro=new Project();
 		pro.setContent("修改");
@@ -62,7 +68,7 @@ public class ProjectServiceTest {
 	}
 
 	@Test
-	public void testFindProjectByType() {
+	public void testFindProjectByType() throws Exception {
 		//fail("Not yet implemented");
 
 		Map<String, List<Project>> map=projectService.findProjectByType();
@@ -70,7 +76,7 @@ public class ProjectServiceTest {
 	}
 
 	@Test
-	public void testFindDoingProject() {
+	public void testFindDoingProject() throws Exception {
 		//fail("Not yet implemented");
 		Map<String ,Object> map=new HashMap<String ,Object>();
 		map.put("pageNow",1);
@@ -80,7 +86,7 @@ public class ProjectServiceTest {
 	}
 
 	@Test
-	public void testFindCompletedProject() {
+	public void testFindCompletedProject() throws Exception {
 		//fail("Not yet implemented");
 		Map<String ,Object> map=new HashMap<String ,Object>();
 		map.put("pageNow",1);

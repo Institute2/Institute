@@ -6,21 +6,24 @@ import java.util.Map;
 import com.im.project.model.Article;
 
 public interface ArticleService {
-	public boolean addArticle(Article art);
-	public Article findArticle(Integer id);
-	public boolean modifyArticle(Article art);
-	public boolean delArticle(Integer id);
+	public boolean addArticle(Article art) throws Exception;
+
+	public Article findArticle(Integer id) throws Exception;
+
+	public boolean modifyArticle(Article art) throws Exception;
+
+	public boolean delArticle(Integer id) throws Exception;
 	/**
 	 * 查找主页所要加载的新闻列表
 	 * @return 结果集
 	 */
-	public List<Article> findArticleIndex();
+	public List<Article> findArticleIndex() throws Exception;
 	/**
 	 * 分页查找新闻
 	 * @param map
 	 * @return
 	 */
-	public List<Article> findArticle(Map<String ,Object> map);
+	public List<Article> findArticle(Map<String ,Object> map) throws Exception;
 	
 	
 }

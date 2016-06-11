@@ -24,7 +24,7 @@ public class NewsServiceImplTest {
 	@Resource
 	private NewsService newsService;
 	@Test
-	public final void testModifyNews() {
+	public final void testModifyNews() throws Exception {
 		//fail("Not yet implemented"); // TODO
 		News n =new News();
 		Picture pic=new Picture(); 
@@ -39,7 +39,7 @@ public class NewsServiceImplTest {
 		System.out.println(b);
 	}
 	@Test
-	public final void testAddNews() {
+	public final void testAddNews() throws Exception {
 		News n =new News();
 		Picture pic=new Picture(); 
 		pic.setLink("新闻测试");
@@ -63,21 +63,22 @@ public class NewsServiceImplTest {
 	}*/
 
 	@Test
-	public final void testFindNewsByPage() {
+	public final void testFindNewsByPage()  throws Exception{
 		//fail("Not yet implemented"); // TODO
 		Map<String ,Object> map1=new HashMap<String,Object>();
 		map1.put("pageNow", 1);
 		map1.put("pageSize", 3);
-		try{
+		//try{
 		 List<News> list=newsService.findNewsByPage(map1);
 		 System.out.println(list.size());
 		 
 		 for(News n:list){
 			System.out.println(n.getTitle());//在获取n的属性时候可能会出现空指针异常
 		 }
-		 }catch (java.lang.NullPointerException e){
-			 System.out.println("空指针");
-		 }
+//		 }catch (java.lang.NullPointerException e){
+//			 System.out.println("空指针");
+//			 e.printStackTrace();
+//		 }
 	}
 
 }

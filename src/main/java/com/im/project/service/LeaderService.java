@@ -6,19 +6,19 @@ import java.util.Map;
 import com.im.project.model.Leader;
 
 public interface LeaderService {
-	public Leader findLeader(Integer id);
-	public boolean addLeader(Leader leader);
-	public boolean delLeader(Integer id);
-	public boolean modifyLeader(Leader leader);
+	public Leader findLeader(Integer id)throws Exception;
+	public boolean addLeader(Leader leader)throws Exception;
+	public boolean delLeader(Integer id)throws Exception;
+	public boolean modifyLeader(Leader leader)throws Exception;
 	/**
 	 * 分页查找
 	 * @param map
 	 * @return
 	 */
-	public List<Leader> findLeaderByPage(Map<String ,Object> map);
+	public List<Leader> findLeaderByPage(Map<String ,Object> map)throws Exception;
 	/**
 	 * 查询所有的记录条数
 	 * @return
 	 */
-	public int  findrecords();
+	public int  findrecords()throws Exception;
 }

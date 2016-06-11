@@ -11,12 +11,13 @@ import org.springframework.stereotype.Service;
 import com.im.project.manager.DepartmentMapper;
 import com.im.project.model.Department;
 import com.im.project.service.DepartmentService;
+
 @Service("departService")
 public class DepartmentServiceImpl implements DepartmentService {
 	@Resource
 	private DepartmentMapper departmentDao;
 
-	public Department findDepartment(Integer id) {
+	public Department findDepartment(Integer id) throws Exception {
 		Department dep = new Department();
 		if (id > 0 && id < Integer.MAX_VALUE) {
 			dep = departmentDao.selectByPrimaryKey(id);
@@ -24,7 +25,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return dep;
 	}
 
-	public List<Department> findAllDepartment() {
+	public List<Department> findAllDepartment() throws Exception {
 		// TODO Auto-generated method stub
 		List<Department> list = new ArrayList<Department>();
 		list = departmentDao.selectAll();
@@ -32,7 +33,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return list;
 	}
 
-	public List<Department> findDepartmentByPage(Map<String, Object> map) {
+	public List<Department> findDepartmentByPage(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		List<Department> list = new ArrayList<Department>();
 
@@ -40,7 +41,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return list;
 	}
 
-	public boolean addDepartment(Department depart) {
+	public boolean addDepartment(Department depart) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (depart != null) {
@@ -52,7 +53,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return boo;
 	}
 
-	public boolean delDepartment(Integer id) {
+	public boolean delDepartment(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (id > 0 && id < Integer.MAX_VALUE) {
@@ -64,7 +65,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return boo;
 	}
 
-	public boolean modifyDepartment(Department depart) {
+	public boolean modifyDepartment(Department depart) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (depart != null) {
