@@ -35,6 +35,7 @@ public class NewsController {
 			pageMap.put("pageSize", page.getPageSize());
 			newsList = newsService.findNewsByPage(pageMap);
 		}
+		//String 
 		dataMap.put("newsList", newsList);
 		return dataMap;
 	}

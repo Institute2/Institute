@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.im.project.manager.ArticleMapper">
 	<resultMap id="BaseResultMap" type="com.im.project.model.Article">
-		<id column="id" property="articleNews_id" />
+		<id column="articleNews_id" property="id" />
 		<result column="title" property="title" />
-		<result column="content" property="cont" />
+		<result column="cont" property="content" />
 		<result column="date" property="date" />
 		<result column="author" property="author" />
 		<result column="keyword" property="keyword" />

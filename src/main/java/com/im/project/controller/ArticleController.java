@@ -35,7 +35,6 @@ public class ArticleController {
 			articleList=articleService.findArticle(pageMap);
 		}
 		dataMap.put("articleList",articleList );
-		
 		return dataMap;
 	}
 	

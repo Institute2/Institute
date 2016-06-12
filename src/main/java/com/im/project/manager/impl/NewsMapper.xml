@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.im.project.manager.NewsMapper">
 	<resultMap id="BaseResultMap" type="com.im.project.model.News">
-		<id column="id" property="articleNews_id" jdbcType="INTEGER" />
+		<id column="articleNews_id" property="id" jdbcType="INTEGER" />
 		<result column="title" property="title" jdbcType="VARCHAR" />
-		<result column="content" property="cont" />
-		<result column="pic_id" property="pictureId" jdbcType="INTEGER" />
+		<result column="cont" property="content" jdbcType="VARCHAR"/>
+		<result column="picture" property="pictureId" jdbcType="INTEGER" />
 		<result column="date" property="date" jdbcType="VARCHAR" />
 		<result column="author" property="author" jdbcType="VARCHAR" />
 		<result column="releaser" property="releaser" jdbcType="VARCHAR" />
 		<result column="summary" property="summary" jdbcType="VARCHAR" />
-		<association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" 
+		<association property="picture" column="picture" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" 
 			javaType="com.im.project.model.Picture" /> 
 
 
@@ -30,9 +30,9 @@
 		where type=1 order by articleNews_id desc limit 0,5
 	</select>
 	<select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
-		select
-		articleNews_id,title,author,date,summary,releaser
-		from article_news 
+		select 
+		articleNews_id,author,date,summary,releaser,picture,title
+		from article_news
 		where type=1
 		order by articleNews_id desc limit #{pageNow} ,#{pageSize}
 	</select>
