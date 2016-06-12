@@ -32,7 +32,8 @@
 	<!-- 配置视图解析器 将视图逻辑名解析为/*.jsp -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/"></property>
+		<property name="prefix" value="/control/"></property>
+		<property name="suffix" value=".jsp"/>
 	</bean>
 	<!--  配置文件上传-->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -41,4 +42,15 @@
    		<property name="maxInMemorySize" value="40960"></property>
    		
    </bean>
+   <!-- <mvc:annotation-driven/>  
+     拦截器  
+      <mvc:interceptors>    
+        多个拦截器,顺序执行    
+        <mvc:interceptor>    
+          如果不配置或/**,将拦截所有的Controller  
+           <mvc:mapping path="/**" />   
+           在Freemarker界面展示之前做一些通用处理    
+           <bean class="com.im.project.utils.GeneralInterceptor"></bean>    
+        </mvc:interceptor>    
+    </mvc:interceptors>     -->
 </beans>
