@@ -35,18 +35,22 @@ public class NewsMapperTest {
 	@Test
 	public void TestFindAll(){
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("pageSize", 5);
-		map.put("pageNow", 0);
+		map.put("pageSize",5);
+		map.put("pageNow", 2);
 		List<News> list=newsDao.findAll(map);
-		if(list.size()!=5){
-			fail("Find failed");
+		if(list.size()!=2){
+			//fail("Find failed");
+			System.out.println(list.size()+"条记录");
+		}
+		for(News news:list){
+			System.out.println(news.getAuthor());
 		}
 	}
 	@Test
 	public void TestSelectAll(){}
 	@Test
 	public void TestSelectByPrimaryKey(){
-		News i=newsDao.selectByPrimaryKey(31);
+		News i=newsDao.selectByPrimaryKey(15);
 		if(i.getAuthor()==null){
 			fail("select failed");
 		}
@@ -74,7 +78,7 @@ public class NewsMapperTest {
 		if(list.size()!=5){
 			fail("selectNewsIndex failed");
 		}
-		
+		//for
 		
 		
 	

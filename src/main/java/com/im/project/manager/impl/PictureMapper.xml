@@ -9,31 +9,33 @@
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		pro_id, link, date,type
+		pic_id,link,date,type
 	</sql>
 	
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from user
+		from picture
 		where pic_id = #{id,jdbcType=INTEGER}
 	</select>
 
-	<insert id="deleteByPrimaryKey" parameterType="com.im.project.model.Picture">
-		insert into
-		 user (pic_id, link,date,type)
-		values (#{id,jdbcType=INTEGER}, #{link,jdbcType=VARCHAR},
-		#{date,jdbcType=VARCHAR},#(type,jdbcType=VARCHAR))
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from picture where pic_id=#{id ,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.im.project.model.Picture">
+		insert into picture (link,date,type)
+		values (#{link,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR},#{type,jdbcType=INTEGER})
 	</insert>
 	
 	<update id="updateByPrimaryKey" parameterType="com.im.project.model.Picture">
-		update user
-		set
-		pic_id = #{id,jdbcType=INTEGER},
-		link=#{link,jdbcType=VARCHAR},
-		date=#{date,jdbcType=VARCHAR},
-		type= #{type,jdbcType=INTEGER}
+		update picture
+		<set>
+		<if test="id!=null">pic_id = #{id,jdbcType=INTEGER},</if>
+		<if test="link!=null">link=#{link,jdbcType=VARCHAR},</if>
+		<if test="date!=null">date=#{date,jdbcType=VARCHAR},</if>
+		<if test="type!=null">type= #{type,jdbcType=INTEGER}</if>
+		</set>
 		where
 		pic_id = #{id,jdbcType=INTEGER}
 	</update>
@@ -53,9 +55,7 @@
 	</select>
 	
 	<select id="listPic" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from picture
+		select link from picture
 		where type=5 limit 3
 		
 	</select>

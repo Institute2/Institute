@@ -17,26 +17,31 @@
     from department
     where de_id = #{id,jdbcType=INTEGER}
   </select>
+  
   <select id="selectAll" resultMap="BaseResultMap" >
   select
   <include refid="Base_Column_List" />
   from department
   </select>
+  
   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
    <include refid="Base_Column_List" />
    from department order by de_id desc
    limit  #{pageNow} ,#{pageSize}
   </select>
+  
   <insert id="insert" parameterType="com.im.project.model.Department" >
     insert into department(de_id,name,picture,url)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
     #{url,jdbcType=VARCHAR})
   </insert>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from department
     where de_id = #{id,jdbcType=INTEGER}
   </delete>
+  
   <update id="updateByPrimaryKey" parameterType="com.im.project.model.Department" >
     update department
     <set >

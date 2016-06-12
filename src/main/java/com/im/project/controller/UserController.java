@@ -1,6 +1,5 @@
 package com.im.project.controller;
 
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,23 +21,22 @@ import com.im.project.utils.JSONUtils;
 public class UserController {
 	@Resource
 	private UserService userService;
-	 @RequestMapping("/register.do")
-    public void Register(User user,HttpServletRequest request,HttpServletResponse response) throws ParseException{
+	@RequestMapping("/register.do")
+    public void Register(User user,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 System.out.println(user.getUserName());
-		 int result=userService.save(user);
-		  if(result!=0){
+		 boolean result=userService.addUser(user);
+		  if(result){
 			  map.put("status", ReturnStatus.SUCCSS);
-			  map.put("msg","�ɹ�");
+			  map.put("msg","成功");
 		      map.put("data", null);
 		  }
 		  else{
 			map.put("status",ReturnStatus.ERROR);
-			map.put("msg","����ʧ��");
+			map.put("msg","失败");
 			map.put("data", null);
 		  }
 	   JSONUtils.toJSON(map, response);
-	 
-		 
+
 	 }
 }

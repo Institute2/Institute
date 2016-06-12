@@ -32,16 +32,18 @@
 	<!-- 配置视图解析器 将视图逻辑名解析为/*.jsp -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/control/"></property>
-		<property name="suffix" value=".jsp"/>
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+
 	</bean>
-	<!--  配置文件上传-->
+	
+	<!-- 配置文件上传-->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
    		<property name="defaultEncoding" value="utf-8"></property> 
    		<property name="maxUploadSize" value="10485760000"></property>
    		<property name="maxInMemorySize" value="40960"></property>
-   		
    </bean>
+
    <!-- <mvc:annotation-driven/>  
      拦截器  
       <mvc:interceptors>    
@@ -53,4 +55,11 @@
            <bean class="com.im.project.utils.GeneralInterceptor"></bean>    
         </mvc:interceptor>    
     </mvc:interceptors>     -->
+
+
+   
+   <!-- 配置全局的异常处理器 -->
+   <bean class="com.im.project.exception.CustomExceptionResolver"></bean>
+   
 </beans>
+

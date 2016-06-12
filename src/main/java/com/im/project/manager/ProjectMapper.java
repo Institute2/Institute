@@ -10,23 +10,26 @@ import com.im.project.model.Project;
 
 @Repository("projectDao")
 public interface ProjectMapper extends BaseDao<Project, Integer> {
+	
 	/**
 	 * 分不同类型查询项目
-	 * @param projectMap 封装PageSize,pageId
-	 * @param type
+	 * @param type 区分已完成项目和未完成项目
 	 * @return
 	 */
-	public List<Project> findAllByType( Map<String,Object> projectMap,@Param("type")Integer type);
+	public List<Project> findAllByType(Integer type);
+	
 	/**
 	 * 分页查找未完成的研究成果
-	 * @param projectMap 
+	 * @param pageMap 
 	 * @return 结果集
 	 */
-	public List<Project> findAllDoing( Map<String,Object> projectMap);
+	public List<Project> findAllDoing( Map<String, Object> pageMap);
+	
 	/**
 	 * 分页查找已完成的项目
 	 * @param projectMap
 	 * @return 结果集
 	 */
 	public List<Project> findAllCompleted( Map<String,Object> projectMap);
+	
 }

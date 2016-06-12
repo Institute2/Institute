@@ -9,12 +9,14 @@
   <sql id="Base_Column_List" >
     user_id, userName, password
   </sql>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user
     where user_id = #{id,jdbcType=INTEGER}
   </select>
+  
   <insert id="insert" parameterType="com.im.project.model.User" >
     insert into user (user_id,userName,password) values (#{id,jdbcType=INTEGER},#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>

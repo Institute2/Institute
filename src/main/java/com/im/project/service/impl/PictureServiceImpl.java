@@ -1,6 +1,7 @@
 
 package com.im.project.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,72 +13,69 @@ import com.im.project.manager.PictureMapper;
 import com.im.project.model.Picture;
 import com.im.project.service.PictureService;
 
-
 @Service("pictureService")
 public class PictureServiceImpl implements PictureService {
-	
 	@Resource
 	private PictureMapper pictureDao;
-	public boolean addPicture(Picture pic) {
+
+	public boolean addPicture(Picture pic) throws Exception {
 		// TODO Auto-generated method stub
-		boolean boo=false;
-		if(pic!=null){
-			pictureDao.insert(pic);
-			boo=true;
+		boolean boo = false;
+		if (pic != null) {
+			int i = pictureDao.insert(pic);
+			if (i == 1) {
+				boo = true;
+			}
 		}
 		return boo;
 	}
 
-	public Picture findPicture(Integer id) {
+	public Picture findPicture(Integer id) throws Exception {
 		// TODO Auto-generated method stub
-		Picture pic=null;
-		if(id>0&&id<Integer.MAX_VALUE){
-			pic=pictureDao.selectByPrimaryKey(id);
+		Picture pic = new Picture();
+		if (id > 0 && id < Integer.MAX_VALUE) {
+			pic = pictureDao.selectByPrimaryKey(id);
 		}
 		return pic;
 	}
 
-	public boolean delPicture(Integer id) {
+	public boolean delPicture(Integer id) throws Exception {
 		// TODO Auto-generated method stub
-		boolean boo=false;
-		if(id>0&&id<Integer.MAX_VALUE){
-			pictureDao.deleteByPrimaryKey(id);
-			boo=true;
+		boolean boo = false;
+		if (id > 0 && id < Integer.MAX_VALUE) {
+			int i = pictureDao.deleteByPrimaryKey(id);
+			if (i == 1) {
+				boo = true;
+			}
 		}
 		return boo;
 	}
 
-	public boolean modifyPicture(Picture pic) {
+	public boolean modifyPicture(Picture pic) throws Exception {
 		// TODO Auto-generated method stub
-		boolean boo=false;
-		if(pic!=null){
-			pictureDao.updateByPrimaryKey(pic);
-			boo=true;
+		boolean boo = false;
+		if (pic != null) {
+			int i = pictureDao.updateByPrimaryKey(pic);
+			if (i == 1) {
+				boo = true;
+			}
 		}
 		return boo;
 	}
 
-	public List<String> loadBigPic() {
+	public List<String> loadBigPic() throws Exception {
 		// TODO Auto-generated method stub
-		List<String> picList=pictureDao.listPic();
+		List<String> picList = new ArrayList<String>();
+		picList = pictureDao.listPic();
 		return picList;
 	}
 
-	public List<Picture> findPicByPage(Map<String, Object> picMap) {
+	public List<Picture> findPicByPage(Map<String, Object> picMap) throws Exception {
 		// TODO Auto-generated method stub
-		List<Picture> picList =null;
-		if(picMap!=null){
-			picList=pictureDao.selectByType(picMap);
+		List<Picture> picList = new ArrayList<Picture>();
+		if (picMap != null) {
+			picList = pictureDao.findAll(picMap);
 		}
 		return picList;
-	}
-	public boolean addPicture1(Picture pic) {
-		// TODO Auto-generated method stub
-		boolean boo=false;
-		if(pic!=null){
-			pictureDao.insert(pic);
-			boo=true;
-		}
-		return boo;
 	}
 }

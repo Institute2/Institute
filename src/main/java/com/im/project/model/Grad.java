@@ -10,6 +10,7 @@ public class Grad {
 	private String zhiwu;
 	private String whereabout;
 	private Picture picture;
+
 	public String getGrade() {
 		return grade;
 	}
@@ -17,7 +18,6 @@ public class Grad {
 	public Integer getId() {
 		return id;
 	}
-
 
 	public String getJianjie() {
 		return jianjie;
@@ -35,7 +35,6 @@ public class Grad {
 		return name;
 	}
 
-	
 	public String getWhereabout() {
 		return whereabout;
 	}
@@ -56,7 +55,6 @@ public class Grad {
 		this.id = id;
 	}
 
-	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -84,5 +82,5 @@ public class Grad {
 	public void setZhiwu(String zhiwu) {
 		this.zhiwu = zhiwu;
 	}
-	
+
 }

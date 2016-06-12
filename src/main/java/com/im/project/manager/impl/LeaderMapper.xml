@@ -10,29 +10,35 @@
     <result column="xibie" property="xibie" jdbcType="VARCHAR" />
     <association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>
+  
   <sql id="Base_Column_List" >
     person_id, name, zhicheng,picture,jianjie,xibie
   </sql>
+  
    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select  
       <include refid="Base_Column_List" />
     from person
     where person_id = #{id,jdbcType=INTEGER}
   </select>
+  
   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
    <include refid="Base_Column_List" />
    from person
   where type=1 order by person_id desc limit  #{pageNow} ,#{pageSize}
   </select>
+  
    <select id="countRecords" resultType="java.lang.Integer">
   select count(*) from person where type=1
  </select>
+ 
   <insert id="insert" parameterType="com.im.project.model.Leader" >
     insert into person ( person_id,name,picture,jianjie,xibie,zhicheng,type)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
     #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhicheng,jdbcType=VARCHAR},1)
   </insert>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from person
     where person_id = #{id,jdbcType=INTEGER}
