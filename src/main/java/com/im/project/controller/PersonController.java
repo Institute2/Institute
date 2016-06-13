@@ -19,55 +19,69 @@ import com.im.project.service.GradService;
 import com.im.project.service.LeaderService;
 import com.im.project.service.MemberService;
 import com.im.project.utils.Page;
+import static com.im.project.utils.ResultUtils.toResultMap;
 
 @Controller("personController")
 @RequestMapping("/person")
 public class PersonController {
-	@Resource
-	private  MemberService memberService;
+
+
+
 	
 	
 	@Resource
 	private LeaderService leaderService;
-	
-	@Resource
-	private GradService gradService;
-	@RequestMapping("listPerson.do")
-	public Map<String,Object>  listPerson(Page page,int type ,HttpServletRequest request,HttpServletResponse response) throws Exception{
-
+	@RequestMapping(value="/listLeader.do")
+	public Map<String,Object> listLeader(Page page,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		Map<String,Object> dataMap =new HashMap<String,Object>();
 		Map<String,Object> pageMap =new HashMap<String,Object>();
+		int pageSum=-1;
 		pageMap.put("pageNow", page.getPageNow());
 		pageMap.put("pageSize", page.getPageSize());
-		int pageSum=-1;
-		if(type==1){
-			if(pageSum==-1){
-				pageSum=leaderService.findrecords()/page.getPageSize()+1;
-			}
-			List<Leader> personList=new ArrayList<Leader>();
-			personList = leaderService.findLeaderByPage(pageMap);
-			dataMap.put("personlist", personList);
-			dataMap.put("pageSum", pageSum);
-			 
-		}else if(type==2){
-			if(pageSum==-1){
-				pageSum=leaderService.findrecords()/page.getPageSize()+1;
-			}
-			List<Member> personList=new ArrayList<Member>();
-			personList = memberService.findMemberByPage(pageMap);
-			dataMap.put("personlist", personList);
-			dataMap.put("pageSum", pageSum);
-		}else if(type==3){
-			if(pageSum==-1){
-				pageSum=leaderService.findrecords()/page.getPageSize()+1;
-			}
-			List<Grad> personList=new ArrayList<Grad>();
-			personList = gradService.findGradByPage(pageMap);
-			dataMap.put("personlist", personList);
-			dataMap.put("pageSum", pageSum);
+		if(pageSum==-1){
+			pageSum=leaderService.findrecords()/page.getPageSize()+1;
 		}
-		return dataMap;
+		List<Leader> personList=new ArrayList<Leader>();
+		personList=leaderService.findLeaderByPage(pageMap);
+		dataMap.put("person", personList);
+		dataMap.put("pageSum", pageSum);
+		return toResultMap(dataMap);
 	}
-	
+	@Resource
+	private GradService gradService;
+	@RequestMapping(value="/listGrads.do")
+	public Map<String,Object> listGrad(Page page,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		Map<String,Object> dataMap =new HashMap<String,Object>();
+		Map<String,Object> pageMap =new HashMap<String,Object>();
+		int pageSum=-1;
+		pageMap.put("pageNow", page.getPageNow());
+		pageMap.put("pageSize", page.getPageSize());
+		if(pageSum==-1){
+			pageSum=gradService.findRecords()/page.getPageSize()+1;
+		}
+		List<Grad> personList=new ArrayList<Grad>();
+		personList=gradService.findGradByPage(pageMap);
+		dataMap.put("person", personList);
+		dataMap.put("pageSum", pageSum);
+		return toResultMap(dataMap);
+	}
+	@Resource
+	private  MemberService memberService;
+	@RequestMapping(value="/listMembers.do")
+	public Map<String,Object> listMember(Page page,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		Map<String,Object> dataMap =new HashMap<String,Object>();
+		Map<String,Object> pageMap =new HashMap<String,Object>();
+		int pageSum=-1;
+		pageMap.put("pageNow", page.getPageNow());
+		pageMap.put("pageSize", page.getPageSize());
+		if(pageSum==-1){
+			pageSum=memberService.findRecords()/page.getPageSize()+1;
+		}
+		List<Member> personList=new ArrayList<Member>();
+		personList=memberService.findMemberByPage(pageMap);
+		dataMap.put("person", personList);
+		dataMap.put("pageSum", pageSum);
+		return toResultMap(dataMap);
+	}
 	
 }

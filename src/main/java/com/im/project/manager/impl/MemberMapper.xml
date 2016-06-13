@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="com.im.project.model.Member" >
     <id column="id" property="person_id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="pic_id" property="pictureId" jdbcType="INTEGER" />
+    <result column="picture" property="pictureId" jdbcType="INTEGER" />
     <result column="jianjie" property="jianjie" />
     <result column="xibie" property="xibie" jdbcType="VARCHAR" />
     <result column="zhiwu" property="zhiwu" jdbcType="VARCHAR" />
-   <association property="picture" column="pic_id" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
+   <association property="picture" column="picture" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>
   <sql id="Base_Column_List" >
     person_id, name, zhiwu,picture,jianjie,xibie

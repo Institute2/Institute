@@ -1,4 +1,5 @@
 package com.im.project.controller;
+import static com.im.project.utils.ResultUtils.toResultMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class NewsController {
 	@Resource
 	private NewsService newsService;
 
-	@RequestMapping("/listNews.do")
+	@RequestMapping("/listnews.do")
 	public Map<String, Object> listNews(String identify, Page page, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> dataMap = new HashMap<String, Object>();
@@ -35,17 +36,18 @@ public class NewsController {
 			pageMap.put("pageSize", page.getPageSize());
 			newsList = newsService.findNewsByPage(pageMap);
 		}
-		dataMap.put("newsList", newsList);
-		return dataMap;
+		//String 
+		dataMap.put("newslst", newsList);
+		return toResultMap(dataMap);
 	}
 
-	@RequestMapping("/checkNews.do")
+	@RequestMapping("/checknews.do")
 	public Map<String, Object> checkNews(int id) throws Exception {
 
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		News news = newsService.findNews(id);
 		dataMap.put("news", news);
-		return dataMap;
+		return toResultMap(dataMap);
 	}
 
 }

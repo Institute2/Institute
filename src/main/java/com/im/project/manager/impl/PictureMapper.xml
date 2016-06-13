@@ -23,6 +23,7 @@
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from picture where pic_id=#{id ,jdbcType=INTEGER}
 	</delete>
+	
 	<insert id="insert" parameterType="com.im.project.model.Picture">
 		insert into picture (link,date,type)
 		values (#{link,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR},#{type,jdbcType=INTEGER})
@@ -43,7 +44,8 @@
 	<select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select
 		<include refid="Base_Column_List" />
-		from picture limit #{pageNow} ,#{pageSize}
+		from picture order by pic_id desc 
+		limit #{pageNow} ,#{pageSize}
 	</select>
 
 	<select id="selectByType" resultMap="BaseResultMap"
@@ -51,12 +53,13 @@
 		select
 		<include refid="Base_Column_List" />
 		from picture
-		where type=#{type} limit #{pageNow} ,#{pageSize}
+		where type=#{type} order by pic_id desc
+		limit #{pageNow} ,#{pageSize}
 	</select>
 	
 	<select id="listPic" resultMap="BaseResultMap">
 		select link from picture
-		where type=5 limit 3
+		where type=5 order by pic_id desc limit 3
 		
 	</select>
 </mapper>
