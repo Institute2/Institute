@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.im.project.model.Article;
 import com.im.project.service.ArticleService;
 import com.im.project.utils.Page;
-import static com.im.project.utils.ResultUtils.*;
 
 @Controller("articleController")
 @RequestMapping("/paper")
@@ -27,16 +26,16 @@ public class ArticleController {
 			HttpServletRequest request,HttpServletResponse response) throws Exception{
 		List<Article> articleList=new ArrayList<Article>();
 		Map<String,Object> dataMap =new HashMap<String,Object>();
-		if(identify!=null&&identify=="index"){
+		if(identify.equals("index")){
 			articleList=articleService.findArticleIndex();
-		}else if(identify=="article"){
+		}else if(identify.equals("article")){
 			Map<String ,Object> pageMap=new HashMap<String,Object>();
 			pageMap.put("pageNow",page.getPageNow());
 			pageMap.put("pageSize", page.getPageSize());
 			articleList=articleService.findArticle(pageMap);
 		}
 		dataMap.put("paperlist",articleList );
-		return toResultMap(dataMap);
+		return dataMap;
 	}
 	
 	@RequestMapping(value="/readpaper.do")
@@ -47,7 +46,7 @@ public class ArticleController {
 			art=articleService.findArticle(id);
 			dataMap.put("paper", art);
 		}
-		return toResultMap(dataMap);
+		return dataMap;
 	}
 	
 	

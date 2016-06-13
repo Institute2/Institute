@@ -1,5 +1,4 @@
 package com.im.project.controller;
-import static com.im.project.utils.ResultUtils.toResultMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,26 +27,33 @@ public class NewsController {
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		List<News> newsList = new ArrayList<News>();
-		if (identify != null && identify == "index") {
+		if (identify.equals("index")) {
 			newsList = newsService.findNewsIndex();
-		} else if (identify == "news") {
+			//System.out.println("___________________");
+		} else  if(identify.equals("news")) {
 			Map<String, Object> pageMap = new HashMap<String, Object>();
 			pageMap.put("pageNow", page.getPageNow());
 			pageMap.put("pageSize", page.getPageSize());
+			//System.out.println(pageMap.toString());
 			newsList = newsService.findNewsByPage(pageMap);
+			//System.out.println("++++++++++++++++++++++");
+
 		}
-		//String 
 		dataMap.put("newslst", newsList);
-		return toResultMap(dataMap);
+		
+
+		System.out.println(dataMap.toString());
+		return dataMap;
 	}
 
 	@RequestMapping("/checknews.do")
-	public Map<String, Object> checkNews(int id) throws Exception {
+	public Map<String, Object> checkNews(int id,HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		News news = newsService.findNews(id);
 		dataMap.put("news", news);
-		return toResultMap(dataMap);
+		return dataMap;
 	}
 
 }
