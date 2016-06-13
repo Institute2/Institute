@@ -20,13 +20,7 @@
                                     <tbody>
                                         <tr class="gradeA">
                                             <td>似的撒旦</td>
-                                            <td> <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select></td>
+                                            <td> </td>
                                             <td>的撒大苏打</td>
                                             <td><a href="updatePapers.jsp" ><button type="button" class="btn btn-outline btn-warning">修改</button></a></td>
                                            	<td><button type="button" class="btn btn-outline btn-danger">删除</button></td>

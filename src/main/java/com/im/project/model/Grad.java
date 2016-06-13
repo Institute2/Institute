@@ -10,7 +10,15 @@ public class Grad {
 	private String zhiwu;
 	private String whereabout;
 	private Picture picture;
-
+	public Grad CompareTo(Grad g){
+		this.name=this.name!=g.name?this.name:null;
+		this.xibie=this.xibie!=g.xibie?this.xibie:null;
+		this.jianjie=this.jianjie!=g.jianjie?this.jianjie:null;
+		this.grade=this.grade!=g.grade?this.grade:null;
+		this.zhiwu=this.zhiwu!=g.zhiwu?this.zhiwu:null;	
+		this.whereabout=this.whereabout!=g.whereabout?this.whereabout:null;
+		return this;
+	} 
 	public String getGrade() {
 		return grade;
 	}

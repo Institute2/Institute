@@ -13,6 +13,7 @@
                                             <th>新闻标题</th>
                                             <th>发布人</th>
                                             <th>发布时间</th>
+                                            <th>图片</th>
                                             <th>修改</th>
                                            	<th>删除</th>
                                         </tr>
@@ -20,14 +21,9 @@
                                     <tbody>
                                         <tr class="gradeA">
                                             <td>请问请问</td>
-                                            <td> <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select></td>
+                                            <td> </td>
                                             <td>请问请问</td>
+                                            <td><a href=""><button type="button" class="btn btn-outline btn-warning">修改图片</button></a></td>
                                             <td> <button type="button" class="btn btn-outline btn-warning">修改</button></td>
                                            	<td><button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>

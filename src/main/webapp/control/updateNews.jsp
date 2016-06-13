@@ -4,13 +4,11 @@
   <body>
    <div class="dataTable_wrapper">
                                 <table class="table table-striped table-bordered table-hover" >
-                                    
                                     <tbody>
                                         <tr class="gradeA">
                                             <td>新闻标题：</td>
                                             <td><input ></td>
                                         </tr>
-                                       
                                          <tr class="gradeA">
                                             <td>新闻发布者：</td>
                                             <td> <select >

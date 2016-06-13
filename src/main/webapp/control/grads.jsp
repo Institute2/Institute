@@ -1,9 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <body>
@@ -25,19 +20,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
-                                            <td><input class="form-control"></td>
-                                            <td><input class="form-control"></td>
-                                             <td><input class="form-control"></td>
-                                            <td><textarea class="form-control" rows="2"></textarea></td>
-                                           	<td> <button type="button" class="btn btn-outline btn-success">添加</button> </td>
-                                            <td> <button type="button" class="btn btn-outline btn-warning">保存</button>
+                                            <td></td>
+                                            <td></td>
+                                             <td></td>
+                                            <td></td>
+                                           	<td><a href="updatePicture.jsp?url=das&id=llll">
+                                            <button type="button" class="btn btn-outline btn-warning">修改图片 </button></a></td>
+                                            <td><a href="/institute/control/updateGrads.do&id=llll">
+                                            <button type="button" class="btn btn-outline btn-warning">修改 </button></a>
                                              <button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                             </div>
                             <div class="dataTable_wrapper">
+                            <form action="">
                                 <table class="table table-striped table-bordered table-hover" >
                                     <thead>
                                         <tr>
@@ -56,11 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <td><input class="form-control"></td>
                                             <td><textarea class="form-control" rows="2"></textarea></td>
                                            	<td> <input type="file"></td>
-                                            <td> <button type="button" class="btn btn-outline btn-success">添加</button> </td>
+                                            <td> <input type="submit" class="btn btn-outline btn-success" value="添加"/ > </td>
                                         </tr>
                                         
                                     </tbody>
                                 </table>
+                                </form>
                             </div>
         </div>
            

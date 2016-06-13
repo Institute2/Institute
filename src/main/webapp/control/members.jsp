@@ -27,13 +27,14 @@
                                              <td><input class="form-control"></td>
                                             <td><textarea class="form-control" rows="2"></textarea></td>
                                            	<td> <button type="button" class="btn btn-outline btn-warning">修改图片</button></td>
-                                            <td> <button type="button" class="btn btn-outline btn-warning">保存</button>
+                                            <td> <button type="button" class="btn btn-outline btn-warning">修改</button>
                                              <button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
            	<div class="dataTable_wrapper">
+           	<form action="">
                                 <table class="table table-striped table-bordered table-hover" >
                                     <thead>
                                         <tr>
@@ -52,11 +53,11 @@
                                             <td><input class="form-control"></td>
                                             <td><textarea class="form-control" rows="2"></textarea></td>
                                            	<td> <input type="file"></td>
-                                             <td> <button type="button" class="btn btn-outline btn-success">添加</button> </td>
+                                            <td> <input type="submit" class="btn btn-outline btn-success" value="添加" /></td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
+                                </form>
                             </div>
         </div>
         <!-- /#page-wrapper -->

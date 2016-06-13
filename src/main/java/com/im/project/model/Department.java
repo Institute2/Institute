@@ -6,6 +6,11 @@ public class Department {
 	private Integer pictureId;
 	private String url;
 	private Picture picture;
+	public Department CompareTo(Department d){
+		this.name=this.name!=d.name?this.name:null;
+		this.url=this.url!=d.url?this.url:null;
+		return this;
+	}
 	public Integer getPictureId() {
 		return pictureId;
 	}
