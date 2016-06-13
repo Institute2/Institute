@@ -14,6 +14,13 @@ public class Member {
 	private String zhiwu;
 
 	private Picture picture;
+	public Member CompareTo(Member m){
+		this.name=this.name!=m.name?this.name:null;
+		this.xibie=this.xibie!=m.xibie?this.xibie:null;
+		this.jianjie=this.jianjie!=m.jianjie?this.jianjie:null;
+		this.zhiwu=this.zhiwu!=m.zhiwu?this.zhiwu:null;	
+		return this;
+	}
 	public Integer getPictureId() {
 		return pictureId;
 	}

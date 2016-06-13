@@ -10,6 +10,14 @@ public class Article {
 	private String author;
 	private String keyword;
     private String summary;
+    public Article CompareTo(Article a){
+    	this.author=this.author!=a.author?this.author:null;
+    	this.content=this.content!=a.content?this.content:null;
+    	this.keyword=this.keyword!=a.keyword?this.keyword:null;
+    	this.summary=this.summary!=a.summary?this.summary:null;
+    	this.title=this.title!=a.title?this.title:null;
+    	return this;
+    }
 	public String getAuthor() {
 		return author;
 	}

@@ -8,6 +8,13 @@ public class Leader {
 	private String jianjie;
 	private String xibie;
 	private Picture picture;
+	public Leader CompareTo(Leader l){
+		this.name=this.name!=l.name?this.name:null;
+		this.xibie=this.xibie!=l.xibie?this.xibie:null;
+		this.jianjie=this.jianjie!=l.jianjie?this.jianjie:null;
+		this.zhicheng=this.zhicheng!=l.zhicheng?this.zhicheng:null;
+		return this;
+	}
 	public Integer getId() {
 		return id;
 	}

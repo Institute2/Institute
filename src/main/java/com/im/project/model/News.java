@@ -10,6 +10,14 @@ public class News {
     private String releaser;
     private String summary;
     private Picture picture;
+    public News CompareTo(News n){
+    	this.author=this.author!=n.author?this.author:null;
+    	this.content=this.content!=n.content?this.content:null;
+    	this.releaser=this.releaser!=n.releaser?this.releaser:null;
+    	this.summary=this.summary!=n.summary?this.summary:null;
+    	this.title=this.title!=n.title?this.title:null;
+    	return this;
+    }
 	public String getAuthor() {
 		return author;
 	}
