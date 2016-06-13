@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.im.project.model.Article;
 import com.im.project.service.ArticleService;
 import com.im.project.utils.Page;
+import static com.im.project.utils.ResultUtils.*;
 
 @Controller("articleController")
-@RequestMapping("/article")
+@RequestMapping("/paper")
 public class ArticleController {
 	@Resource
 	private ArticleService articleService;
-	@RequestMapping(value="/listArticle.do")
+	@RequestMapping(value="/listPaper.do")
 	public Map<String, Object> listArticleIndex(Page page,String identify,
 			HttpServletRequest request,HttpServletResponse response) throws Exception{
 		List<Article> articleList=new ArrayList<Article>();
@@ -34,17 +35,19 @@ public class ArticleController {
 			pageMap.put("pageSize", page.getPageSize());
 			articleList=articleService.findArticle(pageMap);
 		}
-		dataMap.put("articleList",articleList );
-		return dataMap;
+		dataMap.put("paperlist",articleList );
+		return toResultMap(dataMap);
 	}
 	
-	@RequestMapping(value="/checkArticle.do")
-	public Article checkArticle(int id,HttpServletRequest request,HttpServletResponse response) throws Exception{
+	@RequestMapping(value="/readpaper.do")
+	public Map<String,Object> checkArticle(int id,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		Article art=null;
+		Map<String,Object> dataMap =new HashMap<String,Object>();
 		if(id>0&&id<Integer.MAX_VALUE){
 			art=articleService.findArticle(id);
+			dataMap.put("paper", art);
 		}
-		return art;
+		return toResultMap(dataMap);
 	}
 	
 	

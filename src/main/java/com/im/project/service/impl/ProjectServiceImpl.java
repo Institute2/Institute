@@ -73,7 +73,7 @@ public class ProjectServiceImpl implements ProjectService {
 		doingProList = projectDao.findAllByType(1);
 		completedProList = projectDao.findAllByType(2);
 		twoTypeList.put("completedachieve", completedProList);
-		twoTypeList.put("doingdachieve", doingProList);
+		twoTypeList.put("doingachieve", doingProList);
 		return twoTypeList;
 
 	}

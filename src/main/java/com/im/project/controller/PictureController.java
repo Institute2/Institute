@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.im.project.service.PictureService;
+import static com.im.project.utils.ResultUtils.toResultMap;
 
 @Controller("picture")
 @RequestMapping("/picture")
@@ -26,7 +27,7 @@ public class PictureController {
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		List<String> picList = new ArrayList<String>();
 		picList=pictureService.loadBigPic();
-		dataMap.put("bigPicList", picList);
-		return dataMap;
+		dataMap.put("bigpiclist", picList);
+		return toResultMap(dataMap);
 	}
 }

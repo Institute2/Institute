@@ -23,16 +23,18 @@
 	<select id="findAllCompleted" resultMap="BaseResultMap"
 		parameterType="java.util.Map">
 		select <include refid="Base_Column_List" />
-		from project where type = 2  limit #{pageNow} ,#{pageSize}
+		from project where type = 2 order by pro_id desc
+		 limit #{pageNow} ,#{pageSize}
 	</select>
 	<select id="findAllDoing" resultMap="BaseResultMap"
 		parameterType="java.util.Map">
 		select <include refid="Base_Column_List" />
-		from project where type = 1  limit #{pageNow} ,#{pageSize}
+		from project where type = 1  order by pro_id desc 
+		limit #{pageNow} ,#{pageSize}
 	</select>
 	<select id="findAllByType" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" />
-		from project where type =#{type} 
+		from project  where type =#{type} order by pro_id desc
  		limit 3
 	</select>
 	
