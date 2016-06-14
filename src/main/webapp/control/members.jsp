@@ -22,12 +22,12 @@
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
-                                            <td><input class="form-control"></td>
-                                            <td><input class="form-control"></td>
-                                             <td><input class="form-control"></td>
-                                            <td><textarea class="form-control" rows="2"></textarea></td>
+                                            <td><input name="name" class="form-control"></td>
+                                            <td><input name="zhiwu" class="form-control"></td>
+                                            <td><input name="xibie"  class="form-control"></td>
+                                            <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
                                            	<td> <button type="button" class="btn btn-outline btn-warning">修改图片</button></td>
-                                            <td> <button type="button" class="btn btn-outline btn-warning">修改</button>
+                                            <td> <button type="button" class="btn btn-outline btn-warning modify">修改</button>
                                              <button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>
                                     </tbody>
@@ -48,10 +48,10 @@
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
-                                            <td><input class="form-control"></td>
-                                            <td><input class="form-control"></td>
-                                            <td><input class="form-control"></td>
-                                            <td><textarea class="form-control" rows="2"></textarea></td>
+                                            <td><input name="name" class="form-control"></td>
+                                            <td><input name="zhiwu" class="form-control"></td>
+                                            <td><input name="xibie"  class="form-control"></td>
+                                            <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
                                            	<td> <input type="file"></td>
                                             <td> <input type="submit" class="btn btn-outline btn-success" value="添加" /></td>
                                         </tr>

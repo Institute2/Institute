@@ -18,7 +18,12 @@
 		#{date}, #{author}, #{keyword},
 		#{summary},2)
 	</insert>
-
+	<select id="selectAll" resultMap="baseResultMap">
+	select
+		articleNews_id,title,author,date
+		from article_news
+		where type=2 order by articleNews_id desc
+	</select>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select

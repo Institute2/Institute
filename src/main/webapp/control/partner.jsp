@@ -20,10 +20,10 @@
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
-                                            <td><input class="form-control"></td>
-                                            <td><input class="form-control"></td>
+                                            <td><input name="name"class="form-control"></td>
+                                            <td><input name="url" class="form-control"></td>
                                            	<td> <button type="button" class="btn btn-outline btn-warning">修改图片</button> </td>
-                                            <td> <button type="button" class="btn btn-outline btn-warning">修改</button></td>
+                                            <td> <button type="button" class="btn btn-outline btn-warning modify">修改</button></td>
                                            	<td><button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>
                                         

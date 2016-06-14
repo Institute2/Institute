@@ -10,6 +10,18 @@ import com.im.project.model.Project;
 
 @Repository("projectDao")
 public interface ProjectMapper extends BaseDao<Project, Integer> {
+	/**
+	 * 查询所有的已完成项目
+	 * 
+	 * @return
+	 */
+	public List<Project> selectAllCompleted();
+	
+	/**
+	 * 查询所有在研项目
+	 * @return
+	 */
+	public List<Project> selectAllDoing();
 	
 	/**
 	 * 分不同类型查询项目

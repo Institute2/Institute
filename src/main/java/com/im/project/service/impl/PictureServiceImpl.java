@@ -66,7 +66,7 @@ public class PictureServiceImpl implements PictureService {
 	public List<String> loadBigPic() throws Exception {
 		// TODO Auto-generated method stub
 		List<String> picList = new ArrayList<String>();
-		picList = pictureDao.listPic();
+		picList = pictureDao.getLogosUrl();
 		return picList;
 	}
 

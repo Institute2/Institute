@@ -19,7 +19,7 @@
 		from picture
 		where pic_id = #{id,jdbcType=INTEGER}
 	</select>
-
+	
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from picture where pic_id=#{id ,jdbcType=INTEGER}
 	</delete>
@@ -40,26 +40,20 @@
 		where
 		pic_id = #{id,jdbcType=INTEGER}
 	</update>
-
-	<select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
-		select
-		<include refid="Base_Column_List" />
-		from picture order by pic_id desc 
-		limit #{pageNow} ,#{pageSize}
+	<select id="getLogosUrl" resultType="java.lang.String">
+	select url from picture where type=1
 	</select>
-
-	<select id="selectByType" resultMap="BaseResultMap"
-		parameterType="java.util.Map">
-		select
-		<include refid="Base_Column_List" />
-		from picture
-		where type=#{type} order by pic_id desc
-		limit #{pageNow} ,#{pageSize}
+	<select id="getLogos" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List" />
+	from picture where type=1
 	</select>
-	
-	<select id="listPic" resultMap="BaseResultMap">
-		select link from picture
-		where type=5 order by pic_id desc limit 3
-		
+	<select id="getPapers" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List" />
+	 from picture where type=5
+	</select>
+	<select id="getPapersUrl" resultType="java.lang.String">
+	select url from picture where type=5
 	</select>
 </mapper>

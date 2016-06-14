@@ -2,6 +2,7 @@ package com.im.project.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +14,7 @@ public class PicUploadInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// TODO Auto-generated method stub
+		
 		MultipartHttpServletRequest mhsq = (MultipartHttpServletRequest) request;
 		MultipartFile multipartFile = mhsq.getFile("imageUrl");
 		if(multipartFile==null){
@@ -29,6 +30,7 @@ public class PicUploadInterceptor extends HandlerInterceptorAdapter {
 			throw new CustomException("图片类型错误");
 		}
 		return boo;
+		
 	}
 
 	@Override

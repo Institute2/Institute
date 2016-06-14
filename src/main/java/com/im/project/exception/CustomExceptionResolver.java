@@ -20,7 +20,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 		}   
 		String message = customException.getMessage();
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("message", message);
+		modelAndView.addObject("msg", message);
 		modelAndView.setViewName("error");
 		return modelAndView;
 	}

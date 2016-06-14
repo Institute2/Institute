@@ -7,11 +7,11 @@
                                     <tbody>
                                         <tr class="gradeA">
                                             <td>新闻标题：</td>
-                                            <td><input ></td>
+                                            <td><input name="title"></td>
                                         </tr>
                                          <tr class="gradeA">
                                             <td>新闻发布者：</td>
-                                            <td> <select >
+                                            <td> <select>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -21,16 +21,16 @@
                                             </td>
                                         </tr>
                                          <tr class="gradeA">
-                                            <td>新闻图片预览：</td>
-                                            <td></td>
-                                        </tr>
-                                          <tr class="gradeA">
-                                            <td>新闻图片重传：</td>
-                                            <td><input type="file"></td>
+                                            <td>新闻摘要：</td>
+                                            <td><textarea name="summary" class="form-control" rows="5"></textarea></td>
                                         </tr>
                                          <tr class="gradeA">
-                                            <td>论文内容：</td>
-                                            <td><textarea class="form-control" rows="5"></td>
+                                            <td>新闻内容：</td>
+                                            <td><textarea name="content" class="form-control" rows="5"></textarea></td>
+                                        </tr>
+                                        <tr class="gradeA">
+                                            <td>保存：</td>
+                                            <td> <button type="button" class="btn btn-outline btn-warning modify">修改</button></td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -19,7 +19,19 @@
 		from project
 		where pro_id = #{id,jdbcType=INTEGER}
 	</select>
-
+	
+	<select id="selectAllCompleted" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" />
+		from project  where type =2 order by pro_id desc
+ 		
+	</select>
+	
+	<select id="selectAllDoing" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" />
+		from project  where type =1 order by pro_id desc
+ 		
+	</select>
+	
 	<select id="findAllCompleted" resultMap="BaseResultMap"
 		parameterType="java.util.Map">
 		select <include refid="Base_Column_List" />

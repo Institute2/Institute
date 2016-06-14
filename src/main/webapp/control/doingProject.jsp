@@ -18,18 +18,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <th>项目名称</th>
                                             <th>负责人</th>
                                             <th>项目发布时间</th>
-                                           	<th>删除</th>
-                                           	<th>修改</th>
+                                            <th>验收</th>
+                                           	<th>功能</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
+                                            <td> <input name="title" class="form-control"></td>
+                                            <td> <input name="leader" class="form-control"></td>
                                             <td></td>
-                                            <td></td>
-                                            <td> </td>
-                                            <td><a href="/institute/control/updateDoingProject.do&id=1">  
-                                            <button type="button" class="btn btn-outline btn-warning" >保存</button></a></td>
-                                            <td> <button type="button" class="btn btn-outline btn-danger">删除</button></td>
+                                            <td><button type="button" class="btn btn-outline btn-warning" >验收</button></td>
+                                            <td><button type="button" class="btn btn-outline btn-warning modify" >保存</button>
+                                            <button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>
                                         
                                     </tbody>
@@ -42,23 +42,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <tr>
                                             <th>项目名称</th>
                                             <th>负责人</th>
-                                            <th>项目发布时间</th>
                                            	<th>添加</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
-                                            <td><input class="form-control"></td>
-                                            <td><input class="form-control"></td>
-                                            <td></td>
+                                            <td><input name="title" class="form-control"></td>
+                                            <td><input name="leader" class="form-control"></td>
                                             <td> <input type="submit" class="btn btn-outline btn-success" value="添加" /></td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                                 </form>
                             </div>
-                            
         		</div>
         </div>
   </body>

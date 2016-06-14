@@ -11,20 +11,28 @@
                                     <tbody>
                                         <tr class="gradeA">
                                             <td>论文名称：</td>
-                                            <td><input ></td>
+                                            <td><input name="title"></td>
                                         </tr>
                                          <tr class="gradeA">
                                             <td>论文作者：</td>
-                                            <td><input ></td>
+                                            <td><input name="author"></td>
                                         </tr>
                                         
                                          <tr class="gradeA">
                                             <td>论文关键字：</td>
-                                            <td><input ></td>
+                                            <td><input name="keyword"></td>
+                                        </tr>
+                                         <tr class="gradeA">
+                                            <td>摘要：</td>
+                                            <td><textarea name="summary" class="form-control" rows="5">lalalall</textarea></td>
                                         </tr>
                                          <tr class="gradeA">
                                             <td>论文内容：</td>
-                                            <td><textarea  class="form-control" rows="5">lalalall</textarea></td>
+                                            <td><textarea name="content" class="form-control" rows="5">lalalall</textarea></td>
+                                        </tr>
+                                         <tr class="gradeA">
+                                            <td>保存：</td>
+                                            <td> <button type="button" class="btn btn-outline btn-warning modify">修改</button></td>
                                         </tr>
                                     </tbody>
                                 </table>

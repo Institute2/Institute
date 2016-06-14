@@ -4,7 +4,7 @@
  
   <body>
   <script src="js/jquery.js"></script>
-  <script src="js/demo.js"></script>
+  <script src="js/leader.js"></script>
  
     <div id="wrapper">
  		<jsp:include page="menu.jsp"></jsp:include>
@@ -25,26 +25,12 @@
                                     
                                           <tr class="gradeA">
                                             <td><input name="name" class="form-control"></td>
-                                            <td><input nmae="xibie" class="form-control" value="fvdgdf"></td>
+                                            <td><input name="xibie" class="form-control" value="fvdgdf"></td>
                                             <td><input name="zhicheng" class="form-control"></td>
                                             <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
-                                            <td></td>
-                                           	<!--  <td > <button type="button" class="btn btn-outline btn-warning">修改图片</button></td>
-                                            <td><a href="/institute/control/test/test.do?name=llll&xibie=llll&zhichen=llll&jianjie=klklkl"> -->
+                                            <td > <button type="button" class="btn btn-outline btn-warning">修改图片</button></td>
                                             <td> <button type="button" class="btn btn-outline btn-warning modify" >修改</button>
                                             <button type="button" class="btn btn-outline btn-danger">删除</button></td>
-                                        </tr>
-                                          <tr class="gradeA">
-                                            <td><input name="name" class="form-control"></td>
-                                            <td><input nmae="xibie" class="form-control" value="fvdgdf"></td>
-                                            <td><input name="zhicheng" class="form-control"></td>
-                                            <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
-                                            <td></td>
-                                           	<!--  <td > <button type="button" class="btn btn-outline btn-warning">修改图片</button></td>
-                                            <td><a href="/institute/control/test/test.do?name=llll&xibie=llll&zhichen=llll&jianjie=klklkl"> -->
-                                            <td> <button type="button" class="btn btn-outline btn-warning modify" >修改</button>
-                                            <button type="button" class="btn btn-outline btn-danger">删除</button></td>
-                                        </tr>
                                     </tbody>
                                 </table>
                                
@@ -64,12 +50,12 @@
                                     </thead>
                                     <tbody>
                                     <tr class="gradeA">
-                                            <td><input id="name" value="adsa" class="form-control"></td>
-                                            <td><input id="xiebie" class="form-control"></td>
-                                             <td><input id="zhichen" class="form-control"></td>
-                                            <td><textarea id="jianjie" class="form-control" rows="2"></textarea></td>
+                                           <td><input name="name" class="form-control"></td>
+                                            <td><input name="xibie" class="form-control" value="fvdgdf"></td>
+                                            <td><input name="zhicheng" class="form-control"></td>
+                                            <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
                                            	<td> <input type="file"></td>
-                                             <td><input type="submit"  class="btn btn-outline btn-success" value="添加"> </td>
+                                            <td><input type="submit"  class="btn btn-outline btn-success" value="添加"> </td>
                                         </tr>
                                     </tbody>
                                 </table>

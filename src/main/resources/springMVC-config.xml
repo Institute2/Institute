@@ -48,7 +48,7 @@
    </bean>
 
    <!-- 配置全局的异常处理器 -->
-   <bean class="com.im.project.exception.CustomExceptionResolver"></bean> 
+  <!--  <bean class="com.im.project.exception.CustomExceptionResolver"></bean>  -->
    
 	<!-- 拦截response -->
     <bean id="listener" class="com.im.project.utils.Listener"/>
@@ -60,7 +60,13 @@
     </aop:config>
    
 	<!-- 配置拦截器 -->
+	<!-- 多个拦截器,顺序执行 -->    
 	<mvc:interceptors>
+		<mvc:interceptor>
+		  <!-- 如果不配置或/**,将拦截所有的Controller -->  
+			<mvc:mapping path="/**" />
+			<bean class="com.im.project.interceptor.isLoginInterceptor" />
+		</mvc:interceptor> 
 		<mvc:interceptor>
 			<mvc:mapping path="" />
 			<bean class="com.im.project.interceptor.PicUploadInterceptor" />

@@ -21,7 +21,7 @@
                                     <tbody>
                                         <tr class="gradeA">
                                             <td>请问请问</td>
-                                            <td> </td>
+                                            <td></td>
                                             <td>请问请问</td>
                                             <td><a href=""><button type="button" class="btn btn-outline btn-warning">修改图片</button></a></td>
                                             <td> <button type="button" class="btn btn-outline btn-warning">修改</button></td>

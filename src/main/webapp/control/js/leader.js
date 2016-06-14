@@ -13,18 +13,10 @@ $(function(){
 				zhicheng: zhicheng.val()==zhicheng.prop('defaultValue') ? null : zhicheng.val(),
 				jianjie: jianjie.val()==jianjie.prop('defaultValue') ? null : jianjie.val()
 		}
-
-		console.log(xibie.val())
-
 		$.post('test/test.do', readyData, function(res) {
 			console.log(res);
 		});
 	});
-
-
-
-
-
 		/*alert(name+"lalal");
 		alert(name.value);
 		alert(name.defaultValue);

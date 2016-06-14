@@ -29,6 +29,14 @@
 		from article_news
 		where type=1 order by articleNews_id desc limit 0,5
 	</select>
+	<select id="selectAll" resultMap="BaseResultMap" >
+		select 
+		articleNews_id,date,releaser,picture,title
+		from article_news
+		where type=1
+		order by articleNews_id desc 
+	</select>
+	
 	<select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select 
 		articleNews_id,author,date,summary,releaser,picture,title

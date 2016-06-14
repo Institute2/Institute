@@ -10,16 +10,29 @@ import com.im.project.model.Picture;
 @Repository("pictureDao")
 public interface PictureMapper extends BaseDao<Picture, Integer> {
 	/**
-	 * 查询出前三条对应记录
+	 * 查询LOGO的链接
 	 * @return 结果集
 	 */
-	public List<String> listPic();
+	public List<String> getLogosUrl();
 
 	/**
-	 * 分页查找
+	 * 后台查询LOGO图片对象
 	 * 
-	 * @param map 封装type，pageId，pageSize
-	 * @return 结果集
 	 */
-	public List<Picture> selectByType(Map<String, Object> map);
+	public List<Picture> getLogos();
+	
+	
+	/**
+	 * 查询首页四张论文图片链接
+	 * 
+	 */
+	public List<String> getPapersUrl();
+	
+	
+	/**
+	 * 后台查询首页四张图片对象
+	 * 
+	 * 
+	 */
+	public List<Picture> getPapers();
 }

@@ -7,6 +7,7 @@
        <jsp:include page="menu.jsp"></jsp:include> 
         <div id="page-wrapper">
            <div class="dataTable_wrapper">
+           <form action="">
                                 <table class="table table-striped table-bordered table-hover" >
                                     <thead>
                                         <tr>
@@ -21,10 +22,11 @@
                                             <td style="width:100px;height:100px"><img src="5.jpg" style="width:100px;height:100px"/></td>
                                             <td >重传： <input type="file"></td>
                                             <td></td>
-                                            <td> <button type="button" class="btn btn-outline btn-warning">保存</button></td>
+                                            <td> <input type="submit" class="btn btn-outline btn-success" value="保存" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                              </form>
                             </div>
         </div>
     </div>

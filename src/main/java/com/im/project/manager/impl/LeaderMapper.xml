@@ -22,6 +22,13 @@
     where person_id = #{id,jdbcType=INTEGER}
   </select>
   
+   <select id="selectAll" resultMap="BaseResultMap" >
+  select
+   <include refid="Base_Column_List" />
+   from person
+  where type=1 order by person_id desc 
+  </select>
+  
   <select id="findAll" resultMap="BaseResultMap" parameterType="java.util.Map">
   select
    <include refid="Base_Column_List" />
