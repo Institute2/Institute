@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i>首页</a>
                         </li>
                         <li>
-                            <a href="news.jsp"><i class="fa fa-dashboard fa-fw"></i>新闻动态</a>
+                            <a href="/institute/control/news/getNews.do"><i class="fa fa-dashboard fa-fw"></i>新闻动态</a>
                         </li>
                         <li>
                             <a href="papaers.jsp"><i class="fa fa-dashboard fa-fw"></i>论文专著</a>
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i>研究成果</a>
                              <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="doingProject.jsp">在研项目</a>
+                                    <a href="/institute/control/doingProject/getDoingProjects.">在研项目</a>
                                 </li>
                                 <li>
                                     <a href="doneProject.jsp">已完成项目</a>

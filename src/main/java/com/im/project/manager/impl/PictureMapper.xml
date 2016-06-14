@@ -32,10 +32,7 @@
 	<update id="updateByPrimaryKey" parameterType="com.im.project.model.Picture">
 		update picture
 		<set>
-		<if test="id!=null">pic_id = #{id,jdbcType=INTEGER},</if>
 		<if test="link!=null">link=#{link,jdbcType=VARCHAR},</if>
-		<if test="date!=null">date=#{date,jdbcType=VARCHAR},</if>
-		<if test="type!=null">type= #{type,jdbcType=INTEGER}</if>
 		</set>
 		where
 		pic_id = #{id,jdbcType=INTEGER}
