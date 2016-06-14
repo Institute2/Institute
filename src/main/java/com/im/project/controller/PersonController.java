@@ -19,7 +19,6 @@ import com.im.project.service.GradService;
 import com.im.project.service.LeaderService;
 import com.im.project.service.MemberService;
 import com.im.project.utils.Page;
-import static com.im.project.utils.ResultUtils.toResultMap;
 
 @Controller("personController")
 @RequestMapping("/person")
@@ -45,7 +44,7 @@ public class PersonController {
 		personList=leaderService.findLeaderByPage(pageMap);
 		dataMap.put("person", personList);
 		dataMap.put("pageSum", pageSum);
-		return toResultMap(dataMap);
+		return dataMap;
 	}
 	@Resource
 	private GradService gradService;
@@ -63,7 +62,7 @@ public class PersonController {
 		personList=gradService.findGradByPage(pageMap);
 		dataMap.put("person", personList);
 		dataMap.put("pageSum", pageSum);
-		return toResultMap(dataMap);
+		return dataMap;
 	}
 	@Resource
 	private  MemberService memberService;
@@ -81,7 +80,7 @@ public class PersonController {
 		personList=memberService.findMemberByPage(pageMap);
 		dataMap.put("person", personList);
 		dataMap.put("pageSum", pageSum);
-		return toResultMap(dataMap);
+		return dataMap;
 	}
 	
 }

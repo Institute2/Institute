@@ -48,7 +48,9 @@
    </bean>
 
    <!-- 配置全局的异常处理器 -->
+
   <!--  <bean class="com.im.project.exception.CustomExceptionResolver"></bean>  -->
+
    
 	<!-- 拦截response -->
     <bean id="listener" class="com.im.project.utils.Listener"/>
