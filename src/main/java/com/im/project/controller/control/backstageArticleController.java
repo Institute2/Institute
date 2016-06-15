@@ -3,6 +3,8 @@ package com.im.project.controller.control;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,8 @@ public class backstageArticleController {
 	@Resource
 	private ArticleMapper articleDao;
 	@RequestMapping("addArticle")
-	public ModelAndView addArticle(Article a){
+	public ModelAndView addArticle(Article a,HttpServletRequest request,
+			HttpServletResponse response){
 	ModelAndView modelAndView = new ModelAndView();  
 	 int i=articleDao.insert(a);
 	 if(i==1){
@@ -30,7 +33,8 @@ public class backstageArticleController {
      return modelAndView;   
 	}
 	@RequestMapping("delArticle")
-	public ModelAndView delArticle(int id){
+	public ModelAndView delArticle(int id,HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView();  
 		 int i=articleDao.deleteByPrimaryKey(id);
 		 if(i==1){
@@ -43,7 +47,8 @@ public class backstageArticleController {
 	     return modelAndView;   
 		}
 	@RequestMapping("modifyArticle")
-	public ModelAndView modifyArticle(Article a){
+	public ModelAndView modifyArticle(Article a,HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView();  
 		 int i=articleDao.updateByPrimaryKey(a);
 		 if(i==1){
@@ -55,7 +60,8 @@ public class backstageArticleController {
 	     return modelAndView;   
 		}
 	@RequestMapping("selectArticles")
-	public ModelAndView selectArticles(){
+	public ModelAndView selectArticles(HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView("/control/news.jsp"); 
 		try{
 		ArrayList<Article> list=(ArrayList<Article>)articleDao.selectAll();
@@ -68,7 +74,8 @@ public class backstageArticleController {
 	     return modelAndView;   
 		}
 	@RequestMapping("selectArticle")
-	public ModelAndView selectArticle(int id){
+	public ModelAndView selectArticle(int id,HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView("/control/updateNews.jsp"); 
 		try{
 		Article a=articleDao.selectByPrimaryKey(id);

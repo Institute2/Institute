@@ -12,7 +12,7 @@ $(function(){
 				content:content.val()==content.prop('defaultValue') ? null : content.val()
 		}
 		$.post('test/test.do', readyData, function(res) {
-			console.log(res);
+			console.log(res.msg);
 		});
 	});
 });

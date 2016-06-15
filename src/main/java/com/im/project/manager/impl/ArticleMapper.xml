@@ -18,7 +18,7 @@
 		#{date}, #{author}, #{keyword},
 		#{summary},2)
 	</insert>
-	<select id="selectAll" resultMap="baseResultMap">
+	<select id="selectAll" resultMap="BaseResultMap">
 	select
 		articleNews_id,title,author,date
 		from article_news

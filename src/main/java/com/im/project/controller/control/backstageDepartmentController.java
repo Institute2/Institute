@@ -3,6 +3,8 @@ package com.im.project.controller.control;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,8 @@ public class backstageDepartmentController {
 @Resource
 private DepartmentService departmentService;
 @RequestMapping("addDepartment")
-public ModelAndView addDepartment(Department d) throws Exception{
+public ModelAndView addDepartment(Department d,HttpServletRequest request,
+		HttpServletResponse response) throws Exception{
 	ModelAndView modelAndView = new ModelAndView();  
 	boolean boo=departmentService.addDepartment(d);
 	if(boo){
@@ -30,7 +33,8 @@ public ModelAndView addDepartment(Department d) throws Exception{
 	
 }
 @RequestMapping("delDepartment")
-public ModelAndView delDepartment(int id) throws Exception{
+public ModelAndView delDepartment(int id,HttpServletRequest request,
+		HttpServletResponse response) throws Exception{
 	ModelAndView modelAndView = new ModelAndView();  
 	boolean boo=departmentService.delDepartment(id);
 	if(boo){
@@ -43,7 +47,8 @@ public ModelAndView delDepartment(int id) throws Exception{
 	
 }
 @RequestMapping("modifyDepartment")
-public ModelAndView modifyDepartment(Department d) throws Exception{
+public ModelAndView modifyDepartment(Department d,HttpServletRequest request,
+		HttpServletResponse response) throws Exception{
 	ModelAndView modelAndView = new ModelAndView();  
 	boolean boo=departmentService.modifyDepartment(d);
 	if(boo){
@@ -56,7 +61,8 @@ public ModelAndView modifyDepartment(Department d) throws Exception{
 	
 }
 @RequestMapping("getDepartments")
-public ModelAndView getDepartments() throws Exception{
+public ModelAndView getDepartments(HttpServletRequest request,
+		HttpServletResponse response) throws Exception{
 	ModelAndView modelAndView = new ModelAndView("/control/department");  
 	try{
 	ArrayList<Department> list=(ArrayList<Department>)departmentService.findAllDepartment();

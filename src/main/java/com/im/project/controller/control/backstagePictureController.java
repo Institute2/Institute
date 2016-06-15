@@ -3,6 +3,8 @@ package com.im.project.controller.control;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,8 @@ public class backstagePictureController {
 		return null;
 		}
 	@RequestMapping("modifyPicture")
-	public ModelAndView modifyPicture(Picture p) throws Exception{
+	public ModelAndView modifyPicture(Picture p,HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
 		ModelAndView modelAndView = new ModelAndView();  
 		boolean boo=pictureService.modifyPicture(p);
 		 if(boo){
@@ -34,7 +37,8 @@ public class backstagePictureController {
 		 }
 	     return modelAndView;   
 		}
-	public boolean addPicture(Picture p) throws Exception{
+	public boolean addPicture(Picture p,HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
 		boolean boo=pictureService.addPicture(p);
 		if(boo){
 			return true;

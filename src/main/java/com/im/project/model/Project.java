@@ -8,43 +8,60 @@ public class Project {
 	private String content;
 	private String leader;
 	private String startline;
+
 	private String deadline;
+
 	private Integer type;
+
+	public String getContent() {
+		return content;
+	}
+
+	public String getDeadline() {
+		return deadline;
+	}
+
 	public Integer getId() {
 		return id;
 	}
+	public String getLeader() {
+		return leader;
+	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public String getStartline() {
+		return startline;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title == null ? null : title.trim();
-	}
-
-	public String getContent() {
-		return content;
+	public Integer getType() {
+		return type;
 	}
 
 	public void setContent(String content) {
 		this.content = content == null ? null : content.trim();
 	}
 
-	public String getLeader() {
-		return leader;
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setLeader(String leader) {
 		this.leader = leader == null ? null : leader.trim();
 	}
 
+	public void setStartline(String startline) {
+		this.startline = startline;
+	}
 
-	public Integer getType() {
-		return type;
+	public void setTitle(String title) {
+		this.title = title == null ? null : title.trim();
 	}
 
 	public void setType(Integer type) {

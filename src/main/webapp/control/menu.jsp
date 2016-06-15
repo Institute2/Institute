@@ -13,29 +13,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="/institute/control/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="css/metisMenu.min.css" rel="stylesheet">
+    <link href="/institute/control/css/metisMenu.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
-    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/institute/control/css/dataTables.bootstrap.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="/institute/control/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-     <script src="js/jquery.min.js"></script>
+    <link href="/institute/control/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <script src="/institute/control/js/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/institute/control/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/metisMenu.min.js"></script>
+    <script src="/institute/control/js/metisMenu.min.js"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.bootstrap.min.js"></script>
+    <script src="/institute/control/js/jquery.dataTables.min.js"></script>
+    <script src="/institute/control/js/dataTables.bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/sb-admin-2.js"></script>
+    <script src="/institute/control/js/sb-admin-2.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i>研究成果</a>
                              <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/institute/control/doingProject/getDoingProjects.">在研项目</a>
+                                    <a href="/institute/control/doingProject/getDoingProjects.do">在研项目</a>
                                 </li>
                                 <li>
                                     <a href="doneProject.jsp">已完成项目</a>

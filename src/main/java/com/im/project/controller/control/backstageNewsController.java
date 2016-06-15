@@ -3,6 +3,8 @@ package com.im.project.controller.control;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,8 @@ public class backstageNewsController {
 @Resource
 private NewsMapper newsDao;
 @RequestMapping("/addNews")
-public ModelAndView addNews(News n){
+public ModelAndView addNews(News n,HttpServletRequest request,
+		HttpServletResponse response){
 	ModelAndView modelAndView =new ModelAndView();
 	int i=newsDao.insert(n);
 	if(i==1){
@@ -30,7 +33,8 @@ public ModelAndView addNews(News n){
 	return modelAndView;
 }
 @RequestMapping("/delNews")
-public ModelAndView delNews(int id){
+public ModelAndView delNews(int id,HttpServletRequest request,
+		HttpServletResponse response){
 	ModelAndView modelAndView =new ModelAndView();
 	int i=newsDao.deleteByPrimaryKey(id);
 	if(i==1){
@@ -43,7 +47,8 @@ public ModelAndView delNews(int id){
 	return modelAndView;
 }
 @RequestMapping("/modifyNews")
-public ModelAndView updateNews(News n){
+public ModelAndView updateNews(News n,HttpServletRequest request,
+		HttpServletResponse response){
 	ModelAndView modelAndView =new ModelAndView();
 	int i=newsDao.updateByPrimaryKey(n);
 	if(i==1){
@@ -56,7 +61,8 @@ public ModelAndView updateNews(News n){
 	return modelAndView;
 }
 @RequestMapping("/getNews")
-public ModelAndView getNews(){
+public ModelAndView getNews(HttpServletRequest request,
+		HttpServletResponse response){
 	ModelAndView modelAndView =new ModelAndView("/control/news.jsp");
 	try{
 	ArrayList<News> list=(ArrayList<News>)newsDao.selectAll();
@@ -69,7 +75,8 @@ catch(Exception e){
 	return modelAndView;
 }
 @RequestMapping("/getSingleNews")
-public ModelAndView getSingleNews(int id){
+public ModelAndView getSingleNews(int id,HttpServletRequest request,
+		HttpServletResponse response){
 	ModelAndView modelAndView =new ModelAndView();
 	try{
 	News news=newsDao.selectByPrimaryKey(id);

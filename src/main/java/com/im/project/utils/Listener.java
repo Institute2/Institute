@@ -23,7 +23,6 @@ public class Listener {
 			response=(HttpServletResponse)o1;
 			}
 		}
-		
 		try{
 		Object object = pjp.proceed();
 		map.put("data",object);
@@ -34,6 +33,7 @@ public class Listener {
 			map.put("data", null);
 			map.put("msg", "error");
 			map.put("status", ReturnStatus.ERROR);
+			e.printStackTrace();
 		}
 		  JSONUtils.toJSON(map, response);
 	}

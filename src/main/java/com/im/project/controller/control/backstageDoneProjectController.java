@@ -3,6 +3,8 @@ package com.im.project.controller.control;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,8 @@ public class backstageDoneProjectController {
 	private ProjectMapper projectDao;
 
 	@RequestMapping("addDoneProject")
-	public ModelAndView addDoneProject(Project p){
+	public ModelAndView addDoneProject(Project p,HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView=new ModelAndView();
 		p.setType(2);
 		int i=projectDao.insert(p);
@@ -31,7 +34,8 @@ public class backstageDoneProjectController {
 		return modelAndView;
 		}
 	@RequestMapping("delDoneProject")
-	public ModelAndView delDoneProject(int id){
+	public ModelAndView delDoneProject(int id,HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView=new ModelAndView();
 		int i=projectDao.deleteByPrimaryKey(id);
 		if(i==1){
@@ -43,7 +47,8 @@ public class backstageDoneProjectController {
 		return modelAndView;
 		}
 	@RequestMapping("modifyDoneProject")
-	public ModelAndView modifyDoneProject(Project p){
+	public ModelAndView modifyDoneProject(Project p,HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView=new ModelAndView();
 		int i=projectDao.updateByPrimaryKey(p);
 		if(i==1){
@@ -55,7 +60,8 @@ public class backstageDoneProjectController {
 		return modelAndView;
 		}
 	@RequestMapping("getDoneProjects")
-	public ModelAndView getDoneProjects(){
+	public ModelAndView getDoneProjects(HttpServletRequest request,
+			HttpServletResponse response){
 		ModelAndView modelAndView=new ModelAndView("/control/doneProject.jsp");
 		try{
 		ArrayList<Project> list=(ArrayList<Project>)projectDao.selectAllCompleted();

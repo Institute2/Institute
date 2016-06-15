@@ -3,11 +3,12 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <body>
-   
+   <script src="/institute/control/js/jquery.js"></script>
+   <script src="/institute/control/js/doingProject.js"></script>
     <div id="wrapper">
     <jsp:include page="menu.jsp"></jsp:include>
         <div id="page-wrapper">
@@ -23,16 +24,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
+                                    <c:forEach items="${list}" var="Project" >
                                         <tr class="gradeA">
-                                            <td> <input name="title" class="form-control"></td>
-                                            <td> <input name="leader" class="form-control"></td>
+                                            <td> <input name="title"  value="${Project.title}" class="form-control"></td>
+                                            <td> <input name="leader" value="${Project.leader}" class="form-control"></td>
+                                            <td> <input name="startline" value="${Project.startline}" class="form-control"></td>
                                             <td></td>
                                             <td><button type="button" class="btn btn-outline btn-warning" >验收</button></td>
                                             <td><button type="button" class="btn btn-outline btn-warning modify" >保存</button>
                                             <button type="button" class="btn btn-outline btn-danger">删除</button></td>
                                         </tr>
-                                        
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

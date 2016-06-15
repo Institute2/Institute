@@ -17,7 +17,6 @@ public class isLoginInterceptor extends HandlerInterceptorAdapter {
 
 		  HandlerMethod method = (HandlerMethod)handler;  
 	      MyAnnotation permission = method.getMethodAnnotation(MyAnnotation.class);  
-	          
 	        //如果为空在表示该方法不需要进行权限验证  
 	        if (permission == null) {  
 	            return true;  

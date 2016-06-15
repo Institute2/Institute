@@ -9,9 +9,10 @@ $(function(){
 				title: title.val()==title.prop('defaultValue') ? null : title.val(),
 				leader: leader.val()==leader.prop('defaultValue') ? null : leader.val()
 				
-		}
-		$.post('test/test.do', readyData, function(res) {
-			alert(res.msg);
+		};
+		$.post(
+				'/institute/control/doingProject/modifyDoingProject.do', readyData,  function(res) {
+			      alert(res.msg);
 		});
 	});
 });
