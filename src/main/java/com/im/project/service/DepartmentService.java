@@ -26,7 +26,7 @@ public interface DepartmentService {
 
 	public boolean addDepartment(Department depart) throws Exception;
 
-	public boolean delDepartment(Integer id) throws Exception;
+	public boolean delDepartment(Integer id,String pictureId) throws Exception;
 
 	public boolean modifyDepartment(Department depart) throws Exception;
 }

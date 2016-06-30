@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.im.project.model.Department" >
     <id column="de_id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="picture" property="pictureId" jdbcType="INTEGER" />
+    <result column="picture" property="pictureId" jdbcType="VARCHAR" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <association property="picture" column="picture" select="com.im.project.manager.PictureMapper.selectByPrimaryKey" javaType="com.im.project.model.Picture"/>
   </resultMap>  
@@ -32,7 +32,7 @@
   
   <insert id="insert" parameterType="com.im.project.model.Department" >
     insert into department(de_id,name,picture,url)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId},
     #{url,jdbcType=VARCHAR})
   </insert>
   
@@ -43,15 +43,15 @@
   
   <update id="updateByPrimaryKey" parameterType="com.im.project.model.Department" >
     update department
-    <set >
-      <if test="name != null" >
-        neme = #{name,jdbcType=VARCHAR},
+    <set>
+      <if test='name != null and name!=""' >
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="url != null" >
+      <if test='url != null and url!=""' >
         url =  #{url,jdbcType=VARCHAR},
       </if>
-      <if test="pictureId != null" >
-        picture = #{pictureId,jdbcType=INTEGER},
+      <if test='pictureId != null and pictureId !=""' >
+        picture = #{pictureId},
       </if>
     </set>
     where de_id = #{id,jdbcType=INTEGER}

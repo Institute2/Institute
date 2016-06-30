@@ -65,9 +65,9 @@ public class PictureMapperTest {
 	public void testUpdateByPrimaryKey() {
 		Picture pic =new Picture();
 		pic.setDate("1");
-		pic.setId(2);
+		pic.setId("2");
 		pic.setLink("qweqw");
-		pic.setType(2);
+		pic.setType("2");
 		
 		int i=pictureDao.updateByPrimaryKey(pic);
 		assertEquals(i, 1);
@@ -79,9 +79,9 @@ public class PictureMapperTest {
 	public void testInsert() {
 		Picture pic =new Picture();
 		pic.setDate("1");
-		pic.setId(2);
+		pic.setId("2");
 		pic.setLink("插入");
-		pic.setType(2);
+		pic.setType("2");
 		
 		pictureDao.insert(pic);
 		//fail("Not yet implemented");

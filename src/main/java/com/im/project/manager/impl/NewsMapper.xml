@@ -62,22 +62,22 @@
 	<update id="updateByPrimaryKey" parameterType="com.im.project.model.News">
 		update article_news
 		<set>
-			<if test="title != null">
+			<if test='title != null and title!=""'>
 				title = #{title,jdbcType=VARCHAR},
 			</if>
-			<if test="content != null">
+			<if test='content != null and content!=""'>
 				cont = #{content},
 			</if>
-			<if test="author != null">m
+			<if test='author != null and author!=""'>
 				author = #{author,jdbcType=VARCHAR},
 			</if>
-			<if test="releaser != null">
+			<if test='releaser != null and releaser""'>
 				releaser = #{releaser,jdbcType=VARCHAR},
 			</if>
-			<if test="summary != null">
+			<if test='summary != null and summary!=""'>
 				summary = #{summary,jdbcType=VARCHAR},
 			</if>
-			<if test="pictureId != null">
+			<if test='pictureId != null and pictureId!=""'>
 				picture = #{pictureId,jdbcType=INTEGER}
 			</if>
 		</set>

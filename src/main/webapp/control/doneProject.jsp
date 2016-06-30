@@ -2,7 +2,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <body>
-   
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <script src="/institute/control/js/jquery.js"></script>
+   <script src="/institute/control/js/doneProject.js"></script>
     <div id="wrapper">
      <jsp:include page="menu.jsp"></jsp:include>
         <div id="page-wrapper">
@@ -18,19 +20,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                      <c:forEach items="${list}" var="Project" >
                                         <tr class="gradeA">
-                                            <td><input name="title"class="form-control"></td>
-                                            <td><input name="leader" class="form-control"></td>
-                                            <td><input name="content" class="form-control"></td>
-                                            <td> </td>
+                                            <td>
+                                            <input name="title" value="${Project.title}" class="form-control">
+                                             <input name="id" type="hidden" value="${Project.id}" class="form-control">
+                                            </td>
+                                            <td><input name="leader" value="${Project.leader}" class="form-control"></td>
+                                            <td><input name="content" value="${Project.content}"  class="form-control"></td>
+                                            <td>${Project.deadline} </td>
                                            <td> <button type="button" class="btn btn-outline btn-warning modify">保存</button>
-                                             	<button type="button" class="btn btn-outline btn-danger">删除</button></td>
+                                             	<button type="button" class="btn btn-outline btn-danger del">删除</button></td>
                                         </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>   
                              <div class="dataTable_wrapper">
-                             <form action="">
                                 <table class="table table-striped table-bordered table-hover" >
                                     <thead>
                                         <tr>
@@ -47,17 +53,16 @@
                                             <td><input name="title"class="form-control"></td>
                                             <td><input name="leader" class="form-control"></td>
                                             <td><input name="content" class="form-control"></td>
-                                            <td><input type="date" name="deadline" onkeyup="value=value.replace(/[^\d-]/g,'')"
-												placeholder="yyyy-mm-dd">
-                                            </td>
                                             <td><input type="date" name="startline" onkeyup="value=value.replace(/[^\d-]/g,'')"
 												placeholder="yyyy-mm-dd">
                                             </td>
-                                            <td><input type="submit" class="btn btn-outline btn-success" value="添加"/> </td>
+                                             <td><input type="date" name="deadline" onkeyup="value=value.replace(/[^\d-]/g,'')"
+												placeholder="yyyy-mm-dd">
+                                            </td>
+                                            <td><input type="submit" class="btn btn-outline btn-success add" value="添加"/> </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                </form>
                             </div>     
         </div>
         <!-- /#page-wrapper -->

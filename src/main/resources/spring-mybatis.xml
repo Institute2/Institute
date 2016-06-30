@@ -30,7 +30,7 @@
 	<bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource"   destroy-method="close">
          <property name="driverClass" value="${jdbc.driverClassName}"/>
          
-         <property name="jdbcUrl" value="${jdbc.url}"/>   
+         <property name="jdbcUrl" value="${jdbc.url}?useUnicode=true&amp;characterEncoding=utf8"/>   
                     
          <property name="user" value="${jdbc.username}"/>
          

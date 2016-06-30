@@ -2,7 +2,9 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
+
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -26,20 +28,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tbody>
                                     <c:forEach items="${list}" var="Project" >
                                         <tr class="gradeA">
-                                            <td> <input name="title"  value="${Project.title}" class="form-control"></td>
-                                            <td> <input name="leader" value="${Project.leader}" class="form-control"></td>
-                                            <td> <input name="startline" value="${Project.startline}" class="form-control"></td>
-                                            <td></td>
-                                            <td><button type="button" class="btn btn-outline btn-warning" >验收</button></td>
-                                            <td><button type="button" class="btn btn-outline btn-warning modify" >保存</button>
-                                            <button type="button" class="btn btn-outline btn-danger">删除</button></td>
+                                            <td> 
+                                            <input name="id" type="hidden" value="${Project.id}" class="form-control">
+                                            <input name="title"  value="${Project.title}" class="form-control">
+                                            </td>
+                                            <td> <input  name="leader" value="${Project.leader}" class="form-control"></td>
+                                            <td> ${Project.startline} </td>
+                                            <td><button type="button" class="btn btn-outline btn-warning validate" >验收</button></td>
+                                            <td><button type="button" class="btn btn-outline btn-warning modify " >保存</button>
+                                            <button type="button" class="btn btn-outline btn-danger del">删除</button></td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="dataTable_wrapper">
-                            <form action="">
                                 <table class="table table-striped table-bordered table-hover" >
                                     <thead>
                                         <tr>
@@ -52,11 +55,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <tr class="gradeA">
                                             <td><input name="title" class="form-control"></td>
                                             <td><input name="leader" class="form-control"></td>
-                                            <td> <input type="submit" class="btn btn-outline btn-success" value="添加" /></td>
+                                            <td><input type="button" class="btn btn-outline btn-success add" value="添加" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                </form>
                             </div>
         		</div>
         </div>

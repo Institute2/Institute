@@ -1,7 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+response.setContentType("text/html;charset=UTF-8");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -13,29 +14,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link href="/institute/control/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/control/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="/institute/control/css/metisMenu.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/control/css/metisMenu.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
-    <link href="/institute/control/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/control/css/dataTables.bootstrap.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="/institute/control/css/sb-admin-2.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/control/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="/institute/control/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-     <script src="/institute/control/js/jquery.min.js"></script>
-
+    <link href="${pageContext.request.contextPath}/control/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <script src="${pageContext.request.contextPath}/control/js/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="/institute/control/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/control/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="/institute/control/js/metisMenu.min.js"></script>
+    <script src="${pageContext.request.contextPath}/control/js/metisMenu.min.js"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="/institute/control/js/jquery.dataTables.min.js"></script>
-    <script src="/institute/control/js/dataTables.bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/control/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/control/js/dataTables.bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="/institute/control/js/sb-admin-2.js"></script>
+    <script src="${pageContext.request.contextPath}/control/js/sb-admin-2.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
@@ -78,10 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.jsp"><i class="fa fa-dashboard fa-fw"></i>首页</a>
+                            <a href="${pageContext.request.contextPath}/control/index.jsp"><i class="fa fa-dashboard fa-fw"></i>首页</a>
                         </li>
                         <li>
-                            <a href="/institute/control/news/getNews.do"><i class="fa fa-dashboard fa-fw"></i>新闻动态</a>
+                            <a href="${pageContext.request.contextPath}/control/news/getNews.do"><i class="fa fa-dashboard fa-fw"></i>新闻动态</a>
                         </li>
                         <li>
                             <a href="papaers.jsp"><i class="fa fa-dashboard fa-fw"></i>论文专著</a>
@@ -90,13 +90,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i>研究所</a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="leader.jsp">学术带头人</a>
+                                    <a href="${pageContext.request.contextPath}/control/leader/getLeaders.do">学术带头人</a>
                                 </li>
                                 <li>
-                                    <a href="members.jsp">成员介绍</a>
+                                    <a href="${pageContext.request.contextPath}/control/member/getMembers.do">成员介绍</a>
                                 </li>
                                  <li>
-                                    <a href="grads.jsp">已毕业成员</a>
+                                    <a href="${pageContext.request.contextPath}/control/grad/getGrads.do">已毕业成员</a>
                                 </li>
                             </ul>
                         </li>
@@ -104,15 +104,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i>研究成果</a>
                              <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/institute/control/doingProject/getDoingProjects.do">在研项目</a>
+                                    <a href="${pageContext.request.contextPath}/control/doingProject/getDoingProjects.do">在研项目</a>
                                 </li>
                                 <li>
-                                    <a href="doneProject.jsp">已完成项目</a>
+                                    <a href="${pageContext.request.contextPath}/control/doneProject/getDoneProjects.do">已完成项目</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="partner.jsp"><i class="fa fa-dashboard fa-fw"></i>相关单位</a>
+                            <a href="${pageContext.request.contextPath}/control/department/getDepartments.do"><i class="fa fa-dashboard fa-fw"></i>相关单位</a>
                         </li>
                     </ul>
                 </div>

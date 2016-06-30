@@ -9,14 +9,17 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.im.project.manager.LeaderMapper;
+import com.im.project.manager.PictureMapper;
 import com.im.project.model.Leader;
 import com.im.project.service.LeaderService;
+import com.im.project.service.PictureService;
 
 @Service("leaderService")
 public class LeaderServiceImpl implements LeaderService {
 	@Resource
 	private LeaderMapper leaderDao;
-
+	@Resource
+	private PictureService pictureService;
 	public Leader findLeader(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		Leader lead = new Leader();
@@ -38,15 +41,22 @@ public class LeaderServiceImpl implements LeaderService {
 		return boo;
 	}
 
-	public boolean delLeader(Integer id) throws Exception {
+	public boolean delLeader(Integer id,String pictureId) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
+		boolean boo1=false;
+		boolean boo2=false;
 		if (id > 0 && id < Integer.MAX_VALUE) {
 			int i = leaderDao.deleteByPrimaryKey(id);
 			if (i == 1) {
-				boo = true;
+				boo1 = true;
 			}
 		}
+		boo2=pictureService.delPicture(pictureId);
+		if(boo1 && boo2){
+			boo=true;
+		}
+			
 		return boo;
 	}
 

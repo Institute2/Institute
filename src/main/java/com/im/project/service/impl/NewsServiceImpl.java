@@ -26,7 +26,7 @@ public class NewsServiceImpl implements NewsService {
 		return news;
 	}
 
-	public boolean delNews(Integer id) throws Exception {
+	public boolean delNews(Integer id,String pictureId) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
 		if (id > 0 && id < Integer.MAX_VALUE) {

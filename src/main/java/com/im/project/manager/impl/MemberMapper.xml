@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.im.project.manager.MemberMapper" >
   <resultMap id="BaseResultMap" type="com.im.project.model.Member" >
-    <id column="id" property="person_id" jdbcType="INTEGER" />
+    <id column="person_id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="picture" property="pictureId" jdbcType="INTEGER" />
     <result column="jianjie" property="jianjie" />
@@ -37,7 +37,7 @@
  </select>
   <insert id="insert" parameterType="com.im.project.model.Member" >
     insert into person ( person_id,name,picture,jianjie,xibie,zhiwu,type)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId,jdbcType=INTEGER},
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pictureId},
     #{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR},2)
   </insert>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -47,22 +47,21 @@
   <update id="updateByPrimaryKey" parameterType="com.im.project.model.Member" >
     update person
     <set >
-      <if test="name != null" >
+      <if test='name != null and name!=""' >
         name =#{name,jdbcType=VARCHAR},
       </if>
-      <if test="pictureId!= null" >
-        picture =#{pictureId,jdbcType=INTEGER},
+      <if test='pictureId!= null and pictureId !=""' >
+        picture =#{pictureId},
       </if>
-      <if test="jianjie != null" >
+      <if test='jianjie!= null and jianjie !=""'  >
         jianjie =#{jianjie},
       </if>
-       <if test="xibie != null" >
+       <if test='xibie!= null and xibie !=""' >
         xibie =#{xibie,jdbcType=VARCHAR},
       </if>
-       <if test="zhiwu != null" >
+       <if test='zhiwu!= null and zhiwu !=""' >
         zhiwu =#{zhiwu,jdbcType=VARCHAR}
       </if>
-      
     </set>
     where person_id = #{id,jdbcType=INTEGER}
   </update>

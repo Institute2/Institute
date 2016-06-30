@@ -3,7 +3,7 @@ package com.im.project.model;
 public class Grad {
 	private Integer id;
 	private String name;
-	private Integer pictureId;
+	private String pictureId;
 	private String jianjie;
 	private String xibie;
 	private String grade;
@@ -67,11 +67,11 @@ public class Grad {
 		this.name = name;
 	}
 
-	public Integer getPictureId() {
+	public String getPictureId() {
 		return pictureId;
 	}
 
-	public void setPictureId(Integer pictureId) {
+	public void setPictureId(String pictureId) {
 		this.pictureId = pictureId;
 	}
 

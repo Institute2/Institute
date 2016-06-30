@@ -21,7 +21,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 		String message = customException.getMessage();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("msg", message);
-		modelAndView.setViewName("error");
+		modelAndView.setViewName("control/error");
 		return modelAndView;
 	}
 

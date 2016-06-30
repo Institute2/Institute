@@ -13,7 +13,6 @@ person 	type=3
 department type = 4
 article type = 5
 
-
 table person 
 leader	type=1
 member	type=2

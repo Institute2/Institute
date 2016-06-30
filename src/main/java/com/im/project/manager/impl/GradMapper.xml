@@ -4,17 +4,18 @@
 	<resultMap id="BaseResultMap" type="com.im.project.model.Grad">
 		<id column="person_id" property="id" jdbcType="INTEGER" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
-		<result column="picture" property="pictureId" jdbcType="INTEGER" />
+		<result column="picture" property="pictureId" jdbcType="VARCHAR" />
 		<result column="jianjie" property="jianjie" />
 		<result column="xibie" property="xibie" jdbcType="VARCHAR" />
 		<result column="zhiwu" property="zhiwu" jdbcType="VARCHAR" />
+		<result column="grade" property="grade" jdbcType="VARCHAR" />
 		<result column="whereabout" property="whereabout" jdbcType="VARCHAR" />
 		<association property="picture" column="picture"
-			select="com.im.project.manager.impl.PictureMapper.selectByPrimaryKey"
+			select="com.im.project.manager.PictureMapper.selectByPrimaryKey"
 			javaType="com.im.project.model.Picture" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		person_id,name,picture,jianjie,xibie,zhiwu,whereabout
+		person_id,name,picture,jianjie,xibie,zhiwu,whereabout,grade
 	</sql>
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
@@ -43,10 +44,10 @@
 
 	<insert id="insert" parameterType="com.im.project.model.Grad">
 		insert into person (
-		person_id,name,picture,jianjie,xibie,zhiwu,whereabout,type)
+		person_id,name,picture,jianjie,xibie,zhiwu,whereabout,type,grade)
 		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
-		#{pictureId,jdbcType=INTEGER},
-		#{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR},#{whereabout,jdbcType=VARCHAR},3)
+		#{pictureId,jdbcType=VARCHAR},
+		#{jianjie},#{xibie,jdbcType=VARCHAR},#{zhiwu,jdbcType=VARCHAR},#{whereabout,jdbcType=VARCHAR},3,#{grade})
 	</insert>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -57,22 +58,25 @@
 	<update id="updateByPrimaryKey" parameterType="com.im.project.model.Grad">
 		update person
 		<set>
-			<if test="name != null">
+		<if test='grade!= null and grade !=""'>
+				grade =#{grade,jdbcType=VARCHAR},
+			</if>
+			<if test='name != null and name!=""'>
 				name =#{name,jdbcType=VARCHAR},
 			</if>
-			<if test="pictureId!= null">
-				picture =#{pictureId,jdbcType=INTEGER},
+			<if test='pictureId!= null and pictureId !=""'>
+				picture =#{pictureId,jdbcType=VARCHAR},
 			</if>
-			<if test="jianjie != null">
+			<if test='jianjie!= null and jianjie !=""'>
 				jianjie =#{jianjie},
 			</if>
-			<if test="xibie != null">
+			<if test='xibie!= null and xibie !=""'>
 				xibie =#{xibie,jdbcType=VARCHAR},
 			</if>
-			<if test="zhiwu != null">
+			<if test='zhiwu!= null and zhiwu !=""'>
 				zhiwu =#{zhiwu,jdbcType=VARCHAR},
 			</if>
-			<if test="whereabout != null">
+			<if test='whereabout!= null and whereabout !=""'>
 				whereabout =#{whereabout,jdbcType=VARCHAR})
 			</if>
 		</set>

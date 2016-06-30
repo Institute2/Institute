@@ -41,15 +41,15 @@
 	</bean>
 	
 	<!-- 配置文件上传-->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
    		<property name="defaultEncoding" value="utf-8"></property> 
    		<property name="maxUploadSize" value="10485760000"></property>
    		<property name="maxInMemorySize" value="40960"></property>
    </bean>
-
+ 
    <!-- 配置全局的异常处理器 -->
 
-    <bean class="com.im.project.exception.CustomExceptionResolver"></bean> 
+   <!--  <bean class="com.im.project.exception.CustomExceptionResolver"></bean>  -->
 
    
 	<!-- 拦截response -->
@@ -65,7 +65,7 @@
 	<!-- 多个拦截器,顺序执行 -->    
 	<mvc:interceptors>
 		<mvc:interceptor>
-		  <!-- 如果不配置或/**,将拦截所有的Controller -->  
+		 <!--  如果不配置或/**,将拦截所有的Controller   -->
 			<mvc:mapping path="" />
 			<bean class="com.im.project.interceptor.isLoginInterceptor" />
 		</mvc:interceptor> 
@@ -74,6 +74,5 @@
 			<bean class="com.im.project.interceptor.PicUploadInterceptor" />
 		</mvc:interceptor> 
 	</mvc:interceptors>
-
 </beans>
 

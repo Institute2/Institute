@@ -1,8 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+<head> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+</head>
   <body>
-  
+   <script src="${pageContext.request.contextPath}/control/js/jquery.js"></script>
+   <script src="${pageContext.request.contextPath}/control/js/grad.js"></script>
     <div id="wrapper">
      <jsp:include page="menu.jsp"></jsp:include>
         <div id="page-wrapper">
@@ -15,49 +20,55 @@
                                             <th>公司</th>
                                             <th>年级</th>
                                             <th>简介</th>
-                                           	<th>图片</th>
                                            	<th>功能</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                     <c:forEach items="${list}" var="Grad" >
                                         <tr class="gradeA">
-                                            <td><input name="name" class="form-control"></td>
-                                            <td><input name="zhiwu" class="form-control"></td>
-                                            <td><input name="whereabout" class="form-control"></td>
-                                            <td><input name="grade" class="form-control"></td>
-                                            <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
-                                           	<td><a href="updatePicture.jsp?url=das&id=llll">
-                                            <button type="button" class="btn btn-outline btn-warning">修改图片 </button></a></td>
-                                            <td><a href="/institute/control/updateGrads.do&id=llll">
-                                            <button type="button" class="btn btn-outline btn-warning modify">保存 </button></a>
-                                             <button type="button" class="btn btn-outline btn-danger">删除</button></td>
+                                            <td><input name="name" value="${Grad.name}" class="form-control" size="5">
+                                            	<input name="id" type="hidden" value="${Grad.id}" class="form-control">
+                                            	<input name="pictureId" type="hidden" value="${Grad.picture.id}" class="form-control">
+                                            </td>
+                                            <td><input name="zhiwu" value="${Grad.zhiwu}" class="form-control"></td>
+                                            <td><input name="whereabout" value="${Grad.whereabout}" class="form-control"></td>
+                                            <td><input name="grade"  value="${Grad.grade}" class="form-control"></td>
+                                            <td><textarea name="jianjie" class="form-control" rows="2">${Grad.jianjie}</textarea></td>
+                                            <td><button type="button" class="btn btn-outline btn-warning modify">保存 </button>
+                                             <button type="button" class="btn btn-outline btn-danger del">删除</button>
+                                             <a href="${pageContext.request.contextPath}/control/picture/getPicture.do?id=${Grad.picture.id}">
+                                            <button type="button" class="btn btn-outline btn-warning">修改图片 </button></a>
+                                             </td>
+                                             <td></td>
                                         </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="dataTable_wrapper">
-                            <form action="" >
+                             <form id="myform"   method="post"  enctype="multipart/form-data">
                                 <table class="table table-striped table-bordered table-hover" >
                                     <thead>
                                         <tr>
+                                        	<th>图片</th>
                                             <th>姓名</th>
                                             <th>方向</th>
                                             <th>公司</th>
                                             <th>简介</th>
-                                           	<th>图片</th>
+                                            <th>年级</th>
                                            	<th>添加</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="gradeA">
-                                           <td><input name="name" class="form-control"></td>
-                                           <td><input name="zhiwu" class="form-control"></td>
+                                         	<td>图片：<input type="file" name="file"></td>
+                                           	<td><input name="name" class="form-control"></td>
+                                            <td><input name="zhiwu" class="form-control"></td>
                                            <td><input name="whereabout" class="form-control"></td>
                                            <td><textarea name="jianjie" class="form-control" rows="2"></textarea></td>
-                                           <td> <input type="file"></td>
-                                           <td> <input type="submit" class="btn btn-outline btn-success" value="添加"/> </td>
+                                          <td><input name="grade" class="form-control"></td>
+                                          <td><button class="btn btn-outline btn-success add">添加</button> </td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                                 </form>

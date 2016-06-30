@@ -1,36 +1,39 @@
 package com.im.project.model;
-
-import java.util.Date;
-
 public class Picture {
-	private Integer id ;
-	private String link;
+	private String id ;
 	private String date;
-	private Integer type;
-	
-	public Integer getId() {
+	private String type;
+	private String link;
+	private String realPath;
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getLink() {
 		return link;
 	}
 	public void setLink(String link) {
-		this.link = link==null?null:link.trim();
+		this.link = link;
 	}
-
+	public String getRealPath() {
+		return realPath;
+	}
+	public void setRealPath(String realPath) {
+		this.realPath = realPath;
+	}
 	public String getDate() {
 		return date;
 	}
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public Integer getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(Integer type) {
+	public void setType(String type) {
 		this.type = type==null?null:type;
 	}
 	

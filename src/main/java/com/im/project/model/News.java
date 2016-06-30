@@ -4,7 +4,7 @@ public class News {
 	private Integer id;
 	private String title;
 	private String content;
-	private Integer pictureId;
+	private String pictureId;
 	private String  date;
 	private String author;
     private String releaser;
@@ -22,11 +22,11 @@ public class News {
 		return author;
 	}
 
-	public Integer getPictureId() {
+	public String getPictureId() {
 		return pictureId;
 	}
 
-	public void setPictureId(Integer pictureId) {
+	public void setPictureId(String pictureId) {
 		this.pictureId = pictureId;
 	}
 

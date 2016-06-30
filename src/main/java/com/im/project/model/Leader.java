@@ -4,7 +4,7 @@ public class Leader {
 	private Integer id;
 	private String name;
 	private String zhicheng;
-	private Integer pictureId;
+	private String pictureId;
 	private String jianjie;
 	private String xibie;
 	private Picture picture;
@@ -28,11 +28,11 @@ public class Leader {
 	}
 
 	
-	public Integer getPictureId() {
+	public String getPictureId() {
 		return pictureId;
 	}
 
-	public void setPictureId(Integer pictureId) {
+	public void setPictureId(String pictureId) {
 		this.pictureId = pictureId;
 	}
 

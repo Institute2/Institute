@@ -8,7 +8,7 @@ import com.im.project.model.Leader;
 public interface LeaderService {
 	public Leader findLeader(Integer id)throws Exception;
 	public boolean addLeader(Leader leader)throws Exception;
-	public boolean delLeader(Integer id)throws Exception;
+	public boolean delLeader(Integer id,String pictureId)throws Exception;
 	public boolean modifyLeader(Leader leader)throws Exception;
 	/**
 	 * 分页查找

@@ -8,7 +8,7 @@ import com.im.project.model.News;
 public interface NewsService {
 	public News findNews(Integer id) throws Exception;
 
-	public boolean delNews(Integer id) throws Exception;
+	public boolean delNews(Integer id,String pictureId) throws Exception;
 
 	public boolean modifyNews(News news) throws Exception;
 

@@ -62,15 +62,14 @@
 		#{leader,jdbcType=VARCHAR},
 		#{startline,jdbcType=VARCHAR},#{deadline,jdbcType=VARCHAR},#{type,jdbcType=INTEGER})
 	</insert>
-	
  <update id="updateByPrimaryKey" parameterType="com.im.project.model.Project">
 		update project
 		<set>
-			<if test="title!=null">
+			<if test='title!=null and title!="" '>
 				title = #{title,jdbcType=VARCHAR},
 			</if>
-			<if test="content!=null">cont=#{content,jdbcType=VARCHAR},</if>
-			<if test="leader!=null">leader=#{leader,jdbcType=VARCHAR},</if>
+			<if test='content!=null and content!="" '>cont=#{content,jdbcType=VARCHAR},</if>
+			<if test='leader!=null and leader!="" '>leader=#{leader,jdbcType=VARCHAR},</if>
 			<if test="startline!=null">startline= #{startline,jdbcType=VARCHAR},</if>
 			<if test="deadline!=null">deadline=#{deadline,jdbcType=VARCHAR},</if>
 			<if test="type!=null">type=#{type,jdbcType=INTEGER}</if>

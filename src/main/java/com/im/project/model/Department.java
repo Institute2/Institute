@@ -3,7 +3,7 @@ package com.im.project.model;
 public class Department {
 	private Integer id;
 	private String name;
-	private Integer pictureId;
+	private String pictureId;
 	private String url;
 	private Picture picture;
 	public Department CompareTo(Department d){
@@ -11,11 +11,11 @@ public class Department {
 		this.url=this.url!=d.url?this.url:null;
 		return this;
 	}
-	public Integer getPictureId() {
+	public String getPictureId() {
 		return pictureId;
 	}
-	public void setPictureId(Integer pictureId) {
-		this.pictureId = pictureId;
+	public void setPictureId(String fileId) {
+		this.pictureId = fileId;
 	}
 	public Picture getPicture() {
 		return picture;

@@ -53,19 +53,19 @@
 	<update id="updateByPrimaryKey" parameterType="com.im.project.model.Article">
 		update article_news
 		<set>
-			<if test="title != null">
+			<if test='title != null and title!=""'>
 				title = #{title,jdbcType=VARCHAR},
 			</if>
-			<if test="content != null">
+			<if test='content != null and content!=""'>
 				cont = #{content,jdbcType=TEXT},
 			</if>
-			<if test="author != null">
+			<if test='author != null and author!=""'>
 				author = #{author,jdbcType=VARCHAR},
 			</if>
-			<if test="keyword != null">
+			<if test='keyword != null and keyword!=""'>
 				keyword = #{keyword,jdbcType=VARCHAR},
 			</if>
-			<if test="summary != null">
+			<if test='summary != null and summary!=""'>
 				summary = #{summary,jdbcType=VARCHAR}
 			</if>
 		</set>

@@ -1,14 +1,13 @@
 package com.im.project.manager;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import com.im.project.model.Picture;
 
 @Repository("pictureDao")
-public interface PictureMapper extends BaseDao<Picture, Integer> {
+public interface PictureMapper extends BaseDao<Picture, String> {
 	/**
 	 * 查询LOGO的链接
 	 * @return 结果集

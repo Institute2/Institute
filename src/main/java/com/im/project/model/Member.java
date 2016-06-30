@@ -5,7 +5,7 @@ public class Member {
 
 	private String name;
 
-	private Integer pictureId;
+	private String pictureId;
 
 	private String jianjie;
 
@@ -21,15 +21,13 @@ public class Member {
 		this.zhiwu=this.zhiwu!=m.zhiwu?this.zhiwu:null;	
 		return this;
 	}
-	public Integer getPictureId() {
+	public String getPictureId() {
 		return pictureId;
 	}
 
-	public void setPictureId(Integer pictureId) {
+	public void setPictureId(String pictureId) {
 		this.pictureId = pictureId;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -65,9 +63,7 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setPicture(Integer pictureId) {
-		this.pictureId = pictureId;
-	}
+	
 	public void setPicture(Picture picture) {
 		this.picture = picture;
 	}

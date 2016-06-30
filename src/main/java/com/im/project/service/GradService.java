@@ -7,7 +7,7 @@ import com.im.project.model.Grad;
 
 public interface GradService {
 	public Grad findGrad(Integer id)throws Exception;
-	public boolean delGrad(Integer id)throws Exception;
+	public boolean delGrad(Integer id,String pictureId)throws Exception;
 	public boolean addGrad(Grad grad)throws Exception;
 	public boolean modifyGrad(Grad grad)throws Exception;
 	/**

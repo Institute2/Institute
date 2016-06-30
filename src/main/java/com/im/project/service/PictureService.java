@@ -3,6 +3,8 @@ package com.im.project.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import com.im.project.model.Picture;
 
 public interface PictureService {
@@ -11,19 +13,19 @@ public interface PictureService {
 	 * @param pic 图片实体
 	 * @return 成功与否
 	 */
-	public boolean addPicture(Picture pic)throws Exception;
+	public boolean addPicture(CommonsMultipartFile picture,Map<String,Object> map,String realPath,String id,String type,int status)throws Exception;
 	/**
 	 * 根据主键查找图片
 	 * @param id 图片id
 	 * @return 结果集
 	 */
-	public Picture findPicture(Integer id)throws Exception;
+	public Picture findPicture(String id)throws Exception;
 	/**
 	 * 根据主键删除图片
 	 * @param id 图片id
 	 * @return 成功与否
 	 */
-	public boolean delPicture(Integer id)throws Exception;
+	public boolean delPicture(String id)throws Exception;
 	/**
 	 * 修改图片
 	 * @param pic 图片实体

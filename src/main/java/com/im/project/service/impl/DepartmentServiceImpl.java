@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 import com.im.project.manager.DepartmentMapper;
 import com.im.project.model.Department;
 import com.im.project.service.DepartmentService;
+import com.im.project.service.PictureService;
 
 @Service("departService")
 public class DepartmentServiceImpl implements DepartmentService {
 	@Resource
 	private DepartmentMapper departmentDao;
-
+	@Resource
+	private PictureService   pictureService;
 	public Department findDepartment(Integer id) throws Exception {
 		Department dep = new Department();
 		if (id > 0 && id < Integer.MAX_VALUE) {
@@ -53,14 +55,20 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return boo;
 	}
 
-	public boolean delDepartment(Integer id) throws Exception {
+	public boolean delDepartment(Integer id,String pictureId) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
+		boolean boo1=false;
+		boolean boo2=false;
 		if (id > 0 && id < Integer.MAX_VALUE) {
 			int i = departmentDao.deleteByPrimaryKey(id);
 			if (i == 1) {
-				boo = true;
+				boo1 = true;
 			}
+		}
+		boo2=pictureService.delPicture(pictureId);
+		if(boo1 && boo2){
+			boo=true;
 		}
 		return boo;
 	}
