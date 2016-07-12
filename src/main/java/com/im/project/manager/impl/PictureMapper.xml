@@ -41,19 +41,19 @@
 		pic_id = #{id}
 	</update>
 	<select id="getLogosUrl" resultType="java.lang.String">
-	select url from picture where type=1
+	select link from picture where type="logo"
 	</select>
 	<select id="getLogos" resultMap="BaseResultMap">
 	select 
 	<include refid="Base_Column_List" />
-	from picture where type=1
+	from picture where type="logo"
 	</select>
 	<select id="getPapers" resultMap="BaseResultMap">
 	select 
 	<include refid="Base_Column_List" />
-	 from picture where type=5
+	 from picture where type="paper"
 	</select>
 	<select id="getPapersUrl" resultType="java.lang.String">
-	select url from picture where type=5
+	select link from picture where type="paper"
 	</select>
 </mapper>

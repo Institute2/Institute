@@ -1,7 +1,5 @@
 package com.im.project.model;
 
-import java.util.Date;
-
 public class Project {
 	private Integer id;
 	private String title;

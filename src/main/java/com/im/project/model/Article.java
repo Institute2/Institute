@@ -1,6 +1,5 @@
 package com.im.project.model;
 
-import java.util.Date;
 
 public class Article {
 	private Integer id;
@@ -10,7 +9,9 @@ public class Article {
 	private String author;
 	private String keyword;
     private String summary;
-    public Article CompareTo(Article a){
+    private String picture;
+    
+	public Article CompareTo(Article a){
     	this.author=this.author!=a.author?this.author:null;
     	this.content=this.content!=a.content?this.content:null;
     	this.keyword=this.keyword!=a.keyword?this.keyword:null;
@@ -51,7 +52,12 @@ public class Article {
 	public void setContent(String content) {
 		this.content = content==null?null:content.trim();
 	}
-
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	
 
 	public String getDate() {

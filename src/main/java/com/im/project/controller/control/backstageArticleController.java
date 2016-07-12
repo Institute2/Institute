@@ -1,6 +1,8 @@
 package com.im.project.controller.control;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,12 +23,13 @@ import com.im.project.utils.JSONUtils;
 public class backstageArticleController {
 	@Resource
 	private ArticleMapper articleDao;
-	@RequestMapping("addArticle")
+	@RequestMapping("/addArticle.do")
 	public ModelAndView addArticle(Article a,HttpServletRequest request,
 			HttpServletResponse response){
 	Map<String,Object> map=new HashMap<String,Object>();
-	ModelAndView modelAndView = new ModelAndView("control/addPapers"); 
+	ModelAndView modelAndView = new ModelAndView("control/addPaper"); 
 	try{
+	a.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 	 int i=articleDao.insert(a);
 	 if(i==1){
      map.put("msg", "success");  
@@ -42,7 +45,7 @@ public class backstageArticleController {
 	 JSONUtils.toJSON(map, response);
      return modelAndView;   
 	}
-	@RequestMapping("delArticle")
+	@RequestMapping("/delArticle.do")
 	public ModelAndView delArticle(int id,HttpServletRequest request,
 			HttpServletResponse response){
 		Map<String,Object> map=new HashMap<String,Object>();
@@ -64,11 +67,11 @@ public class backstageArticleController {
 		 JSONUtils.toJSON(map, response);
 	     return modelAndView;   
 		}
-	@RequestMapping("modifyArticle")
+	@RequestMapping("/modifyArticle.do")
 	public ModelAndView modifyArticle(Article a,HttpServletRequest request,
 			HttpServletResponse response){
 		Map<String,Object> map=new HashMap<String,Object>();
-		ModelAndView modelAndView = new ModelAndView();  
+		ModelAndView modelAndView = new ModelAndView("/control/updatePapers");  
 		 
 		 try{
 			 int i=articleDao.updateByPrimaryKey(a);
@@ -86,7 +89,7 @@ public class backstageArticleController {
 		 JSONUtils.toJSON(map, response);
 	     return modelAndView;   
 		}
-	@RequestMapping("getArticles")
+	@RequestMapping("/getArticles.do")
 	public ModelAndView getArticles(HttpServletRequest request,
 			HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView("/control/papers"); 
@@ -99,7 +102,7 @@ public class backstageArticleController {
 		}
 	     return modelAndView;   
 		}
-	@RequestMapping("getArticle")
+	@RequestMapping("/getArticle.do")
 	public ModelAndView selectArticle(int id,HttpServletRequest request,
 			HttpServletResponse response){
 		ModelAndView modelAndView = new ModelAndView("/control/updatePapers"); 

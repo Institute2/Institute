@@ -10,7 +10,7 @@
     http://www.springframework.org/schema/context  
     http://www.springframework.org/schema/context/spring-context.xsd  
     http://www.springframework.org/schema/mvc   
-    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
     "> 
@@ -60,19 +60,20 @@
     		<aop:around method="around" pointcut-ref="listenerCut"/> 
     	</aop:aspect> 
     </aop:config>
-   
+
 	<!-- 配置拦截器 -->
 	<!-- 多个拦截器,顺序执行 -->    
 	<mvc:interceptors>
 		<mvc:interceptor>
 		 <!--  如果不配置或/**,将拦截所有的Controller   -->
-			<mvc:mapping path="" />
+			<mvc:mapping path="/control/**" />
+			<mvc:exclude-mapping path="/control/user/login.do" /> 
 			<bean class="com.im.project.interceptor.isLoginInterceptor" />
 		</mvc:interceptor> 
-		<mvc:interceptor>
+		<!-- <mvc:interceptor>
 			<mvc:mapping path="" />
 			<bean class="com.im.project.interceptor.PicUploadInterceptor" />
-		</mvc:interceptor> 
+		</mvc:interceptor>  -->
 	</mvc:interceptors>
 </beans>
 

@@ -44,7 +44,7 @@ public class PictureServiceTest {
 	@Test
 	public void testDelPicture() throws Exception {
 		//fail("Not yet implemented");
-		boolean boo=pictureService.delPicture(6);
+		boolean boo=pictureService.delPicture("s6");
 		assertEquals(boo,true);
 	}
 

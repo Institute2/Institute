@@ -9,6 +9,10 @@ import com.im.project.model.Picture;
 
 public interface PictureService {
 	/**
+	 * 加载首页的logo和论文
+	 */
+	public Map<String,Object> loadIndex();
+	/**
 	 * 添加图片
 	 * @param pic 图片实体
 	 * @return 成功与否
@@ -38,9 +42,18 @@ public interface PictureService {
 	 */
 	public List<String> loadBigPic() throws Exception;
 	/**
+	 * 加载paper四张大图
+	 * @return 结果集
+	 */
+	public List<String> loadPaperPic() throws Exception;
+	/**
 	 * 分页查找图片
 	 * @param picMap 要查找的页数信息
 	 * @return 结果集
 	 */
 	public List<Picture> findPicByPage(Map<String, Object> picMap)throws Exception;
+	/**
+	 * 清理修改过的图片
+	 */
+	public boolean cleanPicture();
 }

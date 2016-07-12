@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import com.im.project.model.ReturnStatus;
 @Aspect
 @Component
-public class Listener {
+public class Listener{
 	
 	public void around(ProceedingJoinPoint pjp) throws Throwable{
 		Map<String,Object> map=new HashMap<String,Object>();

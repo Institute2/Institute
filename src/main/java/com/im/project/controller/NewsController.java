@@ -32,14 +32,14 @@ public class NewsController {
 			//System.out.println("___________________");
 		} else  if(identify.equals("news")) {
 			Map<String, Object> pageMap = new HashMap<String, Object>();
-			pageMap.put("pageNow", page.getPageNow());
-			pageMap.put("pageSize", page.getPageSize());
+			pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+			pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
 			//System.out.println(pageMap.toString());
 			newsList = newsService.findNewsByPage(pageMap);
 			//System.out.println("++++++++++++++++++++++");
 
 		}
-		dataMap.put("newslst", newsList);
+		dataMap.put("newslist", newsList);
 		
 
 		System.out.println(dataMap.toString());

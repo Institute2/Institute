@@ -8,4 +8,6 @@ import com.im.project.model.User;
  * 
  */
 public interface UserMapper extends BaseDao<User, Integer> {
+	public User selectByUserName(String userName);
+	
 }

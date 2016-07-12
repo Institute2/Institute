@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 import com.im.project.manager.NewsMapper;
 import com.im.project.model.News;
 import com.im.project.service.NewsService;
+import com.im.project.service.PictureService;
 
 @Service("newsService")
 public class NewsServiceImpl implements NewsService {
 	@Resource
 	private NewsMapper newsDao;
-
+	@Resource
+	private PictureService pictureService;
 	public News findNews(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		News news = new News();
@@ -29,11 +31,17 @@ public class NewsServiceImpl implements NewsService {
 	public boolean delNews(Integer id,String pictureId) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
+		boolean boo1=false;
+		boolean boo2=false;
 		if (id > 0 && id < Integer.MAX_VALUE) {
 			int i = newsDao.deleteByPrimaryKey(id);
 			if (i == 1) {
-				boo = true;
+				boo1 = true;
 			}
+		}
+		boo2=pictureService.delPicture(pictureId);
+		if(boo1 && boo2){
+			boo=true;
 		}
 		return boo;
 	}

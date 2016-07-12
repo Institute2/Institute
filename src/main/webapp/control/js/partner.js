@@ -18,7 +18,7 @@ $(function(){
 			alert("没有修改，不用保存");
 			return false;
 		}
-		$.post('modifyDepartment.do', readyData, function(res) {
+		$.post('control/department/modifyDepartment.do', readyData, function(res) {
 			alert(res.msg);
 			location.reload();
 		});
@@ -32,7 +32,7 @@ $(function(){
 				id:id.val(),
 				pictureId:pictureId.val()
 		};
-		$.post('delDepartment.do', readyData, function(res) {
+		$.post('control/department/delDepartment.do', readyData, function(res) {
 			alert(res.msg);  
 			location.reload();
 		});
@@ -52,7 +52,7 @@ $(function(){
 		}
 		//	提交表单
 		$.ajax({
-			url: 'addDepartment.do',
+			url: 'control/department/addDepartment.do',
 			type: 'POST',
 			cache: false,
 			data: new FormData($('#mform')[0]),
@@ -63,4 +63,5 @@ $(function(){
 			location.reload();
 		});
 	});
+	
 });

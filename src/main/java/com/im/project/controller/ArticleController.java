@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.im.project.manager.PictureMapper;
 import com.im.project.model.Article;
 import com.im.project.service.ArticleService;
 import com.im.project.utils.Page;
@@ -21,17 +22,19 @@ import com.im.project.utils.Page;
 public class ArticleController {
 	@Resource
 	private ArticleService articleService;
+	
 	@RequestMapping(value="/listPaper.do")
 	public Map<String, Object> listArticleIndex(Page page,String identify,
 			HttpServletRequest request,HttpServletResponse response) throws Exception{
 		List<Article> articleList=new ArrayList<Article>();
 		Map<String,Object> dataMap =new HashMap<String,Object>();
 		if(identify.equals("index")){
-			articleList=articleService.findArticleIndex();
+		articleList=articleService.findArticleIndex();
+		
 		}else if(identify.equals("article")){
 			Map<String ,Object> pageMap=new HashMap<String,Object>();
-			pageMap.put("pageNow",page.getPageNow());
-			pageMap.put("pageSize", page.getPageSize());
+			pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+			pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
 			articleList=articleService.findArticle(pageMap);
 		}
 		dataMap.put("paperlist",articleList );

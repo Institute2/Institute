@@ -24,7 +24,7 @@ $(function(){
 			event.preventDefault();
 			return false;
 		}
-		$.post('modifyMember.do', readyData, function(res) {
+		$.post('control/member/modifyMember.do', readyData, function(res) {
 			 alert(res.msg);
              location.reload();
 		});
@@ -47,7 +47,7 @@ $(function(){
 		// initialize a JSON object
 		
 		 $.ajax({  
-	         url: 'addMember.do' ,  
+	         url: 'control/member/addMember.do' ,  
 	         type: 'POST',  
 	         data: new FormData($('#myform')[0]), 
 	         async: false,  
@@ -74,7 +74,7 @@ $(function(){
 				pictureId:pictureId.val()
 		};
 		
-		$.post('delMember.do', readyData, function(res) {
+		$.post('control/member/delMember.do', readyData, function(res) {
 			alert(res.msg);  
 			location.reload();
 		});

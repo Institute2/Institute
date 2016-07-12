@@ -36,8 +36,8 @@ public class ProjectController {
 		List<Project> projectList = new ArrayList<Project>();
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		Map<String, Object> pageMap = new HashMap<String, Object>();
-		pageMap.put("pageNow", page.getPageNow());
-		pageMap.put("pageSize", page.getPageSize());
+		pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+		pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
 		projectList = projectService.findDoingProject(pageMap);
 		dataMap.put("doingachieve", projectList);
 		return dataMap;
@@ -49,8 +49,8 @@ public class ProjectController {
 		List<Project> projectList = new ArrayList<Project>();
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		Map<String, Object> pageMap = new HashMap<String, Object>();
-		pageMap.put("pageNow", page.getPageNow());
-		pageMap.put("pageSize", page.getPageSize());
+		pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+		pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
 		projectList = projectService.findCompletedProject(pageMap);
 		dataMap.put("completedachieve", projectList);
 		return dataMap;

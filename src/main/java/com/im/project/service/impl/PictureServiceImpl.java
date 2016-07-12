@@ -5,6 +5,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ import com.im.project.service.PictureService;
 public class PictureServiceImpl implements PictureService {
 	@Resource
 	private PictureMapper pictureDao;
-
+	
 	public boolean addPicture(CommonsMultipartFile picture,Map<String,Object> map,String realPath,String id,String type,int status) throws Exception {
 		// TODO Auto-generated method stub
 		if(!picture.isEmpty()){ 
@@ -50,7 +51,7 @@ public class PictureServiceImpl implements PictureService {
               return false;
           }  
           //把附件存到数据库里
-          String date=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+          String date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
           Picture pictureNew=new Picture();
           pictureNew.setLink(fileName);
           pictureNew.setType(type);
@@ -100,7 +101,6 @@ public class PictureServiceImpl implements PictureService {
 		boolean boo = false;
 		if (id !=null && id!="") {
 			Picture pic= pictureDao.selectByPrimaryKey(id);
-			System.out.println("lalla"+pic.getRealPath()+pic.getLink());
 			File file=new File(pic.getRealPath()+pic.getLink());
 			if(file!=null){
 			file.delete();
@@ -127,9 +127,8 @@ public class PictureServiceImpl implements PictureService {
 
 	public List<String> loadBigPic() throws Exception {
 		// TODO Auto-generated method stub
-		List<String> picList = new ArrayList<String>();
-		picList = pictureDao.getLogosUrl();
-		return picList;
+		List<String> logoList = pictureDao.getLogosUrl();
+		return logoList;
 	}
 
 	public List<Picture> findPicByPage(Map<String, Object> picMap) throws Exception {
@@ -141,5 +140,42 @@ public class PictureServiceImpl implements PictureService {
 		return picList;
 	}
 
+	public Map<String, Object> loadIndex() {
+		// TODO Auto-generated method stub
+		Map<String,Object> map=new HashMap<String,Object>();
+		List<Picture> listLogos=pictureDao.getLogos();
+		List<Picture> listPapers=pictureDao.getPapers();
+		map.put("listLogos", listLogos);
+		map.put("listPapers", listPapers);
+		return map;
+	}
+
+	public List<String> loadPaperPic() throws Exception {
+		List<String> paperList = pictureDao.getPapersUrl();
+		return paperList;
+		
+	}
+
+	public boolean cleanPicture() {
+		// TODO Auto-generated method stub
+		String path=pictureDao.selectByPrimaryKey("1").getRealPath();
+		File f=new File(path);
+		if(f.exists()){
+		File[] files=f.listFiles();
+		if(files.length!=0){
+			for(File file:files){
+				if(file.getName().contains("old")){
+					file.delete();
+					System.out.println("清理一个磁盘文件"+new Date());
+				}
+			}
+			return true;
+		}
+		}
+		return false;
+	}
+
+	
+	
 	
 }

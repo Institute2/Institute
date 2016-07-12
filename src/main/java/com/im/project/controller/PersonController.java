@@ -23,11 +23,6 @@ import com.im.project.utils.Page;
 @Controller("personController")
 @RequestMapping("/person")
 public class PersonController {
-
-
-
-	
-	
 	@Resource
 	private LeaderService leaderService;
 	@RequestMapping(value="/listLeader.do")
@@ -35,9 +30,9 @@ public class PersonController {
 		Map<String,Object> dataMap =new HashMap<String,Object>();
 		Map<String,Object> pageMap =new HashMap<String,Object>();
 		int pageSum=-1;
-		pageMap.put("pageNow", page.getPageNow());
-		pageMap.put("pageSize", page.getPageSize());
-		if(pageSum==-1){
+		pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+		pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
+		if(pageSum==-1 && page.getPageSize()!=0){
 			pageSum=leaderService.findrecords()/page.getPageSize()+1;
 		}
 		List<Leader> personList=new ArrayList<Leader>();
@@ -53,8 +48,8 @@ public class PersonController {
 		Map<String,Object> dataMap =new HashMap<String,Object>();
 		Map<String,Object> pageMap =new HashMap<String,Object>();
 		int pageSum=-1;
-		pageMap.put("pageNow", page.getPageNow());
-		pageMap.put("pageSize", page.getPageSize());
+		pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+		pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
 		if(pageSum==-1){
 			pageSum=gradService.findRecords()/page.getPageSize()+1;
 		}
@@ -71,8 +66,8 @@ public class PersonController {
 		Map<String,Object> dataMap =new HashMap<String,Object>();
 		Map<String,Object> pageMap =new HashMap<String,Object>();
 		int pageSum=-1;
-		pageMap.put("pageNow", page.getPageNow());
-		pageMap.put("pageSize", page.getPageSize());
+		pageMap.put("pageSize", (page.getPageSize()<=0)?0:page.getPageSize());
+		pageMap.put("pageNow", (page.getPageNow()<=0)?0:(page.getPageNow()-1)*page.getPageSize());
 		if(pageSum==-1){
 			pageSum=memberService.findRecords()/page.getPageSize()+1;
 		}

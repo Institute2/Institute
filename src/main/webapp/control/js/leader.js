@@ -24,7 +24,7 @@ $(function(){
 			event.preventDefault();
 			return false;
 		}
-		$.post('modifyLeader.do', readyData, function(res) {
+		$.post('control/leader/modifyLeader.do', readyData, function(res) {
 			alert(res.msg);  
 			location.reload();
 		});
@@ -47,7 +47,7 @@ $(function(){
 		}
 		// initialize a JSON object
 		 $.ajax({  
-	         url: 'addLeader.do' ,  
+	         url: 'control/leader/addLeader.do' ,  
 	         type: 'POST',  
 	         data: new FormData($('#myform')[0]), 
 	         async: false,  
@@ -69,14 +69,12 @@ $(function(){
 		var id=$(this).parent().parent().children().find('input[name="id"]');
 		var pictureId=$(this).parent().parent().children().find('input[name="pictureId"]');
 		// initialize a JSON object
-		alert(id.val());
-		alert(pictureId.val());
 		var readyData = {
 				id:id.val(),
 				pictureId:pictureId.val()
 		};
 		
-		$.post('delLeader.do', readyData, function(res) {
+		$.post('control/leader/delLeader.do', readyData, function(res) {
 			alert(res.msg);  
 			location.reload();
 		});

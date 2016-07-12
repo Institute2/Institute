@@ -25,7 +25,7 @@ $(function(){
 			alert("没有修改,不用保存！");
 			return false;
 		}
-		$.post("modifyGrad.do", readyData, function(res) {
+		$.post("control/grad/modifyGrad.do", readyData, function(res) {
 			alert(res.msg);  
 			location.reload();
 		});
@@ -41,7 +41,7 @@ $(function(){
 				pictureId:pictureId.val()
 		};
 		
-		$.post('delGrad.do', readyData, function(res) {
+		$.post('control/grad/delGrad.do', readyData, function(res) {
 			alert(res.msg);  
 			location.reload();
 		});
@@ -65,7 +65,7 @@ $(function(){
 		}
 		// initialize a JSON object
 		 $.ajax({  
-	         url: 'addGrad.do' ,  
+	         url: 'control/grad/addGrad.do' ,  
 	         type: 'POST',  
 	         data: new FormData($('#myform')[0]), 
 	         async: false,  

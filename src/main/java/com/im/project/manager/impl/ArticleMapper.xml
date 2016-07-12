@@ -27,7 +27,7 @@
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
-		articleNews_id,title,cont,author,date
+		articleNews_id,title,cont,author,date,summary,keyword
 		from article_news
 		where type=2 and articleNews_id = #{id,jdbcType=INTEGER}
 	</select>
@@ -57,7 +57,7 @@
 				title = #{title,jdbcType=VARCHAR},
 			</if>
 			<if test='content != null and content!=""'>
-				cont = #{content,jdbcType=TEXT},
+				cont = #{content},
 			</if>
 			<if test='author != null and author!=""'>
 				author = #{author,jdbcType=VARCHAR},

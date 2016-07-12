@@ -91,6 +91,7 @@ public class ProjectServiceImpl implements ProjectService {
 		// TODO Auto-generated method stub
 		List<Project> proList = new ArrayList<Project>();
 		if (projectMap != null) {
+			
 			proList = projectDao.findAllCompleted(projectMap);
 		}
 		return proList;

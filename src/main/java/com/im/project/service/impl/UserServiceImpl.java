@@ -1,7 +1,9 @@
 package com.im.project.service.impl;
 
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
 import com.im.project.manager.UserMapper;
 import com.im.project.model.User;
 import com.im.project.service.UserService;
@@ -10,7 +12,16 @@ import com.im.project.service.UserService;
 public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userDao;
-
+	
+    public boolean login(User u){
+    	User user=new User();
+    	user=userDao.selectByUserName(u.getUserName());
+    	if(user!=null&&user.getPassword().equals(u.getPassword())){
+    		return true;
+    	}
+    	return false;
+    }
+	
 	public User findUser(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		User user = new User();

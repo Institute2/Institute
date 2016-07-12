@@ -16,7 +16,17 @@
     from user
     where user_id = #{id,jdbcType=INTEGER}
   </select>
-  
+   <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userName = #{userName}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+		select 
+		<include refid="Base_Column_List" />
+		 from user
+	</select>
   <insert id="insert" parameterType="com.im.project.model.User" >
     insert into user (user_id,userName,password) values (#{id,jdbcType=INTEGER},#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>

@@ -20,13 +20,11 @@ public class PictureController {
 	@Resource
 	private PictureService pictureService;
 	
-	@RequestMapping("loadBiPic.do")
+	@RequestMapping("/loadBigPic.do")
 	public Map<String,Object> loadBigPic(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
-		Map<String, Object> dataMap = new HashMap<String, Object>();
-		List<String> picList = new ArrayList<String>();
-		picList=pictureService.loadBigPic();
-		dataMap.put("bigpiclist", picList);
-		return dataMap;
+		Map<String,Object> map=new HashMap<String,Object>();
+		List<String> logoList=pictureService.loadBigPic();
+		map.put("data",logoList);
+		return map;
 	}
 }

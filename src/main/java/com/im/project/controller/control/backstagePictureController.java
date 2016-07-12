@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.im.project.manager.PictureMapper;
 import com.im.project.model.Picture;
 import com.im.project.service.PictureService;
 import com.im.project.utils.JSONUtils;
@@ -24,11 +25,21 @@ import com.im.project.utils.JSONUtils;
 public class backstagePictureController {
 	@Resource
 	private PictureService pictureService;
+	@Resource
+	private PictureMapper pictureDao;
 	@RequestMapping("/loadIndex.do")
 	public ModelAndView loadIndex(){
 		ModelAndView modelAndView = new ModelAndView("control/index");  
 		Map<String,Object> map=new HashMap<String,Object>();
-		return null;
+		try{
+			map=pictureService.loadIndex();
+			modelAndView.addObject("map",map);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		return modelAndView;
 		}
 	@RequestMapping(value="/modifyPicture.do",method=RequestMethod.POST)
 	public ModelAndView  modifyPicture(Picture p,HttpServletRequest request,
@@ -37,10 +48,18 @@ public class backstagePictureController {
 		String realPath = request.getSession().getServletContext().getRealPath("")+"\\upload/";
 		boolean boo=pictureService.addPicture(picture, map, realPath, p.getId(),null,2);
 		if(boo){
+			try{
 			File oldFile=new File(realPath+p.getLink());
+			if(oldFile.exists()){
 			File newFile=new File(realPath+p.getLink()+"old");
 			oldFile.renameTo(newFile);
+			}
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 		}
+		
 		JSONUtils.toJSON(map, response);
 		 return getPicture(p.getId()); 
 		}
@@ -61,5 +80,5 @@ public 	ModelAndView getPicture(String id){
 	}
 	return modelAndView; 
 }
-	
+
 }

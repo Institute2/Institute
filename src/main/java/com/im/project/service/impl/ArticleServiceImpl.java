@@ -4,6 +4,7 @@
 package com.im.project.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,13 +15,15 @@ import org.springframework.stereotype.Service;
 import com.im.project.manager.ArticleMapper;
 import com.im.project.model.Article;
 import com.im.project.service.ArticleService;
+import com.im.project.service.PictureService;
 
 @Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
 
 	@Resource
 	private ArticleMapper articleDao;
-
+	
+	@Resource PictureService pictureService;
 	public boolean addArticle(Article art) throws Exception {
 		// TODO Auto-generated method stub
 		boolean boo = false;
@@ -73,13 +76,18 @@ public class ArticleServiceImpl implements ArticleService {
 		// TODO Auto-generated method stub
 		List<Article> artList = new ArrayList<Article>();
 		artList = articleDao.selectArticleIndex();
-		if (artList != null) {
+		List<String> paperList=pictureService.loadPaperPic();
+		if (artList.size()==4 && paperList.size()==4) {
+			for(int i=0;i<4;i++){
+				artList.get(i).setPicture(paperList.get(i));
+			}
 			return artList;
-		} else {
+		}
+		else{
 			return null;
 		}
+		
 	}
-
 	public List<Article> findArticle(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		List<Article> artList = new ArrayList<Article>();

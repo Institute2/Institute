@@ -48,7 +48,7 @@ public class PictureMapperTest {
 
 	@Test
 	public void testSelectByPrimaryKey() {
-		Picture pic=pictureDao.selectByPrimaryKey(2);
+		Picture pic=pictureDao.selectByPrimaryKey("2");
 		System.out.println(pic.getLink());
 		//assertEquals(pic.getId(), 2);
 		//fail("Not yet implemented");
@@ -56,7 +56,7 @@ public class PictureMapperTest {
 
 	@Test
 	public void testDeleteByPrimaryKey() {
-		 int i=pictureDao.deleteByPrimaryKey(1);
+		 int i=pictureDao.deleteByPrimaryKey("s1");
 		assertEquals(i,1);
 		//fail("Not yet implemented");
 	}
