@@ -1,0 +1,218 @@
+@import '../common/global-set';
+%px{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration:none;
+}
+body{
+	@extend %px;
+    background-color:#ddece7;
+}
+p,span,ul,li,img{
+	@extend %px;
+}
+
+.content{
+	width:100%;
+	height:auto;
+	ovweflow:hidden;
+}
+.carousel{
+	margin-top:18px;
+	width:100%;
+	height:500px;
+	overflow:hidden;
+	position:relative;
+	.carousel_con{
+        width:300%;
+		height:490px;
+        overflow:hidden;
+		li{
+            overflow:hidden;
+		    height:490px;
+
+		    float:left;
+			img{
+				display:block;
+                width:100%;
+                height:490px;
+		    }
+	    }
+	}	
+}
+
+.circles{
+		@extend %px;
+		width:200px;
+		height:50px;
+		position:absolute;
+		right:10px;
+		top:500px;
+		z-index:2;
+		ul{
+			@extend %px;
+			width:160px;
+			height:50px;
+			li{
+				float:left;
+				width:23px;
+				height:23px;
+				margin-left:25px;
+				border-radius:10px;
+				border:1px solid #288285;
+				background-color:#288285;
+			}
+			.selected{
+				background-color:#ffffff;
+				border:1px solid #ffffff;
+			}
+	    }
+
+    }
+ //遮罩区
+.carousel_screen{
+	width:100%;
+	height:150px;
+	z-index:1;
+	background-color:#222;
+	opacity:0.5;
+	position:absolute;
+	top:450px;
+	left:0;
+}
+
+//论文展示区
+.display{
+	@extend %px;
+	margin-top:30px;
+	margin-bottom:95px;
+	width:100%;
+	height:240px;
+	cursor:default;
+	ul{
+		@extend %px;
+		width:100%;
+		height:240px;
+		li{
+			float:left;
+			width:20%;
+			height:240px;
+			margin-left:4%;
+			.div{
+				width:100%;
+				height:100%;
+				background-color:#f7f5f5;
+				box-shadow:10px 10px 10px #c0c4c2;
+				img{
+				    display:block;
+				    width:100%;
+                    height:55%;
+					padding:11px 11px 0 11px;
+				}
+                p{
+                    padding:11px 11px 11px 11px;
+	                text-align:center;
+	                font-size:16px;
+	               
+	                &:last-child{
+		                text-align:right;
+	                }
+                }
+                .paper_title{
+	                border-bottom:1px dashed #288285;
+                }
+			}
+		
+			
+		}
+	}
+}
+.news{
+	@extend %px;
+	width:100%;
+	height:auto;
+    p[class="title"]{
+	    margin:0 auto;
+	    background-color:#fdf8f8;
+	    width:76%;
+	    height:53px;
+	    line-height:53px;
+	    span{
+	        width:150px;
+	        height:40px;
+		    font-size:24px;
+		    &:first-child{
+			    float:left;
+			    margin-left:15px;
+			    cursor:default;
+		    }
+	        &:last-child{
+		        margin-left:60%;
+		        cursor:default;
+	        }
+        }
+    }
+    .c{
+	    width:100%;
+		height:auto;
+		padding-bottom:40px;
+		background-color:#ffffff;
+	    .news_list{
+			width:76%;
+			height:auto;
+			margin:0 auto;
+			.news_item{
+		        width:100%;
+				height:170px;
+				img{
+					float:left;
+					width:150px;
+					height:106px;
+	                margin:33px 0 0 0;
+				}
+				.detail{
+				    @extend %px;
+				    padding:33px 0 0 200px;
+				    width:100%;
+				    height:106px;
+				    cursor:default;
+					.news_head{
+					    width:100%;
+					    height:30px;
+					    line-height:30px;
+						span[class="title"]{
+						    width:300px;
+						    height:30px;
+						    margin-top:0px;
+	                        float:left;
+							font-size:22px;
+						    color:#222;
+						}
+						span[class="date"]{
+						    margin-left:33%;
+							font-size:16px;
+							color:#a4c3c4;						
+						}
+					}
+					.news_detail{
+							color:#666;
+							font-size:14px;
+							margin:15px 0 5px 0;
+					}
+	                .more{
+		                a{
+			                display:block;
+			                width:200px;
+			                height:50px;
+			                font-size:18px;
+			                color:#222;
+			                margin-left:88%;
+		                }           
+	                }
+				}
+			}
+		}
+    }	
+}

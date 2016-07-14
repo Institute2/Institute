@@ -1,14 +1,14 @@
 $(function(){
 	var editor=null;
-	var editor1=null;
+	
 	KindEditor.ready(function(K) {
 	editor=K.create('textarea[name="content"]');
-	editor1=K.create('textarea[name="summary"]');
+
 	});
 	$('.modify').on('click', function() {
 		// get selectors
 		editor.sync();
-		editor1.sync();
+		
 		var title = $('input[name="title"]');
 		var content = $('textarea[name="content"]');
 		var author = $('input[name="author"]');
@@ -53,7 +53,7 @@ $(function(){
 	$('.add').on('click', function() {
 		// get selectors
 		editor.sync();
-		editor1.sync();
+		
 		var title = $('input[name="title"]');
 		var content = $('textarea[name="content"]');
 		var author = $('input[name="author"]');
