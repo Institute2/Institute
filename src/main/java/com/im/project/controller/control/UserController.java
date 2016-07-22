@@ -1,6 +1,7 @@
 package com.im.project.controller.control;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +18,14 @@ import com.im.project.utils.JSONUtils;
 @Controller("userController")
 @RequestMapping("/control")
 public class UserController {
-	@Resource 
-	private HashMap<String,Object> map;
+	
 	@Resource
 	private UserService userService;
 	@Resource
 	private backstagePictureController   backstagepicture;
 	@RequestMapping("/user/login.do")
     public ModelAndView login(User user,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		Map<String,Object> map=new HashMap<String,Object>();
 		ModelAndView modelAndView = new ModelAndView("control/login"); 
 		if(user.getPassword()=="" ||user.getUserName()==""){
 			map.put("msg", "有值为空！");
