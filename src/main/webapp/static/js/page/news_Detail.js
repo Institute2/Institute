@@ -31,7 +31,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
                 	"id":newsId
                 },
                 function(res){
-                    
+                    console.log(res);
                     $(".content").html(juicer(funcTpl(new_Detail.detailTpl),res));
 
                 	$("#contentList > .news_content").append(res.data.news.content);
@@ -111,7 +111,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 		                </p>
 		                <p>
 			                <span>发布日期：${data.news.date}</span>
-                            <span>作者：${data.news.publisher}</span>
+                            <span>发布人：${data.news.releaser}</span>
 			            </p>
 	                </div>
 	                <div id="contentList">

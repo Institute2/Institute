@@ -37,7 +37,7 @@ $(function(){
 			location.reload();
 		});
 	});
-	$('.del').on('click', function(event) {
+	$('.del').on('click', function() {
 		// get selectors
 		
 		var id=$(this).parent().parent().children().find('input[name="id"]');
@@ -49,6 +49,11 @@ $(function(){
 			alert(res.msg);  
 			location.reload();
 		});
+	});
+	$('.notdel').on('click', function() {
+		// get selectors
+		
+		alert("无法再删除了！");
 	});
 	$('.add').on('click', function() {
 		// get selectors

@@ -23,10 +23,10 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 		
         /*
 
-    		{@each data.paperlist as it,index}
+    		{@each data.paperlist as it}
             	<li class="load_list">
                     <span class="pro_id" style="display:none;">${it.id}</span>
-            		<span class="index">${parseInt(index)+1}</span> 
+            		<span class="index">-</span> 
             		<span class="author">${it.author}</span> 
             		<span class="name">
             		<span class="h1">${it.title}</span><br/>

@@ -129,7 +129,7 @@ require(['lib/jquery','util/request','util/funcTpl','lib/juicer'], function($, r
         
         requestPaperId:function(){
 	        localStorage.setItem("proId",proId);
-	        location.assign("dissertation.html");
+	        location.assign("/institute/static/html/dissertation.html");
         },
 
         /*点击论文跳转阅读原文*/
@@ -219,7 +219,7 @@ require(['lib/jquery','util/request','util/funcTpl','lib/juicer'], function($, r
 			});
 
 			lookMore.click(function(){
-				location.assign("news.html");
+				location.assign("/institute/static/html/news.html");
 			});
 
 			lookOrigin.hover(function(){
@@ -234,7 +234,7 @@ require(['lib/jquery','util/request','util/funcTpl','lib/juicer'], function($, r
 
 		requestNewsId:function(){
 			localStorage.setItem("newsId",newsId);
-			location.assign("news_Detail.html");
+			location.assign("/institute/static/html/news_Detail.html");
 		},
 
 		/*点击新闻阅读原文*/

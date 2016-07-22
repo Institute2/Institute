@@ -3,6 +3,7 @@
 <html>
 <head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 </head>
 <body>
 
@@ -38,8 +39,15 @@
 								<td><a href="control/article/getArticle.do?id=${paper.id}">
 										<button type="button" class="btn btn-outline btn-warning">修改</button>
 								</a></td>
-								<td><button type="button"
-										class="btn btn-outline btn-danger del">删除</button></td>
+								
+								<c:choose>
+								<c:when test="${ fn:length(list) le 4}">
+									<td><button type="button" class="btn btn-outline btn-danger notdel">删除</button></td>
+								</c:when>
+								<c:otherwise>
+									<td><button type="button" class="btn btn-outline btn-danger del">删除</button></td>
+								</c:otherwise>
+								</c:choose>
 							</tr>
 						</c:forEach>
 					</tbody>

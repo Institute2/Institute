@@ -24,9 +24,9 @@ var _api={
     //学术带头人
     listLeaders:'/institute/person/listLeader.do',
     //已毕业成员
-    listGrads:'/institute/person/listperson.do',
+    listGrads:'/institute/person/listGrads.do',
     //成员介绍
-    listMembers:'/institute/person/listperson.do',
+    listMembers:'/institute/person/listMembers.do',
 
     /*研究成果*/
 

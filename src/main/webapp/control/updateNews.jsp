@@ -14,18 +14,21 @@
 				<table class="table table-striped table-bordered table-hover">
 					<tbody>
 						<tr class="gradeA">
-							<td>新闻标题：</td>
+							<td>新闻标题：${map.News.releaser}</td>
 							<td><input name="title" value="${map.News.title}"> <input
 								name="id" type="hidden" value="${map.News.id}"></td>
 
 						</tr>
+						
 						<tr class="gradeA">
 							<td>新闻发布者：</td>
 							<td><select name="releaser">
 									<c:forEach items="${map.userList}" var="user">
 										<c:choose>
-											<c:when test="${map.News.releaser}==${user.userName}">
-												<option select="selected">${user.userName}</option>
+											<c:when test="${map.News.releaser eq user.userName}">
+												<option selected="true">${user.userName}</option>
+												<%System.out.println("lallapppppppp"); %>
+												
 											</c:when>
 											<c:otherwise>
 												<option>${user.userName}</option>

@@ -31,7 +31,9 @@ $(function(){
 			if(res.msg=="success"){
 				   window.location.href = indexurl;
 			}
-			
+			else{
+				alert(res.msg);
+			}
 		});
 });
 });

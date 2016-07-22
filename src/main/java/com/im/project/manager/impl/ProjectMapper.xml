@@ -23,7 +23,6 @@
 	<select id="selectAllCompleted" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" />
 		from project  where type =2 order by pro_id desc
- 		
 	</select>
 	
 	<select id="selectAllDoing" resultMap="BaseResultMap">

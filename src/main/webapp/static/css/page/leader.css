@@ -43,6 +43,7 @@
   height: 313px;
   border: solid 10px #497D92;
   float: left;
+  position:relative;
   margin: 80px 80px 60px 25px;
   -webkit-box-shadow: 10px 10px 4px #888888;
   -moz-box-shadow: 10px 10px 4px #888888;
@@ -56,8 +57,8 @@
   width: 240px;
   height: 313px;
   position: absolute;
-  margin-top: -303px;
-  margin-left: -10px;
+  top: -10px;
+  left: -10px;
   display: none;
   opacity: 0.5;
   filter: alpha(opacity=50);
@@ -67,7 +68,7 @@
   margin-left: 40px;
   font-size: 22px;
   z-index: 100;
-  margin-top: -200px;
+  margin-top: -220px;
   position: absolute; }
 
 .info {

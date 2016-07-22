@@ -29,14 +29,6 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 		</div>
     	*/
 	},
-    
-	pageText:function(){
-		/*
-			<span class="page">
-				共 ${}页
-			</span>
-		*/
-	},
 
     getProId:function(){
      

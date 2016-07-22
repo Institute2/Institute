@@ -10,7 +10,7 @@
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		pic_id,link,realPath,date,type
+		pic_id,link,date,type
 	</sql>
 	
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"

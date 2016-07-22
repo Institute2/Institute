@@ -4,7 +4,7 @@ $(function(){
 	editor=K.create('textarea[name="content"]');
 	
 	});
-	var releaser1 = $('select[name="releaser"]');
+	var releaser1 = $('select[name="releaser"]').val();
 	$('.modify').on('click', function() {
 		// get selectors
 		editor.sync();
@@ -24,10 +24,9 @@ $(function(){
 				id:id.val(),
 				title: title.val()==title.prop('defaultValue') ? null : title.val(),
 				content: content.val()==content.prop('defaultValue') ? null : content.val(),
-				releaser: releaser.val()==releaser1.val() ? null : releaser.val(),
+				releaser: releaser.val()==releaser1? null : releaser.val(),
 				summary:summary.val()==summary.prop('defaultValue') ? null : summary.val()
 		};
-		
 		if(readyData.title==null &&  readyData.content ==null && readyData.summary==null && readyData.releaser==null){
 			alert("没有修改，不用保存");
 			

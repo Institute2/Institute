@@ -50,10 +50,10 @@
 
             <div class="common_header_nav">
 	            <ul class="header_nav_list">
-		            <a href="index.html"><li>首页</li></a>
-		            <a href="project.html"><li>研究成果</li></a>
-		            <a href="news.html"><li>新闻动态</li></a>
-		            <a href="essay_list.html"><li>论文专著</li></a>
+		            <a href="/institute/static/html/index.html"><li>首页</li></a>
+		            <a href="/institute/static/html/project.html"><li>研究成果</li></a>
+		            <a href="/institute/static/html/news.html"><li>新闻动态</li></a>
+		            <a href="/institute/static/html/essay_list.html"><li>论文专著</li></a>
 		            <a href="#"><li>相关单位</li></a>
 	            </ul>
             </div>

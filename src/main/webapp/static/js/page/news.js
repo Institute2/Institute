@@ -75,7 +75,8 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 	                	
                         var tpl=juicer(funcTpl(news.newsTpl),res)
 	                	$(tpl).appendTo(".news").show('normal');
-                        news.mouseEvent(); 
+                        news.mouseEvent();
+						news.newsTurn();
 	                }
     			);
     		});

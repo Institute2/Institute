@@ -6,9 +6,7 @@ public class Project {
 	private String content;
 	private String leader;
 	private String startline;
-
 	private String deadline;
-
 	private Integer type;
 
 	public String getContent() {

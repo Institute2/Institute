@@ -39,24 +39,29 @@
   color: white; }
 
 .headpic {
-  padding-top: 80px;
+  
   color: white;
   width: 240px;
   height: 313px;
   border: solid 10px #497D92;
   float: left;
+  position:relative;
   margin: 80px 80px 60px 25px;
   -webkit-box-shadow: 10px 10px 4px #888888;
   -moz-box-shadow: 10px 10px 4px #888888;
   box-shadow: 5px 5px 15px #888888; }
 
+.headpic img{
+	width:100%;
+	height:100%;
+}
 .black {
   background-color: black;
   width: 240px;
   height: 313px;
   position: absolute;
-  margin-top: -90px;
-  margin-left: -10px;
+  top: -10px;
+  left: -10px;
   display: none;
   opacity: 0.5;
   filter: alpha(opacity=50);
@@ -66,7 +71,8 @@
   margin-left: 40px;
   font-size: 22px;
   z-index: 100;
-  position: absolute; }
+  position: absolute;
+  top:50px; }
 
 .info {
   margin-left: 40px;
@@ -75,7 +81,8 @@
   line-height: 35px;
   z-index: 100;
   width: 180px;
-  position: absolute; }
+  position: absolute; 
+  top:60px;}
 
 .tag {
   width: 100%;

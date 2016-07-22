@@ -60,7 +60,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 	            <div class="item">
 			        <span class="product_no h item_1">${parseInt(index)+1}</span>
 			        <span class="manage h item_2">${comData.leader}</span>
-			        <span class="product_name h item_3">${comData.title}</span>
+			        <span class="product_name h item_3"><a id="comUrl" href=${comData.content}>${comData.title}</a></span>
 			        <span class="date h item_4">${comData.deadline}</span>
 		        </div>
               
