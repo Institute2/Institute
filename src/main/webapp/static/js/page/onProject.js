@@ -12,7 +12,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
      	init:function(){
 	        
 	        onProject.getData();
-            //onProject.loadMore();
+            onProject.loadMore();
      	},
 
         tpl:function(){
@@ -42,8 +42,9 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
                 function(res){
                     console.log(res);
                 	$(".product_content")
-                    .html(juicer(funcTpl(onProject.tpl),res));
-                   
+                     .html(juicer(funcTpl(onProject.tpl),res));
+                     onProject.loadMore();
+                    
                 }
      		);
      	},

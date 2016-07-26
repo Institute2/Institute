@@ -1,4 +1,4 @@
-/*
+﻿/*
 * 研究成果
 * @qingfan
 */
@@ -34,7 +34,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 			        <span class="product_no h item_1">${parseInt(index)+1}</span>
 			        <span class="manage h item_2">${item.leader}</span>
 			        <span class="product_name h item_3">${item.title}</span>
-			        <span class="date h item_4">${item.deadline}</span>
+			        <span class="date h item_4">${item.startline}</span>
 		        </div>
                 {@/each}
 	        */
@@ -58,10 +58,12 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
               /*
               {@each data.completedachieve as comData,index}
 	            <div class="item">
+                           <a href=${comData.content} style="display:block;width:100%;height:100%;">
 			        <span class="product_no h item_1">${parseInt(index)+1}</span>
 			        <span class="manage h item_2">${comData.leader}</span>
-			        <span class="product_name h item_3"><a id="comUrl" href=${comData.content}>${comData.title}</a></span>
+			        <span class="product_name h item_3">${comData.title}</span>
 			        <span class="date h item_4">${comData.deadline}</span>
+                            </a>
 		        </div>
               
               {@/each}
