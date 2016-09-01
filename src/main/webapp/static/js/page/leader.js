@@ -10,7 +10,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 	var leader={
 
 		init:function(){
-             leader.getData();
+             leader.getData(1);
              
              leader.show_info();
              leader.tag();
@@ -20,17 +20,16 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 			/*
 		    {@each data.person as item}
 		    	<li>
-		    		<div class="headpic" >
-                        <img src=/institute/upload/${item.picture.link}>
+		    		<div class="headpic" style="background-image:url(/institute/upload/${item.picture.link});background-size:cover">
 		    			<span class="black"></span>
 		    			<span class="name">姓名：${item.name}<br/></span>
 		    			<span class="info">
 		    				职称：${item.zhicheng}<br/>
-		    				专业：${item.zhicheng}<br/>
+		    				专业：${item.zhuanye}<br/>
 		    			</span>
-		    			<span class="profile"style="display:none">
+		    			<div class="profile"style="display:none">
 		    				个人简介：${item.jianjie}
-		    			</span>
+		    			</div>
 		    		</div>
 		    	</li>
 		    {@/each}
@@ -42,35 +41,33 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 			$('#btn2').on('click',function(event){
 				if(i<js.data.pageSum){
 					i=i+1;
-					leader.getData();
+					leader.getData(i);
 					$('#tag_nub').val(i);
 					leader.show_info();
-					$('#btn2').css({"color":"#060606","cursor":"default"});
-				}
-				else if(i==js.data.pageSum){
+					$('#btn1').css({"color":"white","cursor":"pointer"});
+					if(i==js.data.pageSum){
 						$('#btn2').css({"color":"#e3e3e3","cursor":"not-allowed"});
 						return false;
-				}else{
-	                return false;
+					};
+					return false;
 				}
-					
 			});
 			$('#btn1').on('click',function(event){
 				if(i>1){
 					i=i-1;
-					leader.getData();
+					leader.getData(i);
 					$('#tag_nub').val(i);
 					leader.show_info();
-					$('#btn1').css({"color":"#060606","cursor":"default"});
-				}
-				else if(i==1){
+					$('#btn2').css({"color":"white","cursor":"pointer"});
+					if(i==1){
 						$('#btn1').css({"color":"#e3e3e3","cursor":"not-allowed"});
 						return false;
-				}else{
+					};
 					return false;
 				}
 			});
 		},
+
 
 		show_info:function (){
 			
@@ -78,6 +75,7 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 
 			$('#content').on('mouseover',function(e){
 				$(e.target).children('span').stop(false,true).show('fast');
+				$('.black').css({'opacity':'0.5','filter':'alpha(opacity=50)'});
 				$('.headpic').mouseleave(function(event) {
 					if($('.detial_info').css('display')=='none'){
 						$(this).children('span').hide('fast');
@@ -97,26 +95,25 @@ require(['lib/jquery', 'util/request','util/funcTpl','lib/juicer'], function($, 
 					$('#close_info').click(function(event) {
 						$('.detial_info').hide('fast');
 						$('.headpic>span').hide();
-						$('.headpic>span:gt(0)').css({'opacity':'0.5','filter':'alpha(opacity=50)'});
+						$('.headpic>span:gt(0)').css({'opacity':'1','filter':'alpha(opacity=100)'});
 						event.stopPropagation();
 					});
 				};
 			});
 		},
 
-		getData:function(){
+		getData:function(i){
 			request.post(
 				_api.listLeaders,
 				{
 					"pageNow":i,
-					"pageSize":6
-				},
+					"pageSize":6,
+                			},
 				function(res){
 					js=res;
             		var tpl=juicer(funcTpl(leader.headerTpl),res);
             		$('#content').html('<div class="detial_info"></div>'+tpl);
             		$('.headpic>span').hide();
-            		console.log(res);
 					}
 				);
 		},

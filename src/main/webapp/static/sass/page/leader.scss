@@ -28,7 +28,7 @@
 	color:white;
 }
 .headpic{
-	//padding-top:80px;
+	padding-top:80px;
 	color:white;
 	width:240px;
 	height:313px;
@@ -40,15 +40,19 @@
 	float:left;
 	margin:80px 80px 60px 25px;
 	-webkit-box-shadow: 10px 10px 4px #888888;
-    -moz-box-shadow: 10px 10px 4px #888888;
-    box-shadow: 5px 5px 15px #888888;
+   	 -moz-box-shadow: 10px 10px 4px #888888;
+    	box-shadow: 5px 5px 15px #888888;
+    	background-size:cover;
+  	-moz-background-size:cover;
+  	-webkit-background-size:cover;
+  	-o-background-size:cover;
 }
 .black{
 	background-color:black;
 	width:240px;
 	height:313px;
 	position:absolute;
-    margin-top:-303px;
+    	margin-top:-303px;
 	margin-left:-10px;
 	display:none;
 	opacity:0.5;
@@ -59,12 +63,12 @@
 	margin-left:40px;
 	font-size:22px;
 	z-index:100;
-	margin-top:-200px;
 	position:absolute;
+	margin-top" -220px;
 }
 .info{
 	margin-left:40px;
-	margin-top:-170px;
+	margin-top:70px;
 	font-size:16px;
 	line-height:35px;
 	z-index:100;
@@ -118,7 +122,7 @@
 	position:absolute;
 	width:1042px;
 	margin:80px 0 60px 25px;
-	height:700px;
+	height:766px;
 	background-color:rgba(84,190,178,0.5);
 	z-index:100;
 	img{

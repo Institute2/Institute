@@ -256,6 +256,16 @@ require(['lib/jquery','util/request','util/funcTpl','lib/juicer'], function($, r
                 function(res){
 	                var tmp=juicer(funcTpl(index.newTpl),res);
 	                $(".c").append(tmp);
+	                var  news=$(".news_item"),
+	                     newsL=$(".news_list").find(".news_item").length;
+	                console.log($(".news_list").find(".news_item").length);
+	                for(var t=0;t<newsL;t++){
+	                	if(t<2){
+	                		news[t].style.display="block";
+	                	}else{
+	                		news[t].style.display="none";
+	                	}
+	                }
 	                index.news_look();
 	                index.newsTurn();
 	                console.log(res);
